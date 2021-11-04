@@ -981,57 +981,7 @@ function banChat() {
                prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{})
                Xrutz.relayWAMessage(prep)
                break 
-               
-//Daftarnya kk               
-    case 'verify':{
-    if (isUser) return reply('Kamu sudah pernah Registrasi..')
-    try {
-    ppimk = await Xrutz.getProfilePicture(`${sender.split('@')[0]}@c.us`)
-    } catch {
-    ppimk = `${imagebb}`
-    }
-    const serialUser = createSerial(10)
-   addRegisterUser(sender, pushname, `20`, time, serialUser)
-   daftar=`*「 DAFTAR BERHASIL 」*
-Selamat, anda telah terdaftar dalam Database ${botName}, 
-*Ketik ${prefix}menu Untuk memunculkan Menu!*
-
-⬡ *INFO NAME :* ${pushname}
-⬡ *NOMOR :* wa.me/${sender.split("@")[0]}
-⬡ *REGIST TIME :* ${timeWib}, ${week}
-
-*「 SERIAL INFO 」*
-Untuk serial Profile Anda!
-${serialUser}
-
-*[ NOTICE ] :* Jika ada spam ${botName} langsung mendeteksi 
-dan dikenakan Sanksi Soft Block!, *MengTerima Kasih.*`
-  ppimg = await getBuffer(ppimk)
-  await Xrutz.sendMessage(from, ppimg, MessageType.image, {quoted: mek, caption: daftar, contextInfo: {"mentionedJid": [ownerNumber+'@s.whatsapp.net'] }})
-  addLevelingId(sender)
- }
- break
-       
-       case 'daftar':
-       if (isUser) return reply('Kamu sudah pernah Registrasi..')
-               diptir =`*Hallo* ${pushname} ${tampilUcapan}
-Harimu baik? Bagus, perlu bantuan? Daftar dulu kak!`
-
-futer =`Sebelum menggunakan fitur ini, Daftar dulu ya!
-*Pencet button dibawah, Kalo gak ada langsung ketik #verify*`
-
-               buttons = [{buttonId: `${prefix}verify`,buttonText:{displayText: '⋮☰ DAFTAR BOS'},type:1}]
-
-               buttonsMessage = {
-               contentText: `${diptir}`,
-               footerText: `${futer}`,
-               buttons: buttons,
-               headerType: 1
-}
-
-               prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{quoted: faketroli})
-               Xrutz.relayWAMessage(prep)
-               break 
+              
 
 //Ingfo Owner               
         case 'owner':
