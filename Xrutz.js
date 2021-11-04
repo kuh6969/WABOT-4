@@ -1,8 +1,8 @@
-///----------[ BY XRUTZ OFFICIAL ]----------\\\
+///----------[ BY KUHXBOT ]----------\\\
 
 //NOTE :
 //KALO MAU RECODE KASIH CREDIT DEK, HARGAIN PEMBUAT SC
-//SC ORIGI : XRUTZ OFFICIAL
+//SC ORIGI : KUHXBOT
 //MAKASIH UDH PAKE
 
 ///--------------------------------------------------------------\\\
@@ -56,7 +56,7 @@ const timeWit = moment().tz('Asia/Jayapura').format('DD/MM HH:mm:ss')
 const Exif = require('./lib/exif');
 const exif = new Exif();
 
-const { downloadMenu, infoMenu, gameMenu, groupMenu, funMenu, ownerMenu, stickerMenu, otherMenu, rulesBot, islamMenu, sertiMenu, ceritaMenu, makerMenu, toolsMenu, regisTered} = require('./message/help.js')
+const { wibuMenu, downloadMenu, infoMenu, gameMenu, groupMenu, funMenu, ownerMenu, stickerMenu, otherMenu, rulesBot, islamMenu, sertiMenu, ceritaMenu, makerMenu, toolsMenu, regisTered} = require('./message/help.js')
 const { getBuffer, getGroupAdmins, getRandom, runtime, sleep } = require('./lib/myfunc')
 const { fetchJson, getBase64, kyun, createExif } = require('./lib/fetch')
 const { color, bgcolor } = require('./lib/color')
@@ -326,7 +326,7 @@ module.exports = Xrutz = async (Xrutz, mek) => {
         const gcount = setting.gcount
         
         const listmsg = (from, title, desc, list) => { // ngeread nya pake rowsId, jadi command nya ga keliatan
-            let po = Xrutz.prepareMessageFromContent(from, {"listMessage": {"title": title,"description": desc,"buttonText": "PILIH DISINI","footerText": "© Xrutz Official","listType": "SINGLE_SELECT","sections": list}}, {})
+            let po = Xrutz.prepareMessageFromContent(from, {"listMessage": {"title": title,"description": desc,"buttonText": "PILIH DISINI","footerText": "© KUHXBOT","listType": "SINGLE_SELECT","sections": list}}, {})
             return Xrutz.relayWAMessage(po, {waitForAck: true})
         }
         
@@ -560,7 +560,7 @@ const sekarang = new Date().getTime();
 				let d = new Date
 				let locale = 'id'
 				let gmt = new Date(0).getTime() - new Date('1 Januari 2021').getTime()
-				const weton = ['Pahing', 'Pon','Wage','Kliwon','Legi'][Math.floor(((d * 1) + gmt) / 84600000) % 5]
+				const weton = ['Pahing', 'Pon','Wage','Kliwon','Legi'][Math.floor(((d * 1) + gmt) / 84600000) % 8]
 				const week = d.toLocaleDateString(locale, { weekday: 'long' })
 				const calender = d.toLocaleDateString(locale, {
 				day: 'numeric',
@@ -651,12 +651,18 @@ var imageTime = await getBuffer('https://i.pinimg.com/736x/15/8e/ea/158eea299c01
        console.error(err)
 }
 }
+
+			/////
+                     let ikyads = await getBuffer(`https://i.ibb.co/7KCLvxJ/Xrutz.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": ikyads, "sourceUrl": "https://wa.me/6282138919347" }}
+                     }
 // Fake Item by Xrutz
 // Creditnya dipake anjg
 const fakefoto = { key: {fromMe: false, participant: `${numbernye}@s.whatsapp.net`, ...(from ? {remoteJid: "status@broadcast"}: {})}, message: {imageMessage: {caption: `${week}, ${calender} 𝐘𝐨𝐮𝐭𝐮𝐛𝐞 : ${botName}`, jpegThumbnail: thumb}}}
 const fakevideo = { key: {fromMe: false, participant: `${numbernye}@s.whatsapp.net`, ...(from ? {remoteJid: "status@broadcast"}: {})}, message: {videoMessage: {caption: `${week}, ${calender} 𝐘𝐨𝐮𝐭𝐮𝐛𝐞 : ${botName}`, jpegThumbnail: thumb}}}
-const fakelokasi = {key: {fromMe: false, participant: `${numbernye}@s.whatsapp.net`, ...(from ? {remoteJid: "status@broadcast" } : {}) }, message: {locationMessage: {degreesLatitude: -7.0389318, degreesLongitude: 113.8969749, name: 'Tokyo, Japan', address: '@rellnjoy_', jpegThumbnail: thumb}}}
-const fakekontak = {key: {fromMe: false, participant: `${numbernye}@s.whatsapp.net`, ...(from ? {remoteJid: "status@broadcast" } : {}) }, message: {contactMessage: {displayName: `${week}, ${calender} 𝐘𝐨𝐮𝐭𝐮𝐛𝐞 : ${botName}`, vcard: 'BEGIN:VCARD\n' + 'VERSION:3.0\n' + 'N:Bot;Xrell;Ganz;;\n' + 'FN:Xrutz-Bot\n' + 'item1.TEL;waid=6283871990243:+62 838-719-90243\n' + 'item1.X-ABLabel:Telepon\n' + 'END:VCARD'}}}
+const fakelokasi = {key: {fromMe: false, participant: `${numbernye}@s.whatsapp.net`, ...(from ? {remoteJid: "status@broadcast" } : {}) }, message: {locationMessage: {degreesLatitude: -7.0389318, degreesLongitude: 113.8969749, name: 'Tokyo, Japan', address: '@ramadhankukuh', jpegThumbnail: thumb}}}
+const fakekontak = {key: {fromMe: false, participant: `${numbernye}@s.whatsapp.net`, ...(from ? {remoteJid: "status@broadcast" } : {}) }, message: {contactMessage: {displayName: `${week}, ${calender} 𝐘𝐨𝐮𝐭𝐮𝐛𝐞 : ${botName}`, vcard: 'BEGIN:VCARD\n' + 'VERSION:3.0\n' + 'N:Bot;Xrell;Ganz;;\n' + 'FN:kuhxbot\n' + 'item1.TEL;waid=12816245470:+1 (281)624-5470\n' + 'item1.X-ABLabel:Telepon\n' + 'END:VCARD'}}}
 const faketoko = {key: {fromMe: false, participant: `${numbernye}@s.whatsapp.net`, ...(from ? {remoteJid: "status@broadcast" } : {}) }, message: {productMessage: {product: {currencyCode: "BRL", title: `${botName}`, priceAmount1000: 2000, productImageCount: 2007, productImage: {jpegThumbnail: thumb}}, businessOwnerJid: `${numbernye}@s.whatsapp.net`}}}
 const fakedoc = {key: {fromMe: false, participant: `${numbernye}@s.whatsapp.net`, ...(from ? {remoteJid: "status@broadcast" } : {}) }, message: {documentMessage: {mimetype: 'application/octet-stream', title: `${week}, ${calender} 𝐘𝐨𝐮𝐭𝐮𝐛𝐞 : ${botName}`, pageCount: 0, fileName: `Hallo ${pushname}`, jpegThumbnail: thumb}}}
 const freply = { key: { fromMe: false, participant: `${numbernye}@s.whatsapp.net`, ...(from ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: {contactMessage: {displayName: `${pushname}`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:XL;${pushname},;;;\nFN:${pushname},\nitem1.TEL;waid=${senderr.split('@')[0]}:${senderr.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, jpegThumbnail: thumb}}}
@@ -675,10 +681,25 @@ const ftex = {
                         }
 	                  } 
                      }
+
+///Button Location
+const sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
+       kma = gam1
+       mhan = await ikyy.prepareMessage(from, kma, location)
+       const buttonMessages = {
+       locationMessage: mhan.message.locationMessage,
+       contentText: text1,
+       footerText: desc1,
+       buttons: but,
+       headerType: 6
+       }
+       Xrutz.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+       }
+
 const faketroli = { key: { participant: `${numbernye}@s.whatsapp.net`},message: {
 orderMessage: {
 thumbnail: thumb,
-itemCount: - 72100607,
+itemCount: - 69696969,
 status: 1,
 surface: 70000,
 message: `${week}, ${calender}`,
@@ -930,11 +951,6 @@ function banChat() {
 		    fs.writeFileSync('./database/user/afk.json', JSON.stringify(_afk))
 		}
 	    }
-	
-	    // Auto Read
-        Xrutz.chatRead(from, "read")
-        //Auto Vn 
-        await Xrutz.updatePresence(from, Presence.recording)
 
        // Cmd
         if (isCmd && !isGroup)
@@ -1067,72 +1083,79 @@ if (mek.key.fromMe){
   }
   
   //Ngedit isi menu di help.js
-  //Xrutz Official Selfbot
+  //KUHXBOT Selfbot
            case 'menu':
            case 'help':
            case 'listmenu':
+              thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
            if (isBanned) return reply(mess.ban)
-           if (!isUser) return reply(mess.noregis)
-        menu =`Hai, saya ${botName}
-*${week} - ${calender}*`
+        menu =`${tampilUcapan} @${sender.split('@')[0]}, 
 
-futer = `[ 𝗜𝗡𝗗𝗢 𝗧𝗜𝗠𝗘 ]
-${timeWib} Wib
-${timeWit} Wit
-${timeWita} Wita
+_saya ${botName} yang siap membantu anda dalam membuat sticker, downloader, dll. gunakan bot ini dengan bijak!_
 
-[ 𝐔𝐒𝐄𝐑 𝐈𝐍𝐅𝐎 ]
-*Username :* ${pushname}
-*Info Baterai :* ${baterai}%
-*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
+『 *CALENDER* 』
+〆⁩ Day : ${week} ${weton}
+〆⁩ Date : ${calender}
 
-[ 𝐒𝐈𝐌𝐏𝐋𝐄 𝐌𝐄𝐍𝐔 ]
-1) *${prefix}allmenu*
-2) *${prefix}othermenu*
-3) *${prefix}ownermenu*
-4) *${prefix}infomenu*
-5) *${prefix}groupmenu*
+『 *INDO TIME* 』
+〆⁩ ${timeWib} Wib
+〆⁩ ${timeWit} Wit
+〆⁩ ${timeWita} Wita
 
-Nama Owner : *${ownerName}*
-Instagram : *@rellnjoy_*
-Info Github : *XrutzMalesin*`
-               buttons = [
-{buttonId: `${prefix}command`,buttonText:{displayText: 'LIST MENU 📂'},type:1},
-{buttonId: `${prefix}storegame`,buttonText:{displayText: 'STORE GAME 💎'},type:1}
-]
+『 *YOUR INFO* 』
+〆⁩ Username : ${pushname}
+〆⁩ Bio : ${thu.status}
+〆⁩ Nomer : ${sender.split('@')[0]}
+〆⁩ Status User : ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
 
-               buttonsMessage = {
-               contentText: `${menu}`,
-               footerText: `${futer}`,
-               buttons: buttons,
-               headerType: 1
-}
+『 *BOT INFO* 』
+〆⁩ Nama Owner : ${ownerName}
+〆⁩ Battery : ${baterai}%
+〆⁩ Instagram : @ramadhankukuh
+〆⁩ Github : ramadhankukuh
+〆⁩ Active : ${runtime(process.uptime())}`
 
-               prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{quoted: fakekontak, contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Xrutz Selfbot",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./media/masrell.jpg'),sourceUrl:"https://wa.me/6283871990243?text=Assalamualaikum"}}})
-               Xrutz.relayWAMessage(prep)
+const loli = fs.readFileSync('./assets/MENU.mp3')
+Xrutz.sendMessage(from, loli, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.command`, buttonText: { displayText: 'SHOW MENU' }, type: 1 },{ buttonId: `.storegame`, buttonText: { displayText: 'TOPUP GAME' }, type: 1 },{ buttonId: `!owner`, buttonText: { displayText: 'DEVELOPER' }, type: 1 },{ buttonId: `!owner`, buttonText: { displayText: 'OWNER 👑' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: ikyads, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
                break
     
         case 'command':
         if (isBanned) return reply(mess.ban)
-        if (!isUser) return reply(mess.noregis)
-        const _0x4acf58=_0x5d84;(function(_0x2e616a,_0x40af70){const _0x5415c9=_0x5d84,_0x308ce5=_0x2e616a();while(!![]){try{const _0x5053db=-parseInt(_0x5415c9(0x1d7))/0x1+-parseInt(_0x5415c9(0x1e2))/0x2+-parseInt(_0x5415c9(0x1e7))/0x3*(parseInt(_0x5415c9(0x1e9))/0x4)+-parseInt(_0x5415c9(0x1dd))/0x5*(-parseInt(_0x5415c9(0x1ee))/0x6)+parseInt(_0x5415c9(0x1db))/0x7+-parseInt(_0x5415c9(0x1d5))/0x8+parseInt(_0x5415c9(0x1d8))/0x9;if(_0x5053db===_0x40af70)break;else _0x308ce5['push'](_0x308ce5['shift']());}catch(_0x1e3d08){_0x308ce5['push'](_0x308ce5['shift']());}}}(_0x4a27,0x5ba63),list=[],listmenu=[_0x4acf58(0x1d3),_0x4acf58(0x1d1),_0x4acf58(0x1e1),_0x4acf58(0x1ec),_0x4acf58(0x1ef),_0x4acf58(0x1e4),_0x4acf58(0x1df),_0x4acf58(0x1dc),_0x4acf58(0x1ea),_0x4acf58(0x1e6),_0x4acf58(0x1eb),_0x4acf58(0x1ce),'toolsmenu'],listmenuu=[_0x4acf58(0x1da),_0x4acf58(0x1cf),'Islam\x20Menu',_0x4acf58(0x1f0),_0x4acf58(0x1de),_0x4acf58(0x1d6),_0x4acf58(0x1e3),_0x4acf58(0x1d9),'Fun\x20Menu',_0x4acf58(0x1d2),_0x4acf58(0x1e0),_0x4acf58(0x1e5),'Tools\x20Menu'],nombor=0x1,startnum=0x0);for(let x of listmenu){const yy={'title':'List\x20Menu\x20'+nombor++,'rows':[{'title':''+listmenuu[startnum++],'description':_0x4acf58(0x1d0)+botName,'rowId':''+prefix+x}]};list[_0x4acf58(0x1e8)](yy);}function _0x5d84(_0x14655a,_0x3d2744){const _0x4a279c=_0x4a27();return _0x5d84=function(_0x5d84bd,_0x2e297a){_0x5d84bd=_0x5d84bd-0x1ce;let _0x381d52=_0x4a279c[_0x5d84bd];return _0x381d52;},_0x5d84(_0x14655a,_0x3d2744);}function _0x4a27(){const _0x5ed9fa=['Other\x20Menu','downloadmenu','4509meJcCJ','push','708AEvBTq','funmenu','infomenu','sertimenu','\x20-\x20','144FXFiUU','ceritamenu','Serti\x20Menu','othermenu','Sticker\x20Menu','Subscribe\x20','stickermenu','Downloader','groupmenu','Hallo\x20Kak\x20','5381072DTPaAK','Maker\x20Menu','432879ILmrgm','18387540eRaYjV','Game\x20Menu','Menu\x20Group','812098eQrKyp','gamemenu','62695DrPFRs','Cerita\x20Menu','ownermenu','Info\x20Menu','islammenu','1426142UiNIuJ','Owner\x20Menu','makermenu'];_0x4a27=function(){return _0x5ed9fa;};return _0x4a27();}listmsg(from,week+',\x20'+jmn+_0x4acf58(0x1ed)+calender,_0x4acf58(0x1d4)+pushname+'\x20🕊️\x0aSilahkan\x20pilih\x20List\x20menu\x20dibawah!',list);
-               break
-
+        list = []
+        listmenu = [`groupmenu`,`stickermenu`,`downloadmenu`,`islammenu`,`sertimenu`,`ceritamenu`,`makermenu`,`ownermenu`,`gamemenu`,`funmenu`,`infomenu`,`toolsmenu`,`othermenu`]
+        listmenuu = [`Menu Group`,`Menu Sticker`,`Menu Download`,`Menu Islam`,`Menu Sertifikat`,`Menu Cerita`,`Menu Maker`,`Menu Owner`,`Menu Game`,`Menu Fun`,`Menu Info`,`Menu Tools`,`Menu Lainnya`]
+        nombor = 1
+        startnum = 0
+        for (let x of listmenu) {
+        const yy = {title: 'PILIH MENU ' + nombor++,
+             rows: [
+                {
+                 title: `${listmenuu[startnum++]}`,
+                 description: `Menu bot`,
+                 rowId: `${prefix}${x}`
+               }
+             ]
+            }
+                 list.push(yy)
+    }
+        listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak @${pushname}! 🕊️\nSilahkan pilih menu disini`, list, {quoted: faketroli})
+        break
        //Fitur Jualan nih
        case 'storegame':
        if (isBanned) return reply(mess.ban)
        if (!isUser) return reply(mess.noregis)
                list = []
-               listmenu = [`dmff`,`dmml`,`dmpubg`]
-               listmenuu = [`Store Free Fire`,`Store Mobile Legend`,`Store PUBG`]
+               listmenu = [`dmff`,`dmml`]
+               listmenuu = [`Store Free Fire`,`Store Mobile Legend`]
                nombor = 1
                startnum = 0
                for (let x of listmenu) {
-               const yy = {title: 'Store Game ' + nombor++,
+               const yy = {title: 'PILIH GAME ' + nombor++,
                     rows: [
                        {
                         title: `${listmenuu[startnum++]}`,
-                        description: `Subscribe ${botName}`,
+                        description: `Menu Topup`,
                         rowId: `${prefix}${x}`
                       }
                     ]
@@ -1146,12 +1169,12 @@ Info Github : *XrutzMalesin*`
        if (isBanned) return reply(mess.ban)
        if (!isUser) return reply(mess.noregis)
                list = []
-               listmenu = [`70💎`,`100💎`,`140💎`,`200💎`,`300💎`,`355💎`,`720💎`]
-               listmenuu = [`70 💎 = IDR 10.000`,`100 💎 = IDR 15.000`,`140 💎 = IDR 20.000`,`200 💎 = IDR 30.000`,`300 💎 = IDR 38.000`,`355 💎 = IDR 50.000`,`720 💎 = IDR 100.000`]
+               listmenu = [`70💎`,`100💎`,`140💎`,`210💎`,`280💎`,`355💎`,`720💎`]
+               listmenuu = [`70 💎 = IDR 9.500`,`100 💎 = IDR 14.500`,`140 💎 = IDR 19.000`,`210 💎 = IDR 30.000`,`280 💎 = IDR 38.000`,`355 💎 = IDR 48.000`,`720 💎 = IDR 95.000`]
                nombor = 1
                startnum = 0
                for (let x of listmenu) {
-               const yy = {title: 'List Diamond ' + nombor++,
+               const yy = {title: 'LIST DIAMOND ' + nombor++,
                     rows: [
                        {
                         title: `${listmenuu[startnum++]}`,
@@ -1169,12 +1192,12 @@ Info Github : *XrutzMalesin*`
        if (isBanned) return reply(mess.ban)
        if (!isUser) return reply(mess.noregis)
                list = []
-               listmenu = [`86💎`,`172💎`,`257💎`,`343💎`,`429💎`,`514💎`,`706💎`]
-               listmenuu = [`86 💎 = IDR 22.000`,`172 💎 = IDR 42.000`,`257 💎 = IDR 63.000`,`343 💎 = IDR 83.000`,`429 💎 = IDR 105.000`,`514 💎 = IDR 124.000`,`706 💎 = IDR 165.000`]
+               listmenu = [`86💎`,`172💎`,`257💎`,`344💎`,`429💎`,`514💎`,`706💎`]
+               listmenuu = [`86 💎 = IDR 19.000`,`172 💎 = IDR 38.000`,`257 💎 = IDR 58.000`,`344 💎 = IDR 76.000`,`429 💎 = IDR 96.000`,`514 💎 = IDR 115.000`,`706 💎 = IDR 150.000`]
                nombor = 1
                startnum = 0
                for (let x of listmenu) {
-               const yy = {title: 'List Diamond ' + nombor++,
+               const yy = {title: 'LIST DIAMOND ' + nombor++,
                     rows: [
                        {
                         title: `${listmenuu[startnum++]}`,
@@ -1187,10 +1210,6 @@ Info Github : *XrutzMalesin*`
            }
                listmsg(from, `_${week}, ${jmn} - ${calender}_`,   `Hallo kak ${pushname}! 🕊️\nBerikut adalah *List Diamond* Mobile legend`, list, {quoted: faketroli})
                break
-
-       case 'dmpubg':
-       replyf('*_Coming Soon!_*')
-       break
        
 //List diamond Ngep ngep
 case '70💎':
@@ -1205,7 +1224,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
                buttonsMessage = {
                contentText: `${txtt}`,
-               footerText: '© Bot Whatsapp',
+               footerText: '© KUHXBOT',
                buttons: buttons,
                headerType: 1
 }
@@ -1225,7 +1244,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
                buttonsMessage = {
                contentText: `${txtt}`,
-               footerText: '© Bot Whatsapp',
+               footerText: '© KUHXBOT',
                buttons: buttons,
                headerType: 1
 }
@@ -1245,7 +1264,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
                buttonsMessage = {
                contentText: `${txtt}`,
-               footerText: '© Bot Whatsapp',
+               footerText: '© KUHXBOT',
                buttons: buttons,
                headerType: 1
 }
@@ -1253,7 +1272,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
                prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{sendEphemeral:true, quoted: fakekontak, contextInfo:{ forwardingScore:508, isForwarded:true, mentionedJid:[senderr]}})
                Xrutz.relayWAMessage(prep)
                break
-case '200💎':
+case '210💎':
 if (isBanned) return reply(mess.ban)
 if (!isUser) return reply(mess.noregis)
                txtt =`*Hai Kak ${pushname} 🕊️*
@@ -1265,7 +1284,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
                buttonsMessage = {
                contentText: `${txtt}`,
-               footerText: '© Bot Whatsapp',
+               footerText: '© KUHXBOT',
                buttons: buttons,
                headerType: 1
 }
@@ -1273,7 +1292,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
                prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{sendEphemeral:true, quoted: fakekontak, contextInfo:{ forwardingScore:508, isForwarded:true, mentionedJid:[senderr]}})
                Xrutz.relayWAMessage(prep)
                break
-case '300💎':
+case '280💎':
 if (isBanned) return reply(mess.ban)
 if (!isUser) return reply(mess.noregis)
                txtt =`*Hai Kak ${pushname} 🕊️*
@@ -1285,7 +1304,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
                buttonsMessage = {
                contentText: `${txtt}`,
-               footerText: '© Bot Whatsapp',
+               footerText: '© KUHXBOT',
                buttons: buttons,
                headerType: 1
 }
@@ -1305,7 +1324,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
                buttonsMessage = {
                contentText: `${txtt}`,
-               footerText: '© Bot Whatsapp',
+               footerText: '© KUHXBOT',
                buttons: buttons,
                headerType: 1
 }
@@ -1325,7 +1344,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
                buttonsMessage = {
                contentText: `${txtt}`,
-               footerText: '© Bot Whatsapp',
+               footerText: '© KUHXBOT',
                buttons: buttons,
                headerType: 1
 }
@@ -1347,7 +1366,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
                buttonsMessage = {
                contentText: `${txtt}`,
-               footerText: '© Bot Whatsapp',
+               footerText: '© KUHXBOT',
                buttons: buttons,
                headerType: 1
 }
@@ -1367,7 +1386,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
                buttonsMessage = {
                contentText: `${txtt}`,
-               footerText: '© Bot Whatsapp',
+               footerText: '© KUHXBOT',
                buttons: buttons,
                headerType: 1
 }
@@ -1387,7 +1406,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
                buttonsMessage = {
                contentText: `${txtt}`,
-               footerText: '© Bot Whatsapp',
+               footerText: '© KUHXBOT',
                buttons: buttons,
                headerType: 1
 }
@@ -1407,7 +1426,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
                buttonsMessage = {
                contentText: `${txtt}`,
-               footerText: '© Bot Whatsapp',
+               footerText: '© KUHXBOT',
                buttons: buttons,
                headerType: 1
 }
@@ -1427,7 +1446,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
                buttonsMessage = {
                contentText: `${txtt}`,
-               footerText: '© Bot Whatsapp',
+               footerText: '© KUHXBOT',
                buttons: buttons,
                headerType: 1
 }
@@ -1447,7 +1466,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
                buttonsMessage = {
                contentText: `${txtt}`,
-               footerText: '© Bot Whatsapp',
+               footerText: '© KUHXBOT',
                buttons: buttons,
                headerType: 1
 }
@@ -1467,7 +1486,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
                buttonsMessage = {
                contentText: `${txtt}`,
-               footerText: '© Bot Whatsapp',
+               footerText: '© KUHXBOT',
                buttons: buttons,
                headerType: 1
 }
@@ -1488,7 +1507,7 @@ Sebelum lanjut, Mohon diisi dulu data format!
 *き⃟💎 User ID =*
 *き⃟💎 Nominal =*
 *き⃟💎 Harga Diamond =*
-© 𝑺𝑪 𝑶𝒓𝒊 𝒃𝒚 𝑿𝒓𝒖𝒕𝒛 𝑶𝒇𝒇𝒊𝒄𝒊𝒂𝒍`
+`
 
 futer = `*Pastikan semua format data sudah benar,*
 *Semisal suatu kesalahan Diamond tidak masuk*
@@ -1521,7 +1540,7 @@ Sebelum lanjut, Mohon diisi dulu data format!
 *き⃟💎 User ID (Server) =*
 *き⃟💎 Nominal =*
 *き⃟💎 Harga Diamond =*
-© 𝑺𝑪 𝑶𝒓𝒊 𝒃𝒚 𝑿𝒓𝒖𝒕𝒛 𝑶𝒇𝒇𝒊𝒄𝒊𝒂𝒍`
+`
 
 futer = `*Pastikan semua format data sudah benar,*
 *Semisal suatu kesalahan Diamond tidak masuk*
@@ -2015,7 +2034,7 @@ if (!isUser) return reply(mess.noregis)
 //------------------< Sewa >-------------------
        case 'sewa':
               if (isBanned) return reply(mess.ban)
-              if (!isUser) return reply(mess.noregis)
+   
               if (!isGroup)return reply(mess.only.group)
               if (!isOwner) return reply(mess.only.owner)
               if (args.length < 1) return reply(`Penggunaan :\n*${prefix}sewa* add/del waktu`)
@@ -2044,7 +2063,7 @@ if (!isUser) return reply(mess.noregis)
        case 'sewacheck':
        case 'ceksewa': 
               if (isBanned) return reply(mess.ban)
-              if (!isUser) return reply(mess.noregis)
+   
               if (!isGroup) return reply(mess.only.group)
               if (!isSewa) return reply(`Group ini tidak terdaftar dalam list sewabot. Ketik ${prefix}sewabot untuk info lebih lanjut`)
               let cekvip = ms(_sewa.getSewaExpired(from, sewa) - Date.now())
@@ -2148,7 +2167,7 @@ teksnya = `*[ PEMBAYARAN ]*
        case 'addcmd': 
        case 'setcmd':
               if (isBanned) return reply(mess.ban)
-              if (!isUser) return reply(mess.noregis)
+   
               if (!isPremium) return reply(`Kamu bukan user premium, kirim perintah *${prefix}buypremium* untuk membeli premium`)
               if (isQuotedSticker) {
               if (!q) return reply(`Penggunaan : ${command} cmdnya dan tag stickernya`)
@@ -2253,7 +2272,7 @@ teksnya = `*[ PEMBAYARAN ]*
              break
       case 'ytmp3':
             if (isBanned) return reply(mess.ban)
-            if (!isUser) return reply(mess.noregis)
+ 
             if (!isPremium) return reply(mess.only.premium)
             if (args.length < 1) return reply('Link Nya Mana?')
             if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
@@ -2279,7 +2298,7 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
             break
      case 'ytmp4':
             if (isBanned) return reply(mess.ban)
-            if (!isUser) return reply(mess.noregis)
+ 
             if (!isPremium) return reply(mess.only.premium)
             if (args.length < 1) return reply('Link Nya Mana?')
             if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
@@ -2399,7 +2418,7 @@ _*Tunggu Proses Upload Media......*_`
       case 'ttnowm': 
       case 'tiktoknowm':
              if (isBanned) return reply(mess.ban)
-             if (!isUser) return reply(mess.noregis)
+  
              if (!q) return reply('Linknya?')
              if (!q.includes('tiktok')) return reply(mess.error.Iv)
              reply(mess.wait)
@@ -2409,7 +2428,7 @@ _*Tunggu Proses Upload Media......*_`
              break
 case 'tiktok':
               if (isBanned) return reply(mess.ban)
-              if (!isUser) return reply(mess.noregis)
+   
               if (!q) return reply('Linknya?')
               if (!q.includes('tiktok')) return reply(mess.error.Iv)
               buttons = [{buttonId: `${prefix}tiktoknowm ${q}`,buttonText:{displayText: `🎥 Video`},type:1},{buttonId:`${prefix}ttaudio ${q}`,buttonText:{displayText:'🎵 Mp3'},type:1}]
@@ -2543,15 +2562,29 @@ Source : ${anu.result.source}
 					break  
 				case 'play':
 			  if (isBanned) return reply(mess.ban)
-              if (!isUser) return reply(mess.noregis)
-              if (!q) return reply('Linknya?')
-              buttons = [{buttonId: `${prefix}play2 ${q}`,buttonText:{displayText: `🎥 Video`},type:1},{buttonId:`${prefix}playy ${q}`,buttonText:{displayText:'🎵 Mp3'},type:1}]
-              imageMsg = (await Xrutz.prepareMessageMedia(fs.readFileSync(`./media/masrell.jpg`), 'imageMessage', {thumbnail: fs.readFileSync(`./media/masrell.jpg`)})).imageMessage
-              buttonsMessage = {footerText:'Jangan Lupa Donasi Ya Kak ☕', imageMessage: imageMsg,
-              contentText:`Silahkan Pilih Media Yg Akan Di Download kak`,buttons,headerType:4}
-              prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
-              Xrutz.relayWAMessage(prep)
-              break
+   
+                       if (!q) return reply('Apa yang mau dicari?')
+                       res = await yts(q)
+                         let thumbInfo = ` 
+*『 TITLE DITEMUKAN 』*
+
+ ➤ *Judul :* ${res.all[0].title}
+ ➤ *ID Video :* ${res.all[0].videoId}
+ ➤ *Diupload Pada :* ${res.all[0].ago}
+ ➤ *Views :* ${res.all[0].views}
+ ➤ *Durasi :* ${res.all[0].timestamp}
+ ➤ *Channel :* ${res.all[0].author.name}
+ ➤ *Link Channel :* ${res.all[0].author.url}
+ 
+ *Silahkan pilih media yang akan di download*
+ `
+ buttons = [{buttonId:`${prefix}play2 ${q}`,buttonText:{displayText:'🎥VIDEO'},type:1},{buttonId:`${prefix}playy ${q}`,buttonText:{displayText:'🎵AUDIO'},type:1}]
+ imageMessage = (await Xrutz.prepareMessageMedia({url:res.all[0].image},'imageMessage',{thumbnail:Buffer.alloc(0)})).imageMessage
+ buttonsMessage = {contentText: thumbInfo,footerText:'Silahkan Pilih Jenis File Dibawah Ini, Apabila Error Bisa Gunakan Command Yang Lain.',imageMessage,buttons,headerType:4}
+ prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{})
+ Xrutz.relayWAMessage(prep)
+ break
+ 
           case 'lirik':
                if (!q) return reply(mess.wrongFormat)
                reply(mess.wait)
@@ -2984,7 +3017,33 @@ break
               console.error(err)
               reply('Error!')
 })
-              break
+case 'infotsunami':
+          
+       ini_result = await fetchJson('https://Xrutz-bot-api.herokuapp.com/api/infogempa?apikey=Alphabot')
+       get_result = ini_result.result
+          ini_txt = `INFO TSUNAMI TERKINI
+  
+  `
+          ini_txt += `tangal : ${get_result.tangal}\n`
+          ini_txt += `lokasi : ${get_result.lokasi}\n`
+          ini_txt += `magnitude : ${get_result.magnitude}\n`
+          ini_txt += `kedalaman : ${get_result.kedalaman}\n`
+          ini_txt += `wilayah : ${get_result.wilayah}`
+       reply (ini_txt)
+       break
+case 'cecan':
+       reply(mess.wait)
+      anu = await fetchText('https://raw.githubusercontent.com/FEBIAN66/randomcean/main/cecan.txt')
+     .then(async (body) => {
+      anu = body.split('\n')
+      anu = anu[Math.floor(Math.random() * anu.length)]
+      sendMediaURL(from, anu)
+})
+     .catch(async (err) => {
+      console.error(err)
+      reply(`${err}`)
+})
+      break
        case 'loliv':
        case 'lolivid':
        case 'lolivideo':
@@ -2999,7 +3058,39 @@ break
               console.error(err)
               reply(`${err}`)
 })
-              break
+case 'nhentai':
+if (args.length < 1) return reply("Where's the nuklir bro")
+anu = await fetchJson(`https://api-yogipw.herokuapp.com/api/nhentaidownloader?kode=${args[0]}`)
+dojin = await getBuffer(anu.result)
+Xrutz.sendMessage(from, dojin, document, { mimetype: 'document/zip', quoted: mek})
+break
+case 'waifu':
+v = await fetchJson(`https://api.waifu.pics/sfw/waifu`)
+inifile = sendMediaURL(from, v.url, )
+buttons = [{buttonId:`${prefix}waifu ${q}`,buttonText:{displayText:'NEXT'},type:1},{buttonId:`${prefix}menu ${q}`,buttonText:{displayText:'MENU'},type:1}]
+              imageMsg = ( await Xrutz.prepareMessage(from, inifile, 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+              buttonsMessage = {footerText:'PUNYAKU', imageMessage: imageMsg,
+              contentText:`klik Next untuk ke gambar selanjut nya`,buttons,headerType:4}
+              prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+              Xrutz.relayWAMessage(prep)
+              fs.unlinkSync(`./${sender}.jpeg`)
+break
+              case 'loli':
+                     case 'husbu':
+                            case 'milf':
+                            case 'cosplay':
+                            case 'wallml':
+                     let wipu = (await axios.get(`https://raw.githubusercontent.com/Arya-was/endak-tau/main/${command}.json`)).data
+                     let wipi = wipu[Math.floor(Math.random() * (wipu.length))]
+                     fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(wipi))
+                           buttons = [{buttonId: `${prefix + command}`,buttonText:{displayText: `➡️Next`},type:1}]
+                     imageMsg = ( await Xrutz.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+                     buttonsMessage = {footerText:'KUHXBOT', imageMessage: imageMsg,
+                     contentText:`klik Next untuk ke gambar selanjut nya`,buttons,headerType:4}
+                     prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{quoted: freply})
+                     Xrutz.relayWAMessage(prep)
+                     fs.unlinkSync(`./${sender}.jpeg`)
+                     break
        case 'gifstiker':
 				case 's':
 			case 'stickergif':  
@@ -3417,7 +3508,7 @@ break
               textImg(`${runtime(process.uptime())}`)
               break
        case 'youtube': 
-              reply(`*Subcribe YT Owner :*\n https://youtube.com/channel/UCJD2Gm2ixGvjkQcNJzx1ifA`)
+              reply(`*Subcribe YT Owner :*\n https://youtube.com/c/KukuhRamadhann`)
               break
        case 'masukandata':
              reply(`*「BOT MELAYANI」*\n\n━━━━━━━━━━━━━━━━━━━━\n\nMASUKKANA DATA BERIKUT\n*•NAMA GAME:*\n*•ID GAME:*\n*•USER NAME:*\n━━━━━━━━━━━━━━━━━━━━\n*NOTE:*\n*1.* _JANGAN LUPA BUKTI TRXNYA_\n*2.* _OTOMATIS PESANAN_\n_LANSUNG DI PROSES_\n*3.* _PESANAN ANDA DI PROSES_\n_OLEH_\n\n   *©KurrXd*\n\n_JIKA PESANAN ANDA LOW_\n_PROSES MOHON BERSABAR_\nwa.me/6282287486762`)
@@ -3720,7 +3811,7 @@ Xrutz.sendMessage(_.jid,
 //------------------< G R U P >-------------------
 case 'linkgc':
                 if (isBanned) return reply(mess.ban)
-                if (!isUser) return reply(mess.noregis)
+     
 				if (!isGroup) return reply(mess.only.group)
 				linkgc = await Xrutz.groupInviteCode (from)
 				yeh = `https://chat.whatsapp.com/${linkgc}\n\nlink Group *${groupName}*`
@@ -3729,7 +3820,7 @@ case 'linkgc':
 
             case 'kick':
             if (isBanned) return reply(mess.ban)
-            if (!isUser) return reply(mess.noregis)            
+             
              if (!isGroupAdmins) return reply(mess.only.admin)
              if (!isGroup) return reply(mess.only.group)
              kick(from, mentionUser)
@@ -3737,7 +3828,7 @@ case 'linkgc':
 
       case 'add':
              if (isBanned) return reply(mess.ban)
-             if (!isUser) return reply(mess.noregis)    
+      
              if (mek.message.extendedTextMessage === null || mek.message.extendedTextMessage === undefined) {
              entah = arg.split("|")[0]
              entah = entah.replace(new RegExp("[()+-/ +/]", "gi"), "")
@@ -3751,7 +3842,7 @@ case 'linkgc':
 
       case 'promote':
              if (isBanned) return reply(mess.ban)
-             if (!isUser) return reply(mess.noregis)      
+        
              reply('🗿')
              if (!isGroupAdmins) return reply(mess.only.admin)
              if (mek.message.extendedTextMessage === null || mek.message.extendedTextMessage === undefined) return;
@@ -3773,7 +3864,7 @@ case 'linkgc':
              break
       case 'demote':
              if (isBanned) return reply(mess.ban)
-             if (!isUser) return reply(mess.noregis)      
+        
              reply('🗿')
              if (!isGroupAdmins) return reply(mess.only.admin)
              if (mek.message.extendedTextMessage === null || mek.message.extendedTextMessage === undefined) return;
@@ -4186,49 +4277,49 @@ case 'linkgc':
              break
        case 'matrix':
               if (isBanned) return reply(mess.ban)
-              if (!isUser) return reply(mess.noregis)
+   
 				if (!arg) return reply(from, `Penggunaan ${prefix}matrix teks`, mek)
 				sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/matrix?text=${arg}&apikey=${setting.HunterApi}`)
 				break
 				case 'googletxt':
               if (isBanned) return reply(mess.ban)
-              if (!isUser) return reply(mess.noregis)
+   
 				if (!arg) return reply(from, `Penggunaan ${prefix}googletxt teks`, mek)
 				sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/google?text=${arg}&apikey=${setting.HunterApi}`)
 				break
 				case 'spiderman':
               if (isBanned) return reply(mess.ban)
-              if (!isUser) return reply(mess.noregis)
+   
 				if (!arg) return reply(from, `Penggunaan ${prefix}sipderman teks`, mek)
 				sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/spider?text=${arg}&apikey=${setting.HunterApi}`)
 				break
 				case 'express':
               if (isBanned) return reply(mess.ban)
-              if (!isUser) return reply(mess.noregis)
+   
 				if (!arg) return reply(from, `Penggunaan ${prefix}express teks`, mek)
 				sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/express?text=${arg}&apikey=${setting.HunterApi}`)
 				break
 				case 'dance':
               if (isBanned) return reply(mess.ban)
-              if (!isUser) return reply(mess.noregis)
+   
 				if (!arg) return reply(from, `Penggunaan ${prefix}dance teks`, mek)
 				sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/dance?text=${arg}&apikey=${setting.HunterApi}`)
 				break
 				case 'blackbird':
               if (isBanned) return reply(mess.ban)
-              if (!isUser) return reply(mess.noregis)
+   
 				if (!arg) return reply(from, `Penggunaan ${prefix}blackbird teks`, mek)
 				sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/blackbird?text=${arg}&apikey=${setting.HunterApi}`)
 				break
 				case 'text3d':
               if (isBanned) return reply(mess.ban)
-              if (!isUser) return reply(mess.noregis)
+   
 				if (!arg) return reply(from, `Penggunaan ${prefix}text3d teks`, mek)
 				sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/text3d?text=${arg}&apikey=${setting.HunterApi}`)
 				break
 				case 'warrior':
               if (isBanned) return reply(mess.ban)
-              if (!isUser) return reply(mess.noregis)
+   
 				if (!arg) return reply(from, `Penggunaan ${prefix}warrior teks`, mek)
 				sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/warrior?text=${arg}&apikey=${setting.HunterApi}`)
 				break
@@ -4426,7 +4517,7 @@ case 'quotesdilan':
 const buttons = [{buttonId: '#autorespon on', buttonText: {displayText: 'ON'}, type: 1},{buttonId: '#autorespon off', buttonText: {displayText: 'OFF'}, type: 1}]
 const btnharam = {
     contentText: `${anu}`,
-    footerText: '*_© Yuzzu Kamiyaka_*',
+    footerText: '*_© KUHXBOT_*',
     buttons: buttons,
     headerType: 1
 }
@@ -4463,7 +4554,7 @@ await Xrutz.sendMessage(from, btnharam, MessageType.buttonsMessage, {quoted: fak
 const buttons = [{buttonId: '#antidelete enable', buttonText: {displayText: 'ENABLE'}, type: 1},{buttonId: '#antidelete disable', buttonText: {displayText: 'DISABLE'}, type: 1}]
 const buttonMessage = {
     contentText: `${anu}`,
-    footerText: '*_© Yuzzu Kamiyaka_*',
+    footerText: '*_© KUHXBOT_*',
     buttons: buttons,
     headerType: 1
 }
@@ -4490,7 +4581,7 @@ case 'antilink':
 punten = [{buttonId: '#antilink disable', buttonText: {displayText: 'DISABLE'}, type: 1},{buttonId: '#antilink enable', buttonText: {displayText: 'ENABLE'}, type: 1}]
 const btnasu = {
     contentText: `${anu}`,
-    footerText: '*_© Xrutz Official_*',
+    footerText: '*_© KUHXBOT_*',
     buttons: punten,
     headerType: 1
 }
@@ -4518,7 +4609,7 @@ await Xrutz.sendMessage(from, btnasu, MessageType.buttonsMessage, {quoted: fakek
 punten = [{buttonId: '#welcome disable', buttonText: {displayText: 'DISABLE'}, type: 1},{buttonId: '#welcome enable', buttonText: {displayText: 'ENABLE'}, type: 1}]
 const buttnasu = {
     contentText: `${anu}`,
-    footerText: '*_© Xrutz Official_*',
+    footerText: '*_© KUHXBOT_*',
     buttons: punten,
     headerType: 1
 }
@@ -4596,10 +4687,10 @@ await Xrutz.sendMessage(from, buttnasu, MessageType.buttonsMessage, {sendEphemer
              replyf(` اتَّقوا النَّارَ ولو بشقِّ تمرةٍ ، فمن لم يجِدْ فبكلمةٍ طيِّبةٍ\n*“Jauhilah api neraka, walau hanya dengan bersedekah sebiji kurma (sedikit). Jika kamu tidak punya, maka bisa dengan kalimat thayyibah”* [HR. Bukhari 6539, Muslim 1016\n\n*Pulsa :* 083871990243\n𝑀𝑎𝑘𝑎𝑠𝑖ℎ 𝑌𝑎 𝑌𝑔 𝑢𝑑𝑎ℎ 𝐷𝑜𝑛𝑎𝑠𝑖.`)
              break              
       case 'infoig':
-             replyf(`Follow Instagram Owner Ya : https://www.instagram.com/rellnjoy_`)
+             replyf(`Follow Instagram Owner Ya : https://www.instagram.com/ramadhankukuh`)
              break
       case 'grupbot':
-             replyf('https://chat.whatsapp.com/BABvK9nnhhJLImFXJaoLg9')
+             replyf('https://chat.whatsapp.com/BABvK9nnhhJLImFXJaoLgH')
              break
 
 // Diemin aja Ngerti!
@@ -4652,6 +4743,9 @@ await Xrutz.sendMessage(from, buttnasu, MessageType.buttonsMessage, {sendEphemer
       case 'funmenu':
              Xrutz.sendMessage(from, funMenu(prefix), MessageType.text, {quoted: faketroli})
              break
+       case 'wibumenu':
+              Xrutz.sendMessage(from, wibuMenu(prefix), MessageType.text, {quoted: faketroli})
+              break
 
 default:
 if (fs.existsSync(`./media/${from}.json`)) {
@@ -4869,7 +4963,7 @@ js = JSON.stringify(js, null, 2)
 js = '```' + js + '```'
 reply('_' + err + '_\n\n' + js)
 }
-// Case by Xrutz Official
+// Case by KUHXBOT
 // Chat balasan
                   }
 
