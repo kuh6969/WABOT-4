@@ -73,6 +73,7 @@ exports.otherMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
 ▢ ${prefix}cerpen
 ▢ ${prefix}cecan
 ▢ ${prefix}brainly _query_
+▢ ${prefix}artinama _namamu_
 ▢ ${prefix}shopee _query_
 ▢ ${prefix}playstore _query_
 ▢ ${prefix}ssweb _query_
@@ -165,7 +166,7 @@ exports.groupMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
 ▢ ${prefix}tagall _teks_
 ▢ ${prefix}leave
 ▢ ${prefix}kick _@tag_
-▢ ${prefix}add _+62xxx_
+▢ ${prefix}add _62xxx_
 ▢ ${prefix}setnamegc
 ▢ ${prefix}setppgc _reply image_
 ▢ ${prefix}setdeskgc
@@ -198,7 +199,7 @@ exports.downloadMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
 `
 }
 exports.rulesBot = (prefix) => {
-    return `*「 RULES XRUTZBOT 」*
+    return `*「 RULES KUHXBOT 」*
 *Username :* ${pushname}
 
 
