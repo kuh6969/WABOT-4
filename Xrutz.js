@@ -2106,7 +2106,7 @@ teksnya = `*[ PEMBAYARAN ]*
        case 'setcmd':
               if (isBanned) return reply(mess.ban)
    
-              if (!isPremium) return reply(`Kamu bukan user premium, kirim perintah *${prefix}buypremium* untuk membeli premium`)
+
               if (isQuotedSticker) {
               if (!q) return reply(`Penggunaan : ${command} cmdnya dan tag stickernya`)
               var kodenya = mek.message.extendedTextMessage.contextInfo.quotedMessage.stickerMessage.fileSha256.toString('base64')
