@@ -57,7 +57,11 @@ exports.wibuMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
 ▢ ${prefix}milf
 ▢ ${prefix}cosplay
 ▢ ${prefix}wallml
+▢ ${prefix}waifu
+▢ ${prefix}quotesanime
+▢ ${prefix}animequotes
 ▢ ${prefix}nhentai _code_
+▢ ${prefix}nhentai2 _code_
 `
 }
 exports.otherMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
@@ -67,6 +71,7 @@ exports.otherMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
 *Info Baterai :* ${baterai}%
 
 ▢ ${prefix}cerpen
+▢ ${prefix}cecan
 ▢ ${prefix}brainly _query_
 ▢ ${prefix}shopee _query_
 ▢ ${prefix}playstore _query_
@@ -81,6 +86,8 @@ exports.otherMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
 ▢ ${prefix}tiktokstalk
 ▢ ${prefix}img2url _reply image_
 ▢ ${prefix}ytsearch _query_
+▢ ${prefix}infogempa
+▢ ${prefix}infotsunami
 `
 }
 exports.stickerMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
@@ -309,7 +316,6 @@ return`*「 CERITA MENU 」*
 ▢ ${prefix}pantun
 ▢ ${prefix}faktaunik
 ▢ ${prefix}bucin
-▢ ${prefix}quotesanime
 ▢ ${prefix}quotes
 
 `
