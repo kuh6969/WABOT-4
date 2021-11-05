@@ -82,6 +82,7 @@ antidelete = true
 ky_ttt = []
 const setGelud = require('./lib/gameGelud.js')
 const game = require("./lib/game");
+const { title } = require("process")
 tttawal= ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"]
 
 let setiker = JSON.parse(fs.readFileSync('./temp/stik.json'))
@@ -1061,8 +1062,8 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤
         case 'command':
         if (isBanned) return reply(mess.ban)
         list = []
-        listmenu = [`groupmenu`,`stickermenu`,`downloadmenu`,`islammenu`,`sertimenu`,`ceritamenu`,`makermenu`,`ownermenu`,`gamemenu`,`funmenu`,`infomenu`,`toolsmenu`,`othermenu`]
-        listmenuu = [`Menu Group`,`Menu Sticker`,`Menu Download`,`Menu Islam`,`Menu Sertifikat`,`Menu Cerita`,`Menu Maker`,`Menu Owner`,`Menu Game`,`Menu Fun`,`Menu Info`,`Menu Tools`,`Menu Lainnya`]
+        listmenu = [`groupmenu`,`stickermenu`,`wibumenu`,`downloadmenu`,`islammenu`,`sertimenu`,`ceritamenu`,`makermenu`,`ownermenu`,`gamemenu`,`funmenu`,`infomenu`,`toolsmenu`,`othermenu`]
+        listmenuu = [`Menu Group`,`Menu Sticker`,`Menu Wibu`,`Menu Download`,`Menu Islam`,`Menu Sertifikat`,`Menu Cerita`,`Menu Maker`,`Menu Owner`,`Menu Game`,`Menu Fun`,`Menu Info`,`Menu Tools`,`Menu Lainnya`]
         nombor = 1
         startnum = 0
         for (let x of listmenu) {
@@ -2571,7 +2572,6 @@ teks += `*き⃟🦈 Nama : ${get_data[i].name}*
               } catch {
               reply(`Maaf produk ${query} tidak ditemukan`)
 }
-              break
        case 'playstore':
               try {
               if (args.length == 0) return reply(`Kirim perintah *${prefix}playstore [ apk ]*\nContoh : ${prefix}playstore pubg`)
@@ -2848,7 +2848,7 @@ if (args.length == 0) return reply(`Idnya mana kak?`)
                     ff_id = args[0]
                     get_result = await fetchJson(`https://lolhuman.herokuapp.com/api/freefire/${ff_id}?apikey=genbotkey`)
                     reply(`nih kak`)
-                    break      
+                    break  
 //------------------< Sticker/Tools >-------------------
 
        case 'dadu': // by CHIKAA CHANTEKKXXZZ
@@ -2995,7 +2995,13 @@ case 'cecan':
       reply(`${err}`)
 })
 break
-       case 'loliv':
+case 'artinama':	
+if (args.length < 1) return reply("nama?")
+rival = await fetchJson(`https://bx-hunter.herokuapp.com/api/artinama?nama=${args[0]}&apikey=${setting.HunterApi}`, {method:'get'})
+slur = rival.result
+reply(slur)
+break
+case 'loliv':
        case 'lolivid':
        case 'lolivideo':
               reply(mess.wait)
@@ -3014,24 +3020,22 @@ case 'nhentai':
 if (args.length < 1) return reply("Where's the nuklir bro")
 anu = await fetchJson(`https://api-yogipw.herokuapp.com/api/nhentaidownloader?kode=${args[0]}`)
 dojin = await getBuffer(anu.result)
-Xrutz.sendMessage(from, dojin, document, { mimetype: 'document/zip', quoted: mek})
+Xrutz.sendMessage(from, dojin, document, { quoted: mek, mimetype: Mimetype.pdf, filename: `${args}.pdf` })
 break
-case 'waifu':
-v = await fetchJson(`https://api.waifu.pics/sfw/waifu`)
-inifile = sendMediaURL(from, v.url, )
-buttons = [{buttonId:`${prefix}waifu ${q}`,buttonText:{displayText:'NEXT'},type:1},{buttonId:`${prefix}menu ${q}`,buttonText:{displayText:'MENU'},type:1}]
-              imageMsg = ( await Xrutz.prepareMessage(from, inifile, 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
-              buttonsMessage = {footerText:'PUNYAKU', imageMessage: imageMsg,
-              contentText:`klik Next untuk ke gambar selanjut nya`,buttons,headerType:4}
-              prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
-              Xrutz.relayWAMessage(prep)
-              fs.unlinkSync(`./${sender}.jpeg`)
-break
+case 'nhentai2':
+       if (args.length == 0) return reply(`Example: ${prefix + command} 123456`)
+       henid = args[0]
+       get_result = await fetchJson(`https://api.lolhuman.xyz/api/nhentaipdf/${henid}?apikey=${setting.lolkey}`)
+       get_result = get_result.result
+       ini_buffer = await getBuffer(get_result)
+       Xrutz.sendMessage(from, ini_buffer, document, { quoted: mek, mimetype: Mimetype.pdf, filename: `${henid}.pdf` })
+       break
               case 'loli':
-                     case 'husbu':
-                            case 'milf':
-                            case 'cosplay':
-                            case 'wallml':
+              case 'husbu':
+              case 'milf':
+              case 'cosplay':
+              case 'wallml':
+              case 'waifu':
                      let wipu = (await axios.get(`https://raw.githubusercontent.com/Arya-was/endak-tau/main/${command}.json`)).data
                      let wipi = wipu[Math.floor(Math.random() * (wipu.length))]
                      fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(wipi))
