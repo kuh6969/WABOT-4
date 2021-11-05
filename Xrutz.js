@@ -112,24 +112,9 @@ const imagebb = "https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/
 mess = {
 	        wait: '*_Sabar kak Proses!_*',
 			success: '*_Sukses kak!_*',
-			noregis: `Silahkan daftar terlebih dahulu!
-Hanya dengan mengetik *#daftar* saja.
 
-Contoh: *#daftar*
-Mendaftar hanya bisa Sekali!`,
 
-			wrongf: `*「  NOT REGISTERED 」*
-Kamu belum Terdaftar di Database!
-
-Ketik #daftar Untuk Registrasi!
-*Contoh :* #daftar`,
-
-			rediregis: `*「 SUDAH REGISTRASI 」*
-			
-Hallo, Kamu sudah melakukan Registrasi!
-Silahkan ketik #menu Untuk memulai Bot!`,
-
-            ban: '_*Maaf Kamu Sudah TerBanned!!*_',
+            ban: '_*Maaf Kamu Sudah TerBanned, Silahkam Hubungi .owner!!*_',
 			wrongFormat: '*_Format salah, coba liat lagi di Menu_*',
 			error: {
 				api: '*_Habis brok blm beli_*',
@@ -653,9 +638,9 @@ var imageTime = await getBuffer('https://i.pinimg.com/736x/15/8e/ea/158eea299c01
 }
 
 			/////
-                     let ikyads = await getBuffer(`https://i.ibb.co/7KCLvxJ/Xrutz.jpg`)
+                     let ikyads = await getBuffer(`https://i.ibb.co/3hTBvwP/images-8.jpg`)
                      fakelink = (tekslink) => { 
-                            return {"externalAdReply": { "title": tekslink, "thumbnail": ikyads, "sourceUrl": "https://wa.me/6282138919347" }}
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": ikyads, "sourceUrl": "https://wa.me/12816245470" }}
                      }
 // Fake Item by Xrutz
 // Creditnya dipake anjg
@@ -966,7 +951,7 @@ function banChat() {
            
        case 'donasi':
        if (isBanned) return reply(mess.ban)
-       if (!isUser) return reply(mess.noregis)
+       
                txtt =`*Hai Kak* ${pushname} *Yang Baik*\n*Mau donasi?* Dikasih Syukur, Gak jadi Gpp :)`
 
                buttons = [{buttonId: '!gopay',buttonText:{displayText: 'GOOPAY'},type:1},{buttonId:'!storegame',buttonText:{displayText:'KEMBALI'},type:1}]
@@ -987,7 +972,7 @@ function banChat() {
         case 'owner':
         case 'creator':
         if (isBanned) return reply(mess.ban)
-        if (!isUser) return reply(mess.noregis)
+        
                sendKontak(from, `${owner}`, `${ownerName}`, 'Sibukk!!')
                await sleep(1000)
                txtt =`*Hai Kak* ${pushname}\nItu Ownerku, Mau tau soal apa ya?`
@@ -1037,6 +1022,9 @@ if (mek.key.fromMe){
            case 'menu':
            case 'help':
            case 'listmenu':
+              const WaktuWib = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')
+              const WaktuWit = moment.tz('Asia/Makassar').format('DD/MM HH:mm:ss')
+              const WaktuWita = moment.tz('Asia/Jayapura').format('DD/MM HH:mm:ss')
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
            if (isBanned) return reply(mess.ban)
         menu =`${tampilUcapan} @${sender.split('@')[0]}, 
@@ -1048,9 +1036,9 @@ _saya ${botName} yang siap membantu anda dalam membuat sticker, downloader, dll.
 〆⁩ Date : ${calender}
 
 『 *INDO TIME* 』
-〆⁩ ${timeWib} Wib
-〆⁩ ${timeWit} Wit
-〆⁩ ${timeWita} Wita
+〆⁩ ${WaktuWib} Wib
+〆⁩ ${WaktuWit} Wit
+〆⁩ ${WaktuWita} Wita
 
 『 *YOUR INFO* 』
 〆⁩ Username : ${pushname}
@@ -1094,7 +1082,7 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤
        //Fitur Jualan nih
        case 'storegame':
        if (isBanned) return reply(mess.ban)
-       if (!isUser) return reply(mess.noregis)
+       
                list = []
                listmenu = [`dmff`,`dmml`]
                listmenuu = [`Store Free Fire`,`Store Mobile Legend`]
@@ -1117,7 +1105,7 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤
 
        case 'dmff':
        if (isBanned) return reply(mess.ban)
-       if (!isUser) return reply(mess.noregis)
+       
                list = []
                listmenu = [`70💎`,`100💎`,`140💎`,`210💎`,`280💎`,`355💎`,`720💎`]
                listmenuu = [`70 💎 = IDR 9.500`,`100 💎 = IDR 14.500`,`140 💎 = IDR 19.000`,`210 💎 = IDR 30.000`,`280 💎 = IDR 38.000`,`355 💎 = IDR 48.000`,`720 💎 = IDR 95.000`]
@@ -1140,7 +1128,7 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤
 
        case 'dmml':
        if (isBanned) return reply(mess.ban)
-       if (!isUser) return reply(mess.noregis)
+       
                list = []
                listmenu = [`86💎`,`172💎`,`257💎`,`344💎`,`429💎`,`514💎`,`706💎`]
                listmenuu = [`86 💎 = IDR 19.000`,`172 💎 = IDR 38.000`,`257 💎 = IDR 58.000`,`344 💎 = IDR 76.000`,`429 💎 = IDR 96.000`,`514 💎 = IDR 115.000`,`706 💎 = IDR 150.000`]
@@ -1164,7 +1152,7 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤
 //List diamond Ngep ngep
 case '70💎':
 if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
                txtt =`*Hai Kak ${pushname} 🕊️*
 Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
@@ -1184,7 +1172,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
                break
 case '100💎':
 if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
                txtt =`*Hai Kak ${pushname} 🕊️*
 Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
@@ -1204,7 +1192,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
                break
 case '140💎':
 if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
                txtt =`*Hai Kak ${pushname} 🕊️*
 Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
@@ -1224,7 +1212,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
                break
 case '210💎':
 if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
                txtt =`*Hai Kak ${pushname} 🕊️*
 Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
@@ -1244,7 +1232,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
                break
 case '280💎':
 if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
                txtt =`*Hai Kak ${pushname} 🕊️*
 Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
@@ -1264,7 +1252,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
                break
 case '355💎':
 if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
                txtt =`*Hai Kak ${pushname} 🕊️*
 Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
@@ -1284,7 +1272,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
                break
 case '720💎':
 if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
                txtt =`*Hai Kak ${pushname} 🕊️*
 Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
@@ -1306,7 +1294,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 //List Emel nya
 case '343💎':
 if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
                txtt =`*Hai Kak ${pushname} 🕊️*
 Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
@@ -1326,7 +1314,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
                break
 case '429💎':
 if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
                txtt =`*Hai Kak ${pushname} 🕊️*
 Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
@@ -1346,7 +1334,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
                break
 case '514💎':
 if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
                txtt =`*Hai Kak ${pushname} 🕊️*
 Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
@@ -1366,7 +1354,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
                break
 case '706💎':
 if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
                txtt =`*Hai Kak ${pushname} 🕊️*
 Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
@@ -1386,7 +1374,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
                break
 case '86💎':
 if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
                txtt =`*Hai Kak ${pushname} 🕊️*
 Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
@@ -1406,7 +1394,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
                break
 case '172💎':
 if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
                txtt =`*Hai Kak ${pushname} 🕊️*
 Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
@@ -1426,7 +1414,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
                break
 case '257💎':
 if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
                txtt =`*Hai Kak ${pushname} 🕊️*
 Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 
@@ -1448,7 +1436,7 @@ Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
 //Format data dm
 case 'idff':
 if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
                txtt =`*${tampilUcapan} Kak ${pushname} 🕊️*
 Sebelum lanjut, Mohon diisi dulu data format!
 *[ Wajib diisi dengan benar Kak! ]*
@@ -1481,7 +1469,7 @@ futer = `*Pastikan semua format data sudah benar,*
 
 case 'idml':
 if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
                txtt =`*${tampilUcapan} Kak ${pushname} 🕊️*
 Sebelum lanjut, Mohon diisi dulu data format!
 *[ Wajib diisi dengan benar Kak! ]*
@@ -1515,7 +1503,7 @@ futer = `*Pastikan semua format data sudah benar,*
 
        case 'mode':
        if (isBanned) return reply(mess.ban)
-       if (!isUser) return reply(mess.noregis)
+       
 buttonss = [{buttonId: `public`, buttonText: {displayText: 'PUBLIC👥'}, type: 1},{buttonId: `self`, buttonText: {displayText: 'SELF👤'}, type: 1}]
 const buMess = {
     contentText: "SELF/PUBLIC",
@@ -1539,7 +1527,7 @@ break
         case 'limitgame': 
         case 'balance': 
         if (isBanned) return reply(mess.ban)
-        if (!isUser) return reply(mess.noregis)
+        
                const balance = atm.checkATMuser(sender, _uang)
                if (isPremium) return reply(`Limit Game : Unlimited\nBalance : Rp.${balance}`)
                textImg(`Limit Game : ${cekGLimit(sender, gcount, glimit)}/${gcount}\nBalance : Rp.${balance}`)
@@ -1547,7 +1535,7 @@ break
 
          case 'gelud':
          if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
                if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
                if (!isGroup) return reply(mess.only.group)
                if (mek.message.extendedTextMessage.contextInfo.mentionedJid > 1) return reply('Hanya bisa dengan 1 orang')
@@ -1588,7 +1576,7 @@ if (!isUser) return reply(mess.noregis)
         case 'tictactoe':
         case 'ttt':
         if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (!isGroup) return reply(mess.only.group)
               if (args.length < 1) return reply('Tag Lawan Anda! ')
@@ -1612,7 +1600,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
               break
        case 'family100':
        if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (game.isfam(from, family100)) return reply(`Masih ada soal yang belum di selesaikan`)
               anu = await axios.get(`http://api.lolhuman.xyz/api/tebak/family100?apikey=${setting.lolkey}`)
@@ -1630,7 +1618,7 @@ if (!isUser) return reply(mess.noregis)
               break
        case 'tebakanime':
        if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakanime.hasOwnProperty(sender.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
               get_result = await fetchJson(`https://lolhuman.herokuapp.com/api/tebakchara?apikey=${setting.lolkey}`)
@@ -1654,7 +1642,7 @@ if (!isUser) return reply(mess.noregis)
               break
        case 'tebaklagu':
        if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebaklagu.hasOwnProperty(sender.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
               get_result = await fetchJson(`https://api.xteam.xyz/game/tebaklagu?apikey=${setting.xteamkey}&id=4mFuArYRh3SO8jfffYLSER`)
@@ -1905,7 +1893,7 @@ if (!isUser) return reply(mess.noregis)
               break
        case 'caklontong':
        if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (caklontong.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
               get_result = await fetchJson(`https://lolhuman.herokuapp.com/api/tebak/caklontong2?apikey=${setting.lolkey}`)
@@ -1947,7 +1935,7 @@ if (!isUser) return reply(mess.noregis)
               break
        case 'suit': //nyolong dari zenz
 if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
               if (!q) return reply(`Kirim perintah ${prefix}suit gunting / batu / kertas`)
               const userspilih = q
               if (!userspilih.match(/batu|gunting|kertas/)) return reply(`Pilih batu, kertas, gunting`)
@@ -2002,7 +1990,7 @@ if (!isUser) return reply(mess.noregis)
        case 'sewalist': 
        case 'listsewa':
        if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
               let txtnyee = `List Sewa\nJumlah : ${sewa.length}\n\n`
               for (let i of sewa){
               let cekvipp = ms(i.expired - Date.now())
@@ -2022,7 +2010,7 @@ if (!isUser) return reply(mess.noregis)
               break
          case 'spamsms':
          if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
                     if (args.length == 0) return reply(`Example: ${prefix + command} 08303030303030`)
                     nomor = args[0]
                     await fetchJson(`https://api.lolhuman.xyz/api/sms/spam1?apikey=genbotkey&nomor=${nomor}`)
@@ -2086,7 +2074,7 @@ if (!isUser) return reply(mess.noregis)
        case 'buypremium':
        case 'sewabot':
        if (isBanned) return reply(mess.ban)
-       if (!isUser) return reply(mess.noregis)
+       
               gopeynya = `${thumblo}`
               teksnya = `*[ PRICE LIST ]*
 *Sewa Bot Xrutz ON 24 Jam*
@@ -2100,7 +2088,7 @@ if (!isUser) return reply(mess.noregis)
 //------------------< bayar menu >-------------------  
 case 'bayar':
 if (isBanned) return reply(mess.ban)
-if (!isUser) return reply(mess.noregis)
+
 gopeynya = `${thumblo}`
 teksnya = `*[ PEMBAYARAN ]*
 
@@ -2150,7 +2138,7 @@ teksnya = `*[ PEMBAYARAN ]*
        case 'igdl':
        case 'instagram':
        if (isBanned) return reply(mess.ban)
-       if (!isUser) return reply(mess.noregis)
+       
               try {
               if (!isUrl(q)) return reply('Linknya?')
               reply(mess.wait)
@@ -2167,7 +2155,7 @@ teksnya = `*[ PEMBAYARAN ]*
        case 'igdl2':
        case 'instagram2':
        if (isBanned) return reply(mess.ban)
-       if (!isUser) return reply(mess.noregis)
+       
               try {
               if (!q) return reply('Linknya?')
               reply(mess.wait)
@@ -2357,7 +2345,7 @@ _*Tunggu Proses Upload Media......*_`
        case 'tiktok': 
        case 'ttdl':
        if (isBanned) return reply(mess.ban)
-       if (!isUser) return reply(mess.noregis)
+       
              if (!q) return reply('Linknya?')
              if (!q.includes('tiktok')) return reply(mess.error.Iv)
              reply(mess.wait)
@@ -2420,7 +2408,7 @@ case 'tiktok':
              break
       case 'brainly':
              if (isBanned) return reply(mess.ban)
-       if (!isUser) return reply(mess.noregis)
+       
              brainly(args.join(" ")).then(res => {
              hmm = '────────────\n'
              for (let Y of res.data) {
@@ -2432,7 +2420,7 @@ case 'tiktok':
              break
       case 'ssweb':
              if (isBanned) return reply(mess.ban)
-       if (!isUser) return reply(mess.noregis)
+       
              if (args.length == 0) return reply(`Example: ${prefix + command} https://nekopoi.care/`)
              ini_link = args[0]
              ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/ssweb?apikey=${setting.lolkey}&url=${ini_link}`)
@@ -2442,7 +2430,7 @@ case 'tiktok':
         case 'playy':
         case 'lagu':
        if (isBanned) return reply(mess.ban)
-       if (!isUser) return reply(mess.noregis)
+       
 if (args.length < 1) return reply('Apa Yang Mau Dicari?')
 teks = args.join(' ')
 reply(mess.wait)
@@ -2494,7 +2482,7 @@ sendFileFromUrl(res[0].link, document, {quoted: mek, mimetype: 'audio/mp3', file
 break
 case 'play2':   
        if (isBanned) return reply(mess.ban)
-       if (!isUser) return reply(mess.noregis)
+       
 				  if (args.length < 1) return reply('*Masukan judul nya?*')
                 reply('Loading.... ')
 				play = args.join(" ")
@@ -2548,7 +2536,7 @@ Source : ${anu.result.source}
                break
         case 'pinterest':
         if (isBanned) return reply(mess.ban)
-        if (!isUser) return reply(mess.noregis)
+        
                     if (args.length == 0) return reply(`Example: ${prefix + command} loli kawaii`)
                     query = args.join(" ")
                     ini_url = await fetchJson(`https://api.lolhuman.xyz/api/pinterest?apikey=${setting.lolkey}&query=${query}`)
@@ -2968,17 +2956,30 @@ break
               reply('Error!')
 })
 case 'infotsunami':
-          
-       ini_result = await fetchJson('https://Xrutz-bot-api.herokuapp.com/api/infogempa?apikey=Alphabot')
+       ini_result = await fetchJson('https://ronove-bot-api.herokuapp.com/api/infotsunami?apikey=Alphabot')
        get_result = ini_result.result
           ini_txt = `INFO TSUNAMI TERKINI
   
   `
-          ini_txt += `tangal : ${get_result.tangal}\n`
+          ini_txt += `tanggal : ${get_result.tangal}\n`
           ini_txt += `lokasi : ${get_result.lokasi}\n`
           ini_txt += `magnitude : ${get_result.magnitude}\n`
           ini_txt += `kedalaman : ${get_result.kedalaman}\n`
           ini_txt += `wilayah : ${get_result.wilayah}`
+       reply (ini_txt)
+       break
+          case 'infogempa':
+       ini_result = await fetchJson('https://ronove-bot-api.herokuapp.com/api/infogempa?apikey=Alphabot')
+       get_result = ini_result.result
+          ini_txt = `INFO GEMPA TERKINI
+  
+  `
+          ini_txt += `Waktu : ${get_result.Waktu}\n`
+          ini_txt += `Lintang : ${get_result.Lintang}\n`
+          ini_txt += `Bujur : ${get_result.Bujur}\n`
+          ini_txt += `Magnitudo : ${get_result.Magnitudo}\n`
+          ini_txt += `Kedalaman : ${get_result.Kedalaman}\n`
+          ini_txt += `Wilayah : ${get_result.Wilayah}`
        reply (ini_txt)
        break
 case 'cecan':
@@ -2993,7 +2994,7 @@ case 'cecan':
       console.error(err)
       reply(`${err}`)
 })
-      break
+break
        case 'loliv':
        case 'lolivid':
        case 'lolivideo':
@@ -3008,6 +3009,7 @@ case 'cecan':
               console.error(err)
               reply(`${err}`)
 })
+break
 case 'nhentai':
 if (args.length < 1) return reply("Where's the nuklir bro")
 anu = await fetchJson(`https://api-yogipw.herokuapp.com/api/nhentaidownloader?kode=${args[0]}`)
@@ -4425,6 +4427,13 @@ case 'ceritahoror':
                      break 
                      
 //========== [ Quotes ] ==========
+case 'quotesanime':
+       quotes = await fetchJson(`https://api-senku.herokuapp.com/api/qanime?apikey=SenkuApi`)
+       quotes = quotes.result
+       author = quotes.by
+       quotes = quotes.quote
+       reply(`${quotes}\n\n― ${author}`)
+       break
      case 'quotes':
                     quotes = await fetchJson(`https://api.lolhuman.xyz/api/random/quotes?apikey=${setting.lolkey}`)
                     quotes = quotes.result
@@ -4432,7 +4441,7 @@ case 'ceritahoror':
                     quotes = quotes.quote
                     reply(`_${quotes}_\n\n*― ${author}*`)
                     break
-                case 'quotesanime':
+                case 'animequotes':
                     quotes = await fetchJson(`https://api.lolhuman.xyz/api/random/quotesnime?apikey=${setting.lolkey}`)
                     quotes = quotes.result
                     quote = quotes.quote
