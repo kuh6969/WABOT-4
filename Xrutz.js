@@ -56,7 +56,7 @@ const timeWit = moment().tz('Asia/Jayapura').format('DD/MM HH:mm:ss')
 const Exif = require('./lib/exif');
 const exif = new Exif();
 
-const { wibuMenu, downloadMenu, infoMenu, gameMenu, groupMenu, funMenu, ownerMenu, stickerMenu, otherMenu, rulesBot, islamMenu, sertiMenu, ceritaMenu, makerMenu, toolsMenu, regisTered} = require('./message/help.js')
+const { kristenMenu,wibuMenu, downloadMenu, infoMenu, gameMenu, groupMenu, funMenu, ownerMenu, stickerMenu, otherMenu, rulesBot, islamMenu, sertiMenu, ceritaMenu, makerMenu, toolsMenu, regisTered} = require('./message/help.js')
 const { getBuffer, getGroupAdmins, getRandom, runtime, sleep } = require('./lib/myfunc')
 const { fetchJson, getBase64, kyun, createExif } = require('./lib/fetch')
 const { color, bgcolor } = require('./lib/color')
@@ -1062,8 +1062,8 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤
         case 'command':
         if (isBanned) return reply(mess.ban)
         list = []
-        listmenu = [`groupmenu`,`stickermenu`,`wibumenu`,`downloadmenu`,`islammenu`,`sertimenu`,`ceritamenu`,`makermenu`,`ownermenu`,`gamemenu`,`funmenu`,`infomenu`,`toolsmenu`,`othermenu`]
-        listmenuu = [`Menu Group`,`Menu Sticker`,`Menu Wibu`,`Menu Download`,`Menu Islam`,`Menu Sertifikat`,`Menu Cerita`,`Menu Maker`,`Menu Owner`,`Menu Game`,`Menu Fun`,`Menu Info`,`Menu Tools`,`Menu Lainnya`]
+        listmenu = [`groupmenu`,`stickermenu`,`wibumenu`,`downloadmenu`,`islammenu`,`kristenmenu`,`sertimenu`,`ceritamenu`,`makermenu`,`ownermenu`,`gamemenu`,`funmenu`,`infomenu`,`toolsmenu`,`othermenu`]
+        listmenuu = [`Menu Group`,`Menu Sticker`,`Menu Wibu`,`Menu Download`,`Menu Islam`,`Menu Kristen`,`Menu Sertifikat`,`Menu Cerita`,`Menu Maker`,`Menu Owner`,`Menu Game`,`Menu Fun`,`Menu Info`,`Menu Tools`,`Menu Lainnya`]
         nombor = 1
         startnum = 0
         for (let x of listmenu) {
@@ -1892,24 +1892,24 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
 }
               gameAdd(sender, glimit)
               break
-       case 'caklontong':
+case 'caklontong':
        if (isBanned) return reply(mess.ban)
-
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (caklontong.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://lolhuman.herokuapp.com/api/tebak/caklontong2?apikey=${setting.lolkey}`)
+              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/caklontong`)
               get_result = get_result.result
-              jawaban = get_result.answer
+              jawaban = get_result.jawaban
+              desc = get_result.desc
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
-              pertanyaan = get_result.question
+              pertanyaan = get_result.soal
               Xrutz.sendMessage(from, '*+* ```Caklontong```\n\n• *soal* :'+pertanyaan+'\n• *kisi²* :'+kisi_kisi, text, { quoted: mek}).then(() => {
               caklontong[sender.split('@')[0]] = jawaban.toLowerCase()
               fs.writeFileSync("./database/caklontong.json", JSON.stringify(caklontong))
 })
-              await sleep(30000)
+              await sleep(60000)
               if (caklontong.hasOwnProperty(sender.split('@')[0])) {
-              console.log(color("Jawaban: " + jawaban))
-              reply("Jawaban: " + jawaban)
+              console.log(color(jawaban + desc))
+              reply('*+* ```JAWABAN CAK LONTONG```\n\n• *jawaban* :'+jawaban+'\n• *Penjelasan* :'+desc, text)
               delete caklontong[sender.split('@')[0]]
               fs.writeFileSync("./database/caklontong.json", JSON.stringify(caklontong))
 }
@@ -4387,14 +4387,22 @@ case 'alquran':
                     ini_txt = ini_txt.replace(/<u>/g, "").replace(/<\/u>/g, "")
                     reply(ini_txt)
                     break
-case 'asmaulhusna':
-                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/asmaulhusna?apikey=${setting.lolkey}`)
+case 'doaharian':
+                    get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/doa-harian?apikey=f6921005b1a75905c12a`)
                     get_result = get_result.result
-                    ini_txt = `No : ${get_result.index}\n`
+                    ini_txt = `No : ${get_result.urutan}\n`
                     ini_txt += `Latin: ${get_result.latin}\n`
-                    ini_txt += `Arab : ${get_result.ar}\n`
-                    ini_txt += `Indonesia : ${get_result.id}\n`
-                    ini_txt += `English : ${get_result.en}`
+                    ini_txt += `Arab : ${get_result.arab}\n`
+                    ini_txt += `Indonesia : ${get_result.arti}\n`
+                    reply(ini_txt)
+                    break
+case 'asmaulhusna':
+                    get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/asmaulhusna?apikey=f6921005b1a75905c12a`)
+                    get_result = get_result.result
+                    ini_txt = `No : ${get_result.urutan}\n`
+                    ini_txt += `Latin: ${get_result.latin}\n`
+                    ini_txt += `Arab : ${get_result.arab}\n`
+                    ini_txt += `Indonesia : ${get_result.arti}\n`
                     reply(ini_txt)
                     break
  case 'alquranaudio':
@@ -4403,6 +4411,22 @@ case 'asmaulhusna':
                     ini_buffer = await getBuffer(`http://api.lolhuman.xyz/api/quran/audio/${surah}?apikey=${setting.lolkey}`)
                     Xrutz.sendMessage(from, ini_buffer, audio, { quoted: mek, mimetype: Mimetype.mp4Audio })      
                     break                                         
+//========== [ Kristen Menu ] ==========
+case 'alkitab':
+                     get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/alkitab-search?keyword=allah&apikey=f6921005b1a75905c12a`)
+                     get_result = get_result.result
+                    ini_txt = `Title : ${get_result.data_title}\n`
+                    ini_txt += `Url: ${get_result.url}\n`
+                    ini_txt += `Deskripsi : ${get_result.desc}\n`
+                     reply(ini_txt)
+                    break       
+case 'bacaharian':
+                     get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/alkitab-bacaharian?apikey=f6921005b1a75905c12a`)
+                     get_result = get.yohanes-7
+                    ini_txt = `Liner : ${get_result.data_liner}\n`
+                    ini_txt += `Text: ${get_result.data_text}\n`
+                     reply(ini_txt)
+                    break
 //========== [ Serti Menu ] ==========
 case 'sertitolol': 				
 				if (args.length < 1) return reply(`Textnya Mana Cuy?\n*Contoh ${prefix}tololserti KURR GAMTENG`)
@@ -4708,6 +4732,9 @@ await Xrutz.sendMessage(from, buttnasu, MessageType.buttonsMessage, {sendEphemer
              break
        case 'wibumenu':
               Xrutz.sendMessage(from, wibuMenu(prefix), MessageType.text, {quoted: faketroli})
+              break
+       case 'kristenmenu':
+              Xrutz.sendMessage(from, kristenMenu(prefix), MessageType.text, {quoted: faketroli})
               break
 
 default:
