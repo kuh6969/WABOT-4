@@ -56,7 +56,7 @@ const timeWit = moment().tz('Asia/Jayapura').format('DD/MM HH:mm:ss')
 const Exif = require('./lib/exif');
 const exif = new Exif();
 
-const { kristenMenu,wibuMenu, downloadMenu, infoMenu, gameMenu, groupMenu, funMenu, ownerMenu, stickerMenu, otherMenu, rulesBot, islamMenu, sertiMenu, ceritaMenu, makerMenu, toolsMenu, regisTered} = require('./message/help.js')
+const { stalkMenu, kristenMenu,wibuMenu, downloadMenu, infoMenu, gameMenu, groupMenu, funMenu, ownerMenu, stickerMenu, otherMenu, rulesBot, islamMenu, sertiMenu, ceritaMenu, makerMenu, toolsMenu, regisTered} = require('./message/help.js')
 const { getBuffer, getGroupAdmins, getRandom, runtime, sleep } = require('./lib/myfunc')
 const { fetchJson, getBase64, kyun, createExif } = require('./lib/fetch')
 const { color, bgcolor } = require('./lib/color')
@@ -1062,8 +1062,8 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤
         case 'command':
         if (isBanned) return reply(mess.ban)
         list = []
-        listmenu = [`groupmenu`,`stickermenu`,`wibumenu`,`downloadmenu`,`islammenu`,`kristenmenu`,`sertimenu`,`ceritamenu`,`makermenu`,`ownermenu`,`gamemenu`,`funmenu`,`infomenu`,`toolsmenu`,`othermenu`]
-        listmenuu = [`Menu Group`,`Menu Sticker`,`Menu Wibu`,`Menu Download`,`Menu Islam`,`Menu Kristen`,`Menu Sertifikat`,`Menu Cerita`,`Menu Maker`,`Menu Owner`,`Menu Game`,`Menu Fun`,`Menu Info`,`Menu Tools`,`Menu Lainnya`]
+        listmenu = [`groupmenu`,`stickermenu`,`wibumenu`,`downloadmenu`,`islammenu`,`kristenmenu`,`stalkmenu`,`sertimenu`,`ceritamenu`,`makermenu`,`ownermenu`,`gamemenu`,`funmenu`,`infomenu`,`toolsmenu`,`othermenu`]
+        listmenuu = [`Menu Group`,`Menu Sticker`,`Menu Wibu`,`Menu Download`,`Menu Islam`,`Menu Kristen`,`Menu Stalking`,`Menu Sertifikat`,`Menu Cerita`,`Menu Maker`,`Menu Owner`,`Menu Game`,`Menu Fun`,`Menu Info`,`Menu Tools`,`Menu Lainnya`]
         nombor = 1
         startnum = 0
         for (let x of listmenu) {
@@ -1894,7 +1894,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
               break
 case 'caklontong':
        if (isBanned) return reply(mess.ban)
-              if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
+              if (isGame(sender, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (caklontong.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
               get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/caklontong`)
               get_result = get_result.result
@@ -2757,91 +2757,75 @@ a += `*き⃟🦈 Title : ${i.title}*
 }
               break
 //------------------< Stalk >-------------------
-      case 'stalkgithub':
+case 'stalkgithub':
       case 'githubstalk':
-              if (args.length == 0) return reply(`Example: ${prefix + command} Xrutz-chan02`)
-              reply(mess.wait)
+              if (args.length == 0) return reply(`Example: ${prefix + command} ramadhankukuh`)
               username = args[0]
-              ini_result = await fetchJson(`https://api.lolhuman.xyz/api/github/${username}?apikey=${setting.lolkey}`)
-              ini_result = ini_result.result
-              ini_buffer = await getBuffer(ini_result.avatar)
-              ini_txt = `┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
-┆ *GITHUB USER*
-└┈┈┈┈┈┈┈┈┈┈┈⌣ ┈̥-̶̯͡..̷̴✽̶⌣ ✽̶
+              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/stalkgithub?username=${username}`)
+              ini_result = get_result.result
+              ini_buffer = await getBuffer(ini_result.avatar_url)
+              ini_txt = `『 *GITHUB PROFILE* 』
 
 *Data Berhasil Didapatkan!*
-*き⃟🦈 Username : ${ini_result.name}*
-*き⃟🦈 Public Repo : ${ini_result.public_repos}*
-*き⃟🦈 Public Gists : ${ini_result.public_gists}*
-*き⃟🦈 Pengikut : ${ini_result.followers}*
-*き⃟🦈 Following : ${ini_result.following}*
-*き⃟🦈 Mengikuti : ${ini_result.bio}*
-*き⃟🦈 Link : ${ini_result.url}*
+➤ *Username :* ${ini_result.login}
+➤ *Nama :* ${ini_result.name}
+➤ *Type :* ${ini_result.type}
+➤ *Blog :* ${ini_result.blog}
+➤ *Jumlah Public Repo :* ${ini_result.public_repos}
+➤ *Jumlah Public Git :* ${ini_result.public_gists}
+➤ *Jumlah Followers :* ${ini_result.followers}
+➤ *Jumlah Following :* ${ini_result.following}
+➤ *Akun Dibuat :* ${ini_result.created_at}
+➤ *Link :* https://github.com/${ini_result.login}
 `
-             Xrutz.sendMessage(from, ini_buffer, image, { caption: ini_txt, thumbnail: Buffer.alloc(0) })
-             break
+                                  Xrutz.sendMessage(from, ini_buffer, image, { caption: ini_txt, thumbnail: Buffer.alloc(0) })
+                                   break
       case 'stalkig':
-      case 'igstalk':
-             if (args.length == 0) return reply(`Example: ${prefix + command} Xrutz.chan26`)
-             reply(mess.wait)
-             username = args[0]
-             ini_result = await fetchJson(`https://api.lolhuman.xyz/api/stalkig/${username}?apikey=${setting.lolkey}`)
-             ini_result = ini_result.result
-             ini_buffer = await getBuffer(ini_result.photo_profile)
-             ini_txt = `┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
-┆ *INSTAGRAM PROFILE*
-└┈┈┈┈┈┈┈┈┈┈┈⌣ ┈̥-̶̯͡..̷̴✽̶⌣ ✽̶
+case 'igstalk':
+                     if (args.length == 0) return reply(`Example: ${prefix + command} ramadhankukuh`)
+                     username = args[0]
+                     ini_result = await fetchJson(`https://api.dhnjing.xyz/api/stalk/instagram?user=${username}&apikey=f6921005b1a75905c12a`)
+                     ini_result = ini_result.result
+                     ini_followers = ini_result.edge_followed_by
+                     ini_follow = ini_result.edge_follow
+                     ini_buffer = await getBuffer(ini_result.profile_pic_url_hd)
+                     ini_txt = `『 *INSTAGRAM PROFILE* 』
 
 *Data Berhasil Didapatkan!*
-*き⃟🦈 Username : ${ini_result.username}*
-*き⃟🦈 Nama : ${ini_result.fullname}*
-*き⃟🦈 Pengikut : ${ini_result.followers}*
-*き⃟🦈 Mengikuti : ${ini_result.following}*
-*き⃟🦈 Deskripsi : ${ini_result.bio}*
-*き⃟🦈 Link : https://instagram.com/${ini_result.username}*
-`
-             Xrutz.sendMessage(from, ini_buffer, image, { caption: ini_txt, thumbnail: Buffer.alloc(0) })
-             break
+➤ *Username :* ${ini_result.username}
+➤ *Nama :* ${ini_result.full_name}
+➤ *Bio :* ${ini_result.biography}
+➤ *Followers :* ${ini_followers.count}
+➤ *Following :* ${ini_follow.count}
+➤ *Akun Private :* ${ini_result.is_private}
+➤ *Akun Verified :* ${ini_result.is_verified}
+➤ *Link :* https://instagram.com/${ini_result.username}
+        `
+                    Xrutz.sendMessage(from, ini_buffer, image, { caption: ini_txt, thumbnail: Buffer.alloc(0) })
+                     break
       case 'stalktiktok':
-      case 'tiktokstalk':
-             if (args.length == 0) return reply(`Example: ${prefix + command} marz.hiatus`)
-             reply(mess.wait)
-             stalk_toktok = args[0]
-             get_result = await fetchJson(`http://lolhuman.herokuapp.com/api/stalktiktok/${stalk_toktok}?apikey=${setting.lolkey}`)
-             get_result = get_result.result
-             pp_tt = await getBuffer(get_result.user_picture)
-             ini_txt = `┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
-┆ *TIKTOK PROFILE*
-└┈┈┈┈┈┈┈┈┈┈┈⌣ ┈̥-̶̯͡..̷̴✽̶⌣ ✽̶
-
+case 'tiktokstalk':
+              if (args.length == 0) return reply(`Example: ${prefix + command} kukuh6969`)
+              stalk_toktok = args[0]
+              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/stalktiktok?username=${stalk_toktok}`)
+              ini_user = get_result.result.user
+              ini_fllws = get_result.result.stats
+              ini_buffer = await getBuffer(ini_user.avatarThumb)
+              ini_txt = `『 *TIKTOK PROFILE* 』
+ 
 *Data Berhasil Didapatkan!*
-*き⃟🦈 Username : ${get_result.username}*
-*き⃟🦈 Nama : ${get_result.nickname}*
-*き⃟🦈 Pengikut : ${get_result.followers}*
-*き⃟🦈 Mengikuti : ${get_result.followings}*
-*き⃟🦈 Likes : ${get_result.likes}*
-*き⃟🦈 Video : ${get_result.video}*
-*き⃟🦈 Deskripsi : ${get_result.bio}*
-`
-              Xrutz.sendMessage(from, pp_tt, image, { quoted: mek, caption: ini_txt, thumbnail: Buffer.alloc(0) })
-              break
-       case 'iguser':
-              try {
-              if (args.length == 0) return reply(`Kirim perintah *${prefix}iguser [ username ]*\nContoh : ${prefix}iguser jessnolimit`)
-              query = args.join(" ")
-              reply(mess.wait)
-              get_result = await fetchJson(`https://api.zeks.xyz/api/iguser?apikey=${setting.zekskey}&q=${query}`)
-              get_result = get_result.result
-              teks = `*「 INSTAGRAM USER 」*\n\n*Hasil Pencarian : ${query}*\n\n`
-              for(let i = 0; i < get_result.length; i++) {
-              teks += `*Username* : ${get_result[i].username}\n*Full name*: ${get_result[i].full_name}\n*Akun private* : ${get_result[i].private_user}\n*Verified*: ${get_result[i].verified_user}\n*Link*: https://instagram.com/${get_result[i].username}\n\n`
-}
-              ini_buffer = await getBuffer(get_result[0].profile_pic)
-              Xrutz.sendMessage(from, ini_buffer, image, { quoted: mek, caption: teks })
-              } catch {
-              reply(`Maaf username ${query} tidak ditemukan`)
-}
-              break
+➤ *Username :* ${ini_user.uniqueId}
+➤ *Nama :* ${ini_user.nickname}
+➤ *Bio :* ${ini_user.signature}
+➤ *Followers :* ${ini_result.followerCount}
+➤ *Following :* ${ini_fllws.followingCount}
+➤ *Jumlah Like :* ${ini_fllws.heartCount}
+➤ *Jumlah Video :* ${ini_fllws.videoCount}
+➤ *Akun Private :* ${ini_fllws.privateAccount}
+➤ *Akun Verified :* ${ini_user.verified}
+➤ *Link :* https://tiktok.com/${ini_user.uniqueId}`
+                                  Xrutz.sendMessage(from, ini_buffer, image, { caption: ini_txt, thumbnail: Buffer.alloc(0) })
+                                   break
         
 case 'ffstalk':
 if (args.length == 0) return reply(`Idnya mana kak?`)
@@ -4735,6 +4719,9 @@ await Xrutz.sendMessage(from, buttnasu, MessageType.buttonsMessage, {sendEphemer
               break
        case 'kristenmenu':
               Xrutz.sendMessage(from, kristenMenu(prefix), MessageType.text, {quoted: faketroli})
+              break
+       case 'stalkmenu':
+              Xrutz.sendMessage(from, stalkMenu(prefix), MessageType.text, {quoted: faketroli})
               break
 
 default:
