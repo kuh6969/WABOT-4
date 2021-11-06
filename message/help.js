@@ -64,6 +64,16 @@ exports.wibuMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
 ▢ ${prefix}nhentai2 _code_
 `
 }
+exports.kristenMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
+    return `*「 KRISTEN MENU 」*
+*Username :* ${pushname}
+*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
+*Info Baterai :* ${baterai}%
+
+▢ ${prefix}alkitab
+▢ ${prefix}bacaharian
+`
+}
 exports.otherMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
     return `*「 OTHER MENU 」*
 *Username :* ${pushname}
@@ -81,14 +91,21 @@ exports.otherMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
 ▢ ${prefix}image _query_
 ▢ ${prefix}pinterest _query_
 ▢ ${prefix}nulis
-▢ ${prefix}igstalk
-▢ ${prefix}iguser
-▢ ${prefix}githubstalk
-▢ ${prefix}tiktokstalk
 ▢ ${prefix}img2url _reply image_
 ▢ ${prefix}ytsearch _query_
 ▢ ${prefix}infogempa
 ▢ ${prefix}infotsunami
+`
+}
+exports.stalkMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
+    return `*「 OTHER MENU 」*
+*Username :* ${pushname}
+*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
+*Info Baterai :* ${baterai}%
+
+▢ ${prefix}igstalk _username_
+▢ ${prefix}tiktokstalk _username_
+▢ ${prefix}githubstalk _username_
 `
 }
 exports.stickerMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
