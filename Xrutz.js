@@ -1600,13 +1600,14 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
               gameAdd(sender, glimit)
               break
        case 'family100':
+       case 'f100':
        if (isBanned) return reply(mess.ban)
 
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (game.isfam(from, family100)) return reply(`Masih ada soal yang belum di selesaikan`)
-              anu = await axios.get(`http://api.lolhuman.xyz/api/tebak/family100?apikey=${setting.lolkey}`)
-              reply(`*JAWABLAH SOAL BERIKUT*\n\n*Soal :* ${anu.data.result.question}\n*Total Jawaban :* ${anu.data.result.aswer.length}\n\nWaktu : ${gamewaktu}s`)
-              let anoh = anu.data.result.aswer
+              anu = await axios.get(`https://velgrynd.herokuapp.com/api/family100`)
+              reply(`*JAWABLAH SOAL BERIKUT*\n\n*Soal :* ${anu.data.result.question}\n*Total Jawaban :* ${anu.data.result.answer.length}\n\nWaktu : ${gamewaktu}s`)
+              let anoh = anu.data.result.answer
               let rgfds = []
               for (let i of anoh){
               let fefs = i.split('/') ? i.split('/')[0] : i
@@ -1618,6 +1619,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
               gameAdd(sender, glimit)
               break
        case 'tebakanime':
+       case 'ta':
        if (isBanned) return reply(mess.ban)
 
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
@@ -1642,6 +1644,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
               gameAdd(sender, glimit)
               break
        case 'tebaklagu':
+       case 'tlu':
        if (isBanned) return reply(mess.ban)
 
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
@@ -1667,14 +1670,15 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
               gameAdd(sender, glimit)
               break
        case 'tebaktebakan':
+       case 'ttn':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebaktebakan.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.xteam.xyz/game/tebaktebakan?APIKEY=${setting.xteamkey}`)
+              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/tebakan`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
               pertanyaan = get_result.soal
-              Xrutz.sendMessage(from, '*+* ```Tebak Tebakan```\n\n• *soal* :'+pertanyaan+'\n• *kisi²* :'+kisi_kisi, text, { quoted: mek}).then(() => {
+              Xrutz.sendMessage(from, '*+* ```Tebak Tebakan```\n\n• *soal* :'+pertanyaan+'\n• *kisi²* :'+kisi_kisi+'\n\n• *Waktu :* 30s', text, { quoted: mek}).then(() => {
               tebaktebakan[sender.split('@')[0]] = jawaban.toLowerCase()
               fs.writeFileSync("./database/tebaktebakan.json", JSON.stringify(tebaktebakan))
 })
@@ -1688,6 +1692,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
               gameAdd(sender, glimit)
               break
        case 'kuismath':
+       case 'km':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (kuismath.hasOwnProperty(sender.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
               get_result = await fetchJson(`https://api-yogipw.herokuapp.com/api/kuis/math`)
@@ -1708,13 +1713,14 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
               gameAdd(sender, glimit)
               break
        case 'tebakgambar':
+       case 'tg':
               if (tebakgambar.hasOwnProperty(sender.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
-              get_result = await fetchJson(`http://zekais-api.herokuapp.com/tebakgambar`)
+              get_result = await fetchJson(`https://zekais-api.herokuapp.com/tebakgambar`)
               ini_image = get_result.soal
               jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
               ini_buffer = await getBuffer(ini_image)
-              Xrutz.sendMessage(from, ini_buffer, image, { quoted: mek, caption: 'Silahkan jawab soal berikut ini\n\nPetunjuk :'+kisi_kisi+'\nWaktu : 30s' }).then(() => {
+              Xrutz.sendMessage(from, ini_buffer, image, { quoted: mek, caption: 'Silahkan jawab soal berikut ini\n\nPetunjuk :'+kisi_kisi+'\n\nWaktu : 30s' }).then(() => {
               tebakgambar[sender.split('@')[0]] = jawaban.toLowerCase()
               fs.writeFileSync("./database/tebakgambar.json", JSON.stringify(tebakgambar))
 })
@@ -1727,15 +1733,16 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
 }
               gameAdd(sender, glimit)
               break
-       case 'siapaaku':
+       case 'tebaksiapaaku':
+       case 'sa':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebaksiapaaku.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://lolhuman.herokuapp.com/api/tebak/siapaaku?apikey=${setting.lolkey}`)
+              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/siapakahaku`)
               get_result = get_result.result
-              jawaban = get_result.answer
+              jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
-              pertanyaan = get_result.question
-              Xrutz.sendMessage(from, '*+* ```Tebak Siapakah Aku```\n\n• *soal* :'+pertanyaan+'\n• *kisi²* :'+kisi_kisi, text, { quoted: mek}).then(() => {
+              pertanyaan = get_result.soal
+              Xrutz.sendMessage(from, '*+* ```Tebak Siapakah Aku```\n\n• *soal* :'+pertanyaan+'\n• *kisi²* :'+kisi_kisi+'\n\n• *Waktu :* 30s', text, { quoted: mek}).then(() => {
               tebaksiapaaku[sender.split('@')[0]] = jawaban.toLowerCase()
               fs.writeFileSync("./database/tebaksiapaaku.json", JSON.stringify(tebaksiapaaku))
 })
@@ -1749,12 +1756,13 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
               gameAdd(sender, glimit)
               break
        case 'tebakkata':
+       case 'tk':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakata.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://lolhuman.herokuapp.com/api/tebak/kata?apikey=${setting.lolkey}`)
+              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/kata`)
               get_result = get_result.result
               jawaban = get_result.jawaban
-              pertanyaan = get_result.pertanyaan
+              pertanyaan = get_result.soal
               Xrutz.sendMessage(from, '*+* ```Tebak Kata```\n\n• *Soal* :'+pertanyaan+'\n• *Waktu :* 30s', text, { quoted: mek}).then(() => {
               tebakata[sender.split('@')[0]] = jawaban.toLowerCase()
               fs.writeFileSync("./database/tebakata.json", JSON.stringify(tebakata))
@@ -1833,12 +1841,11 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tebakbendera':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakbendera.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://lolhuman.herokuapp.com/api/tebak/bendera?apikey=${setting.lolkey}`)
+              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/bendera`)
               get_result = get_result.result
-              jawaban = get_result.name
-              kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
-              pertanyaan = get_result.flag
-              Xrutz.sendMessage(from, '*+* ```Tebak Bendera```\n\n• *Bendera* :'+pertanyaan+'\n• *kisi²* :'+kisi_kisi, text, { quoted: mek}).then(() => {
+              jawaban = get_result.nama
+              pertanyaan = get_result.bendera
+              Xrutz.sendMessage(from, '*+* ```Tebak Bendera```\n\n• *Bendera* :'+pertanyaan+'', text, { quoted: mek}).then(() => {
               tebakbendera[sender.split('@')[0]] = jawaban.toLowerCase()
               fs.writeFileSync("./database/tebakbendera.json", JSON.stringify(tebakbendera))
 })
