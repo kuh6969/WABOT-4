@@ -56,7 +56,7 @@ const timeWit = moment().tz('Asia/Jayapura').format('DD/MM HH:mm:ss')
 const Exif = require('./lib/exif');
 const exif = new Exif();
 
-const { stalkMenu, kristenMenu,wibuMenu, downloadMenu, infoMenu, gameMenu, groupMenu, funMenu, ownerMenu, stickerMenu, otherMenu, rulesBot, islamMenu, sertiMenu, ceritaMenu, makerMenu, toolsMenu, regisTered} = require('./message/help.js')
+const { urlMenu, informationMenu, stalkMenu, kristenMenu,wibuMenu, downloadMenu, infoMenu, gameMenu, groupMenu, funMenu, ownerMenu, stickerMenu, otherMenu, rulesBot, islamMenu, sertiMenu, ceritaMenu, makerMenu, toolsMenu, regisTered} = require('./message/help.js')
 const { getBuffer, getGroupAdmins, getRandom, runtime, sleep } = require('./lib/myfunc')
 const { fetchJson, getBase64, kyun, createExif } = require('./lib/fetch')
 const { color, bgcolor } = require('./lib/color')
@@ -241,7 +241,7 @@ module.exports = Xrutz = async (Xrutz, mek) => {
 		const from = mek.key.remoteJid
 		const type = Object.keys(mek.message)[0]        
         const cmd = (type === 'conversation' && mek.message.conversation) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : ''.slice(1).trim().split(/ +/).shift().toLowerCase()
-        const prefix = /^[°•π÷×¶∆£¢€¥®™=|~#%^&.?/\\©^z+*,;]/.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™=|~#%^&.?/\\©^z+*,;]/gi) : '!'
+        const prefix = /^[°•π÷×¶∆£¢€¥®™=|~#%^&.?/\\©^z+*,;]/.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™=|~#%^&.?/\\©^z+*,;]/gi) : '.'
         body = (type === 'conversation' && mek.message.conversation.startsWith(prefix)) ? mek.message.conversation : (type == 'imageMessage') && mek.message[type].caption.startsWith(prefix) ? mek.message[type].caption : (type == 'videoMessage') && mek.message[type].caption.startsWith(prefix) ? mek.message[type].caption : (type == 'extendedTextMessage') && mek.message[type].text.startsWith(prefix) ? mek.message[type].text : (type == 'listResponseMessage') && mek.message[type].singleSelectReply.selectedRowId ? mek.message[type].singleSelectReply.selectedRowId : (type == 'buttonsResponseMessage') && mek.message[type].selectedButtonId ? mek.message[type].selectedButtonId : (type == 'stickerMessage') && (getCmd(mek.message[type].fileSha256.toString('base64')) !== null && getCmd(mek.message[type].fileSha256.toString('base64')) !== undefined) ? getCmd(mek.message[type].fileSha256.toString('base64')) : ""
 		budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
 		const command = body.slice(1).trim().split(/ +/).shift().toLowerCase()		
@@ -546,7 +546,7 @@ const sekarang = new Date().getTime();
 				let d = new Date
 				let locale = 'id'
 				let gmt = new Date(0).getTime() - new Date('1 Januari 2021').getTime()
-				const weton = ['Pahing', 'Pon','Wage','Kliwon','Legi'][Math.floor(((d * 1) + gmt) / 84600000) % 8]
+				const weton = ['Pahing', 'Pon','Wage','Kliwon','Legi'][Math.floor(((d * 1) + gmt) / 84600000) % 5]
 				const week = d.toLocaleDateString(locale, { weekday: 'long' })
 				const calender = d.toLocaleDateString(locale, {
 				day: 'numeric',
@@ -1062,8 +1062,8 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤
         case 'command':
         if (isBanned) return reply(mess.ban)
         list = []
-        listmenu = [`groupmenu`,`stickermenu`,`wibumenu`,`downloadmenu`,`islammenu`,`kristenmenu`,`stalkmenu`,`sertimenu`,`ceritamenu`,`makermenu`,`ownermenu`,`gamemenu`,`funmenu`,`infomenu`,`toolsmenu`,`othermenu`]
-        listmenuu = [`Menu Group`,`Menu Sticker`,`Menu Wibu`,`Menu Download`,`Menu Islam`,`Menu Kristen`,`Menu Stalking`,`Menu Sertifikat`,`Menu Cerita`,`Menu Maker`,`Menu Owner`,`Menu Game`,`Menu Fun`,`Menu Info`,`Menu Tools`,`Menu Lainnya`]
+        listmenu = [`groupmenu`,`stickermenu`,`wibumenu`,`downloadmenu`,`islammenu`,`kristenmenu`,`stalkmenu`,`informationmenu`,`urlmenu`,`sertimenu`,`ceritamenu`,`makermenu`,`ownermenu`,`gamemenu`,`funmenu`,`infomenu`,`toolsmenu`,`othermenu`]
+        listmenuu = [`Menu Group`,`Menu Sticker`,`Menu Wibu`,`Menu Download`,`Menu Islam`,`Menu Kristen`,`Menu Stalking`,`Menu Informasi`,`Menu URL`,`Menu Sertifikat`,`Menu Cerita`,`Menu Maker`,`Menu Owner`,`Menu Game`,`Menu Fun`,`Menu Info`,`Menu Tools`,`Menu Lainnya`]
         nombor = 1
         startnum = 0
         for (let x of listmenu) {
@@ -1777,16 +1777,17 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
               gameAdd(sender, glimit)
               break
        case 'tebaklirik':
+       case 'tli':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebaklirik.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://lolhuman.herokuapp.com/api/tebak/lirik?apikey=${setting.lolkey}`)
+              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/lirik`)
               get_result = get_result.result
               jawaban = get_result.answer
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
               pertanyaan = get_result.question
-              Xrutz.sendMessage(from, '*+* ```Tebak Lirik```\n\n• *Soal* :'+pertanyaan+'\n• *Kisi²* :'+kisi_kisi, text, { quoted: mek}).then(() => {
+              Xrutz.sendMessage(from, '+ Tebak Lirik\n\n• Soal :'+pertanyaan+'\n• Kisi² :'+kisi_kisi+'\n• Waktu : 30s', text, { quoted: mek}).then(() => {
               tebaklirik[sender.split('@')[0]] = jawaban.toLowerCase()
-              fs.writeFileSync("./database/tebaklirik.json", JSON.stringify(tebaklirik))
+               fs.writeFileSync("./database/tebaklirik.json", JSON.stringify(tebaklirik))
 })
               await sleep(30000)
               if (tebaklirik.hasOwnProperty(sender.split('@')[0])) {
@@ -1797,15 +1798,16 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
 }
               gameAdd(sender, glimit)
               break
-      case 'tebakjenaka':
+       case 'tebakjenaka':
+       case 'tj':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakjenaka.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://lolhuman.herokuapp.com/api/tebak/jenaka?apikey=${setting.lolkey}`)
+              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/jenaka`)
               get_result = get_result.result
-              jawaban = get_result.answer
+              jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
-              pertanyaan = get_result.question
-              Xrutz.sendMessage(from, '*+* ```Tebak Jenaka```\n\n• *Soal* :'+pertanyaan+'\n• *Kisi²* :'+kisi_kisi, text, { quoted: mek}).then(() => {
+              pertanyaan = get_result.pertanyaan
+              Xrutz.sendMessage(from, '+ Tebak Jenaka\n\n• Soal :'+pertanyaan+'\n• Kisi² :'+kisi_kisi+'\n• Waktu : 30s', text, { quoted: mek}).then(() => {
               tebakjenaka[sender.split('@')[0]] = jawaban.toLowerCase()
               fs.writeFileSync("./database/tebakjenaka.json", JSON.stringify(tebakjenaka))
 })
@@ -1819,13 +1821,14 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
               gameAdd(sender, glimit)
               break
        case 'kimiakuis':
+       case 'kk':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakimia.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://lolhuman.herokuapp.com/api/tebak/unsurkimia?apikey=${setting.lolkey}`)
+              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/kimia`)
               get_result = get_result.result
               jawaban = get_result.lambang
               pertanyaan = get_result.nama
-              Xrutz.sendMessage(from, '*+* ```Tebak Kimia```\n\n• *Soal* :'+pertanyaan+'\n• *Waktu :* 30s', text, { quoted: mek}).then(() => {
+              Xrutz.sendMessage(from, '+ Tebak Kimia\n\n• Soal :'+pertanyaan+'\n• Waktu : 30s', text, { quoted: mek}).then(() => {
               tebakimia[sender.split('@')[0]] = jawaban.toLowerCase()
               fs.writeFileSync("./database/tebakimia.json", JSON.stringify(tebakimia))
 })
@@ -1859,13 +1862,15 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
               gameAdd(sender, glimit)
               break
        case 'susunkata':
+       case 'sk':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (susunkata.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://lolhuman.herokuapp.com/api/tebak/susunkata?apikey=${setting.lolkey}`)
+              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/susunkata`)
               get_result = get_result.result
               jawaban = get_result.jawaban
-              pertanyaan = get_result.pertanyaan
-              Xrutz.sendMessage(from, '*+* ```Susun Kata```\n\n• *Soal* :'+pertanyaan+'\n• *Waktu :* 30s', text, { quoted: mek}).then(() => {
+              pertanyaan = get_result.soal
+              kisi_kisi = get_result.tipe
+              Xrutz.sendMessage(from, '+ Susun Kata\n\n• Soal :'+pertanyaan+'\n• Tipe :'+kisi_kisi+'\n\n• Waktu : 30s', text, { quoted: mek}).then(() => {
               susunkata[sender.split('@')[0]] = jawaban.toLowerCase()
               fs.writeFileSync("./database/susunkata.json", JSON.stringify(susunkata))
 })
@@ -1879,14 +1884,16 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
               gameAdd(sender, glimit)
               break
        case 'asahotak':
+       case 'ao':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
+              if (isBanned) return reply(mess.ban)
               if (asahotak.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://lolhuman.herokuapp.com/api/tebak/asahotak?apikey=${setting.lolkey}`)
+              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/asahotak`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
-              pertanyaan = get_result.pertanyaan
-              Xrutz.sendMessage(from, '*+* ```Asah Otak```\n\n• *soal* :'+pertanyaan+'\n• *kisi²* :'+kisi_kisi, text, { quoted: mek}).then(() => {
+              pertanyaan = get_result.soal
+              Xrutz.sendMessage(from, '+ Asah Otak\n\n• soal :'+pertanyaan+'\n• kisi² :'+kisi_kisi+'\n\n• Waktu : 30s', text, { quoted: mek}).then(() => {
               asahotak[sender.split('@')[0]] = jawaban.toLowerCase()
               fs.writeFileSync("./database/asahotak.json", JSON.stringify(asahotak))
 })
@@ -1900,6 +1907,8 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
               gameAdd(sender, glimit)
               break
 case 'caklontong':
+case 'cl':
+       if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
        if (isBanned) return reply(mess.ban)
               if (isGame(sender, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (caklontong.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
@@ -1909,14 +1918,14 @@ case 'caklontong':
               desc = get_result.desc
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
               pertanyaan = get_result.soal
-              Xrutz.sendMessage(from, '*+* ```Caklontong```\n\n• *soal* :'+pertanyaan+'\n• *kisi²* :'+kisi_kisi, text, { quoted: mek}).then(() => {
+              Xrutz.sendMessage(from, '*+* ```Caklontong```\n\n• *soal* :'+pertanyaan+'\n• *kisi²* :'+kisi_kisi+'\n\n• Waktu : 30s', text, { quoted: mek}).then(() => {
               caklontong[sender.split('@')[0]] = jawaban.toLowerCase()
               fs.writeFileSync("./database/caklontong.json", JSON.stringify(caklontong))
 })
-              await sleep(60000)
+              await sleep(30000)
               if (caklontong.hasOwnProperty(sender.split('@')[0])) {
               console.log(color(jawaban + desc))
-              reply('*+* ```JAWABAN CAK LONTONG```\n\n• *jawaban* :'+jawaban+'\n• *Penjelasan* :'+desc, text)
+              reply('*+* ```JAWABAN CAK LONTONG```\n\n'+desc, text)
               delete caklontong[sender.split('@')[0]]
               fs.writeFileSync("./database/caklontong.json", JSON.stringify(caklontong))
 }
@@ -2434,6 +2443,31 @@ case 'tiktok':
              ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/ssweb?apikey=${setting.lolkey}&url=${ini_link}`)
              await Xrutz.sendMessage(from, ini_buffer, image, { quoted: mek })
              break
+case 'jarak':
+if (args.length == 0) return reply(`Nama Kotanya Mana kak?\nContoh: ${prefix + command} jakarta - yogyakarta`)
+pauls = args.join(" ")
+teks1 = pauls.split("-")[0].trim()
+teks2 = pauls.split("-")[1].trim()
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/jaraktempuh?apikey=${setting.lolkey}&kota1=${teks1}&kota2=${teks2}`)
+x = get_result.result
+ini_txt = `Informasi Jarak dari ${teks1} ke ${teks2} :\n\n`
+ini_txt += `\`\`\`◪ Asal :\`\`\` ${x.from.name}\n`
+ini_txt += `\`\`\`◪ Garis Lintang :\`\`\` ${x.from.latitude}\n`
+ini_txt += `\`\`\`◪ Garis Bujur :\`\`\` ${x.from.longitude}\n\n`
+ini_txt += `\`\`\`◪ Tujuan :\`\`\` ${x.to.name}\n`
+ini_txt += `\`\`\`◪ Garis Lintang :\`\`\` ${x.to.latitude}\n`
+ini_txt += `\`\`\`◪ Garis Bujur :\`\`\` ${x.to.longitude}\n\n`
+ini_txt += `\`\`\`◪ Jarak Tempuh :\`\`\` ${x.jarak}\n`
+ini_txt += `\`\`\`◪ Waktu Tempuh :\`\`\`\n`
+ini_txt += `   ╭───────────────❏\n`
+ini_txt += `❍┤ Kereta Api : ${x.kereta_api}\n`
+ini_txt += `❍┤ Pesawat : ${x.pesawat}\n`
+ini_txt += `❍┤ Mobil : ${x.mobil}\n`
+ini_txt += `❍┤ Motor : ${x.motor}\n`
+ini_txt += `❍┤ Jalan Kaki : ${x.jalan_kaki}\n`
+ini_txt += `   ╰───────────────❏\n`
+reply(ini_txt)
+break
        
         case 'playy':
         case 'lagu':
@@ -2973,6 +3007,63 @@ case 'infotsunami':
           ini_txt += `Wilayah : ${get_result.Wilayah}`
        reply (ini_txt)
        break
+       case 'jadwaltv':
+if (args.length == 0) return reply(`Nama Channel Nya Apa Kak?\nContoh: ${prefix + command} SCTV`)
+channel = args[0]
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/jadwaltv/${channel}?apikey=${setting.lolkey}`)
+get_result = get_result.result
+ini_txt = `Jadwal TV ${channel.toUpperCase()}\n`
+for (var x in get_result) {
+ini_txt += `${x} - ${get_result[x]}\n`
+}
+reply(ini_txt)
+break
+case 'infogempa2':
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/infogempa?apikey=${setting.lolkey}`)
+get_result = get_result.result
+ini_txt = `Lokasi : ${get_result.lokasi}\n`
+ini_txt += `Waktu : ${get_result.waktu}\n`
+ini_txt += `Potensi : ${get_result.potensi}\n`
+ini_txt += `Magnitude : ${get_result.magnitude}\n`
+ini_txt += `Kedalaman : ${get_result.kedalaman}\n`
+ini_txt += `Koordinat : ${get_result.koordinat}`
+get_buffer = await getBuffer(get_result.map)
+await Xrutz.sendMessage(from, get_buffer, image, { quoted: faketroli, caption: ini_txt })
+break
+case 'cuaca':
+if (args.length == 0) return reply(`Nama Kotanya Apa Kak?\nContoh: ${prefix + command} Semarang`)
+daerah = args[0]
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/cuaca/${daerah}?apikey=${setting.lolkey}`)
+get_result = get_result.result
+ini_txt = `Tempat : ${get_result.tempat}\n`
+ini_txt += `Cuaca : ${get_result.cuaca}\n`
+ini_txt += `Angin : ${get_result.angin}\n`
+ini_txt += `Description : ${get_result.description}\n`
+ini_txt += `Kelembapan : ${get_result.kelembapan}\n`
+ini_txt += `Suhu : ${get_result.suhu}\n`
+ini_txt += `Udara : ${get_result.udara}\n`
+ini_txt += `Permukaan laut : ${get_result.permukaan_laut}\n`
+await Xrutz.sendMessage(from, { degreesLatitude: get_result.latitude, degreesLongitude: get_result.longitude }, location, { quoted: faketroli })
+reply(ini_txt)
+break
+case 'covidindo':
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/corona/indonesia?apikey=${setting.lolkey}`)
+get_result = get_result.result
+ini_txt = `Positif : ${get_result.positif}\n`
+ini_txt += `Sembuh : ${get_result.sembuh}\n`
+ini_txt += `Dirawat : ${get_result.dirawat}\n`
+ini_txt += `Meninggal : ${get_result.meninggal}`
+reply(ini_txt)
+break
+case 'covidglobal':
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/corona/global?apikey=${setting.lolkey}`)
+get_result = get_result.result
+ini_txt = `Positif : ${get_result.positif}\n`
+ini_txt += `Sembuh : ${get_result.sembuh}\n`
+ini_txt += `Dirawat : ${get_result.dirawat}\n`
+ini_txt += `Meninggal : ${get_result.meninggal}`
+reply(ini_txt)
+break
 case 'cecan':
        reply(mess.wait)
       anu = await fetchText('https://raw.githubusercontent.com/FEBIAN66/randomcean/main/cecan.txt')
@@ -3007,6 +3098,143 @@ case 'loliv':
               reply(`${err}`)
 })
 break
+case 'manga':
+       if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
+       reply(mess.wait)
+       query = args.join(" ")
+       get_result = await fetchJson(`https://api.lolhuman.xyz/api/manga?apikey=${setting.lolkey}&query=${query}`)
+       get_result = get_result.result
+       ini_txt = `Id : ${get_result.id}\n`
+       ini_txt += `Id MAL : ${get_result.idMal}\n`
+       ini_txt += `Title : ${get_result.title.romaji}\n`
+       ini_txt += `English : ${get_result.title.english}\n`
+       ini_txt += `Native : ${get_result.title.native}\n`
+       ini_txt += `Format : ${get_result.format}\n`
+       ini_txt += `Chapters : ${get_result.chapters}\n`
+       ini_txt += `Volume : ${get_result.volumes}\n`
+       ini_txt += `Status : ${get_result.status}\n`
+       ini_txt += `Source : ${get_result.source}\n`
+       ini_txt += `Start Date : ${get_result.startDate.day} - ${get_result.startDate.month} - ${get_result.startDate.year}\n`
+       ini_txt += `End Date : ${get_result.endDate.day} - ${get_result.endDate.month} - ${get_result.endDate.year}\n`
+       ini_txt += `Genre : ${get_result.genres.join(", ")}\n`
+       ini_txt += `Synonyms : ${get_result.synonyms.join(", ")}\n`
+       ini_txt += `Score : ${get_result.averageScore}%\n`
+       ini_txt += `Characters : \n`
+       ini_character = get_result.characters.nodes
+       for (var x of ini_character) {
+       ini_txt += `- ${x.name.full} (${x.name.native})\n`
+}
+       ini_txt += `\nDescription : ${get_result.description}`
+       thumbnail = await getBuffer(get_result.coverImage.large)
+       await Xrutz.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })
+       break
+case 'anime':
+      if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
+      reply(mess.wait)
+      query = args.join(" ")
+      get_result = await fetchJson(`https://api.lolhuman.xyz/api/anime?apikey=${setting.lolkey}&query=${query}`)
+      get_result = get_result.result
+      ini_txt = `Id : ${get_result.id}\n`
+      ini_txt += `Id MAL : ${get_result.idMal}\n`
+      ini_txt += `Title : ${get_result.title.romaji}\n`
+      ini_txt += `English : ${get_result.title.english}\n`
+      ini_txt += `Native : ${get_result.title.native}\n`
+      ini_txt += `Format : ${get_result.format}\n`
+      ini_txt += `Episodes : ${get_result.episodes}\n`
+      ini_txt += `Duration : ${get_result.duration} mins.\n`
+      ini_txt += `Status : ${get_result.status}\n`
+      ini_txt += `Season : ${get_result.season}\n`
+      ini_txt += `Season Year : ${get_result.seasonYear}\n`
+      ini_txt += `Source : ${get_result.source}\n`
+      ini_txt += `Start Date : ${get_result.startDate.day} - ${get_result.startDate.month} - ${get_result.startDate.year}\n`
+      ini_txt += `End Date : ${get_result.endDate.day} - ${get_result.endDate.month} - ${get_result.endDate.year}\n`
+      ini_txt += `Genre : ${get_result.genres.join(", ")}\n`
+      ini_txt += `Synonyms : ${get_result.synonyms.join(", ")}\n`
+      ini_txt += `Score : ${get_result.averageScore}%\n`
+      ini_txt += `Characters : \n`
+      ini_character = get_result.characters.nodes
+      for (var x of ini_character) {
+      ini_txt += `- ${x.name.full} (${x.name.native})\n`
+}
+      ini_txt += `\nDescription : ${get_result.description}`
+      thumbnail = await getBuffer(get_result.coverImage.large)
+      await Xrutz.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })
+      break
+case 'kusonime':
+      if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
+      reply(mess.wait)
+      query = args.join(" ")
+      get_result = await fetchJson(`https://api.lolhuman.xyz/api/kusonimesearch?apikey=${setting.lolkey}&query=${query}`)
+      get_result = get_result.result
+      ini_txt = `Title : ${get_result.title}\n`
+      ini_txt += `Japanese : ${get_result.japanese}\n`
+      ini_txt += `Genre : ${get_result.genre}\n`
+      ini_txt += `Seasons : ${get_result.seasons}\n`
+      ini_txt += `Producers : ${get_result.producers}\n`
+      ini_txt += `Type : ${get_result.type}\n`
+      ini_txt += `Status : ${get_result.status}\n`
+      ini_txt += `Total Episode : ${get_result.total_episode}\n`
+      ini_txt += `Score : ${get_result.score}\n`
+      ini_txt += `Duration : ${get_result.duration}\n`
+      ini_txt += `Released On : ${get_result.released_on}\n`
+      ini_txt += `Desc : ${get_result.desc}\n`
+      link_dl = get_result.link_dl
+      for (var x in link_dl) {
+      ini_txt += `\n${x}\n`
+      for (var y in link_dl[x]) {
+      ini_txt += `${y} - ${link_dl[x][y]}\n`
+}
+}
+      ini_buffer = await getBuffer(get_result.thumbnail)
+      await Xrutz.sendMessage(from, ini_buffer, image, { quoted: mek, caption: ini_txt })
+      break
+case 'otakudesu':
+       if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
+       reply(mess.wait)
+       query = args.join(" ")
+       get_result = await fetchJson(`https://api.lolhuman.xyz/api/otakudesusearch?apikey=${setting.lolkey}&query=${query}`)
+       get_result = get_result.result
+       ini_txt = `Title : ${get_result.title}\n`
+       ini_txt += `Japanese : ${get_result.japanese}\n`
+       ini_txt += `Judul : ${get_result.judul}\n`
+       ini_txt += `Type : ${get_result.type}\n`
+       ini_txt += `Episode : ${get_result.episodes}\n`
+       ini_txt += `Aired : ${get_result.aired}\n`
+       ini_txt += `Producers : ${get_result.producers}\n`
+       ini_txt += `Genre : ${get_result.genres}\n`
+       ini_txt += `Duration : ${get_result.duration}\n`
+       ini_txt += `Studios : ${get_result.status}\n`
+       ini_txt += `Rating : ${get_result.rating}\n`
+       ini_txt += `Credit : ${get_result.credit}\n`
+       get_link = get_result.link_dl
+       for (var x in get_link) {
+       ini_txt += `\n\n*${get_link[x].title}*\n`
+       for (var y in get_link[x].link_dl) {
+       ini_info = get_link[x].link_dl[y]
+       ini_txt += `\n\`\`\`Reso : \`\`\`${ini_info.reso}\n`
+       ini_txt += `\`\`\`Size : \`\`\`${ini_info.size}\n`
+       ini_txt += `\`\`\`Link : \`\`\`\n`
+       down_link = ini_info.link_dl
+       for (var z in down_link) {
+       ini_txt += `${z} - ${down_link[z]}\n`
+}
+}
+}
+       reply(ini_txt)
+       break
+case 'nekopoisearch':
+       if (args.length == 0) return reply(`Example: ${prefix + command} Isekai Harem`)
+       query = args.join(" ")
+       get_result = await fetchJson(`https://api.lolhuman.xyz/api/nekopoisearch?apikey=${setting.lolkey}&query=${query}`)
+       get_result = get_result.result
+       ini_txt = ""
+       for (var x of get_result) {
+       ini_txt += `\`\`\`き⃟🦈 Title : ${x.title}\`\`\`\n`
+       ini_txt += `\`\`\`き⃟🦈 Link : ${x.link}\`\`\`\n`
+       ini_txt += `\`\`\`き⃟🦈 Thumbnail : ${x.thumbnail}\`\`\`\n\n`
+}
+       reply(ini_txt)
+       break
 case 'nhentai':
 if (args.length < 1) return reply("Where's the nuklir bro")
 anu = await fetchJson(`https://api-yogipw.herokuapp.com/api/nhentaidownloader?kode=${args[0]}`)
@@ -3021,6 +3249,74 @@ case 'nhentai2':
        ini_buffer = await getBuffer(get_result)
        Xrutz.sendMessage(from, ini_buffer, document, { quoted: mek, mimetype: Mimetype.pdf, filename: `${henid}.pdf` })
        break
+case 'nhentaipdf':
+                
+              if (args.length == 0) return reply(`Usage: ${prefix + command} query\nExample: ${prefix + command} 317986`)
+              if (isNaN(Number(args[0]))) return await reply(mess.wrongFormat)
+              try {
+              henid = args[0]
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/nhentai/${henid}?apikey=${setting.lolkey}`)
+              get_result = get_result.result
+              get_info = get_result.info
+              teks = `\n${get_result.title_romaji}\n\n${get_result.title_native}\n\nCharacter : ${get_info.characters.join(", ")}\n`
+              ini_image = await getBuffer(get_result.image[0])
+              Xrutz.sendMessage(from, ini_image, image, { caption: teks, quoted: mek })
+              anu = await fetchJson(`https://api.lolhuman.xyz/api/nhentaipdf/${henid}?apikey=${setting.lolkey}`)
+              pdf = await getBuffer(anu.result)
+              Xrutz.sendMessage(from, pdf, document, { quoted: mek, mimetype: Mimetype.pdf, filename: `${get_result.title_romaji}.pdf`, thumbnail: ini_image })
+              } catch (e) {
+              console.log(e)
+              reply(String(e))
+ }
+              break
+case 'nhentai3':
+                  if (args.length == 0) return reply(`Example: ${prefix + command} 123456`)
+                  henid = args[0]
+                  get_result = await fetchJson(`https://api.lolhuman.xyz/api/nhentaipdf/${henid}?apikey=${setting.lolkey}`)
+                  get_result = get_result.result
+                  ini_buffer = await getBuffer(get_result)
+                  Xrutz.sendMessage(from, ini_buffer, document, { quoted: mek, mimetype: Mimetype.pdf, filename: `${henid}.pdf` })
+                  break
+                  case 'tinyurl':
+reply(mess.wait)
+if (args.length == 0) return reply(`Format salah! dibutuhkan (${prefix + command} (url with http://)) Example: ${prefix + command} http://panel.vinny.wtf/`)
+short = args.join(" ")
+ini_result = await fetchJson(`http://hadi-api.herokuapp.com/api/tinyurl?url=${short}`,{method:'get'})
+get_result = ini_result.result
+ini_txt = `Tinyurl shortlink`
+ini_txt += `Shortlink : ${get_result}`
+reply (ini_txt)
+break
+case 'bitly':
+reply(mess.wait)
+if (args.length == 0) return reply(`Format salah! dibutuhkan (${prefix + command} (url with http://)) Example: ${prefix + command} http://panel.vinny.wtf/`)
+short = args.join(" ")
+ini_result = await fetchJson(`http://hadi-api.herokuapp.com/api/bitly?url=${short}`,{method:'get'})
+get_result = ini_result.result
+ini_txt = `bitly shortlink`
+ini_txt += `Shortlink : ${get_result}`
+reply (ini_txt)
+break
+case 'shorturl':
+ reply(mess.wait)
+ if (args.length == 0) return reply(`Format salah! dibutuhkan (${prefix + command} (url with http://)) Example: ${prefix + command} http://panel.vinny.wtf/`)
+short = args.join(" ")
+ini_result = await fetchJson(`http://hadi-api.herokuapp.com/api/shorturl?url=${short}`,{method:'get'})
+get_result = ini_result.result
+ini_txt = `shorturl shortlink`
+ini_txt += `Shortlink : ${get_result}`
+reply (ini_txt)
+break
+case 'cuttly':
+reply(mess.wait)
+if (args.length == 0) return reply(`Format salah! dibutuhkan (${prefix + command} (url with http://)) Example: ${prefix + command} http://panel.vinny.wtf/`)
+short = args.join(" ")
+ini_result = await fetchJson(`http://hadi-api.herokuapp.com/api/cuttly?url=${short}`,{method:'get'})
+get_result = ini_result.result
+ini_txt = `cuttly shortlink`
+ini_txt += `Shortlink : ${get_result}`
+reply (ini_txt)
+break 
               case 'loli':
               case 'husbu':
               case 'milf':
@@ -3931,6 +4227,9 @@ case 'linkgc':
               reply('Byee...')
               }, 0)
               break
+       case 'pa':
+                     reply('Pengertian API – merupakan singkatan dari application programming interface. Sistem API inilah yang nanti akan memungkinkan dua atau lebih aplikasi berbeda untuk dapat bekomunikasi antara satu dengan yang lainnya. Kalau kalian pernah menggunakan facebook, maka semua aplikasi luar yang dapat terhubung dengan akun, fanpage, atau game facebook itu semua menggunakan API Key. Sama halnya ketika kalian menekan tombol share to facebook atau tweet this post, nah itu juga membutuhkan API. Begitu pula kalau kalian menekan tombol LIKE Fanpage Facebook di website, nah itu pun juga sama. Itu baru tentang facebook, bagaimana dengan pertemuan aplikasi lintas sistem operasi? Misalnya kalian menggunakan aplikasi teamviewer, kalian buka di komputer windows, lalu mencoba untuk remote control sebuah macbook yang menggunakan sistem operasi macosx. Ternyata kedua aplikasi tersebut dapat terhubung dengan baik. Nah hal itu hanya mungkin terjadi karena adanya sistem Application Programming Interface.\n\n*INTINYA APIKEY ITU GAK GRATIS. JIKA MASA BERLAKU API SUDAH HABIS MAKA BEBERAPA FITUR AKAN ERROR*')
+                     break
        case 'online':
        case 'listonline':
        case 'here':                
@@ -4729,6 +5028,12 @@ await Xrutz.sendMessage(from, buttnasu, MessageType.buttonsMessage, {sendEphemer
               break
        case 'stalkmenu':
               Xrutz.sendMessage(from, stalkMenu(prefix), MessageType.text, {quoted: faketroli})
+              break
+       case 'urlmenu':
+               Xrutz.sendMessage(from, urlMenu(prefix), MessageType.text, {quoted: faketroli})
+              break
+       case 'informationmenu':
+              Xrutz.sendMessage(from, informationMenu(prefix), MessageType.text, {quoted: faketroli})
               break
 
 default:
