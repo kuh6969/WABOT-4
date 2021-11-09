@@ -1,10 +1,8 @@
-exports.gameMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
-    return `*「 MENU GAME 」*
-*Username :* ${pushname}
-*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
-*Info Baterai :* ${baterai}%
+exports.gameMenu = (prefix) => {
 
-BEBERAPA MASIH BUG SISANYA SY FIX MALAM🗿
+    return `*「 MENU GAME 」*
+*BEBERAPA ERROR KARNA APIKEY*
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
 
 〆 *Command :* ${prefix}limitgame
 〆 *Deskripsi :* Limit Game Kamu
@@ -65,11 +63,10 @@ BEBERAPA MASIH BUG SISANYA SY FIX MALAM🗿
 
 `
 }
-exports.funMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
+exports.funMenu = (prefix) => {
     return `*「 FUN MENU 」*
-*Username :* ${pushname}
-*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
-*Info Baterai :* ${baterai}%
+*BEBERAPA ERROR KARNA APIKEY*
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
 
 〆 ${prefix}mining
 〆 ${prefix}cekwatak _nama_
@@ -85,11 +82,10 @@ exports.funMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
 〆 ${prefix}rate
 `
 }
-exports.wibuMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
+exports.wibuMenu = (prefix) => {
     return `*「 WIBU MENU 」*
-*Username :* ${pushname}
-*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
-*Info Baterai :* ${baterai}%
+*BEBERAPA ERROR KARNA APIKEY*
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
 
 〆 ${prefix}loli
 〆 ${prefix}lolivideo [ERROR]
@@ -100,25 +96,40 @@ exports.wibuMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
 〆 ${prefix}waifu
 〆 ${prefix}quotesanime
 〆 ${prefix}animequotes
+〆 ${prefix}manga _query_
+〆 ${prefix}kusonime _query_
+〆 ${prefix}anime _query_
+〆 ${prefix}nekopoisearch _query_
 〆 ${prefix}nhentai _code_
 〆 ${prefix}nhentai2 _code_
+〆 ${prefix}nhentai3 _code_
+〆 ${prefix}nhentaipdf _code_
 `
 }
-exports.kristenMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
+exports.urlMenu = (prefix) => {
+    return `*「 URLMENU 」*
+*BEBERAPA ERROR KARNA APIKEY*
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
+
+〆 ${prefix}tinyurl _url_
+〆 ${prefix}bitly _url_
+〆 ${prefix}shorturl _url_
+〆 ${prefix}cuttly _url_
+`
+}
+exports.kristenMenu = (prefix) => {
     return `*「 KRISTEN MENU 」*
-*Username :* ${pushname}
-*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
-*Info Baterai :* ${baterai}%
+*BEBERAPA ERROR KARNA APIKEY*
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
 
 〆 ${prefix}alkitab
 〆 ${prefix}bacaharian
 `
 }
-exports.otherMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
+exports.otherMenu = (prefix) => {
     return `*「 OTHER MENU 」*
-*Username :* ${pushname}
-*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
-*Info Baterai :* ${baterai}%
+*BEBERAPA ERROR KARNA APIKEY*
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
 
 〆 ${prefix}cerpen
 〆 ${prefix}cecan
@@ -133,26 +144,22 @@ exports.otherMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
 〆 ${prefix}nulis
 〆 ${prefix}img2url _reply image_
 〆 ${prefix}ytsearch _query_
-〆 ${prefix}infogempa
-〆 ${prefix}infotsunami
 `
 }
-exports.stalkMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
+exports.stalkMenu = (prefix) => {
     return `*「 OTHER MENU 」*
-*Username :* ${pushname}
-*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
-*Info Baterai :* ${baterai}%
+*BEBERAPA ERROR KARNA APIKEY*
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
 
 〆 ${prefix}igstalk _username_
 〆 ${prefix}tiktokstalk _username_
 〆 ${prefix}githubstalk _username_
 `
 }
-exports.stickerMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
+exports.stickerMenu = (prefix) => {
     return `*「 STICKER MENU 」*
-*Username :* ${pushname}
-*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
-*Info Baterai :* ${baterai}%
+*BEBERAPA ERROR KARNA APIKEY*
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
 
 〆 ${prefix}attp _teks_
 〆 ${prefix}ttp2 _teks_
@@ -174,11 +181,10 @@ exports.stickerMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
 
 `
 }
-exports.ownerMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
+exports.ownerMenu = (prefix) => {
     return `*「 OWNER MENU 」*
-*Username :* ${pushname}
-*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
-*Info Baterai :* ${baterai}%
+*BEBERAPA ERROR KARNA APIKEY*
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
 
 〆 ${prefix}bc _teks_
 〆 ${prefix}term
@@ -198,11 +204,10 @@ exports.ownerMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
 `
 }
 
-exports.groupMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
+exports.groupMenu = (prefix) => {
     return`*「 GRUP MENU 」*
-*Username :* ${pushname}
-*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
-*Info Baterai :* ${baterai}%
+*BEBERAPA ERROR KARNA APIKEY*
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
 
 〆 ${prefix}gelud _@tag_
 〆 ${prefix}tictactoe _@tag_
@@ -233,11 +238,10 @@ exports.groupMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
 
 `
 }
-exports.downloadMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
+exports.downloadMenu = (prefix) => {
     return `*「 DOWNLOAD MENU 」*
-*Username :* ${pushname}
-*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
-*Info Baterai :* ${baterai}%
+*BEBERAPA ERROR KARNA APIKEY*
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
 
 〆 ${prefix}fbdl
 〆 ${prefix}igdl
@@ -257,7 +261,6 @@ exports.downloadMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
 }
 exports.rulesBot = (prefix) => {
     return `*「 RULES KUHXBOT 」*
-*Username :* ${pushname}
 
 
 1. Jangan Toxic Ke Bot. 
@@ -303,11 +306,10 @@ wa.me/6282287486762
 YG MAU TOP UP GAME MARI JOIN
 https://chat.whatsapp.com/KUb8JJwppqL3zLS7p9xXx7`
 }
-exports.infoMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
+exports.infoMenu = (prefix) => {
 return `*「 INFO MENU 」*
-*Username :* ${pushname}
-*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
-*Info Baterai :* ${baterai}%
+*BEBERAPA ERROR KARNA APIKEY*
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
 
 〆 ${prefix}update
 〆 ${prefix}level
@@ -331,11 +333,10 @@ return `*「 INFO MENU 」*
 
 `
 } 
-exports.islamMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
+exports.islamMenu = (prefix) => {
 return `*「 ISLAM MENU 」*
-*Username :* ${pushname}
-*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
-*Info Baterai :* ${baterai}%
+*BEBERAPA ERROR KARNA APIKEY*
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
 
 〆 ${prefix}kisahnabi
 〆 ${prefix}jadwalsholat
@@ -345,11 +346,10 @@ return `*「 ISLAM MENU 」*
 〆 ${prefix}listsurah
 `
 }
-exports.sertiMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
+exports.sertiMenu = (prefix) => {
 return `*「 SERTI MENU 」*
-*Username :* ${pushname}
-*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
-*Info Baterai :* ${baterai}%
+*BEBERAPA ERROR KARNA APIKEY*
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
 
 〆 ${prefix}sertitolol
 〆 ${prefix}bucinserti
@@ -362,11 +362,10 @@ return `*「 SERTI MENU 」*
 
 `
 }
-exports.ceritaMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
+exports.ceritaMenu = (prefix) => {
 return`*「 CERITA MENU 」*
-*Username :* ${pushname}
-*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
-*Info Baterai :* ${baterai}%
+*BEBERAPA ERROR KARNA APIKEY*
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
 
 〆 ${prefix}cerpen
 〆 ${prefix}horor
@@ -378,11 +377,27 @@ return`*「 CERITA MENU 」*
 
 `
 }
-exports.makerMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
+
+exports.informationMenu = (prefix) => {
+    return`*「 INFORMATION MENU 」*
+*BEBERAPA ERROR KARNA APIKEY*
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
+    
+〆 ${prefix}infogempa
+〆 ${prefix}infogempa2
+〆 ${prefix}infotsunami
+〆 ${prefix}jarak _kota1 - kota2_
+〆 ${prefix}cuaca _daerah_
+〆 ${prefix}covidindo
+〆 ${prefix}covidglobal
+    
+`
+}
+    
+exports.makerMenu = (prefix) => {
 return`*「 MAKER MENU 」*
-*Username :* ${pushname}
-*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
-*Info Baterai :* ${baterai}%
+*BEBERAPA ERROR KARNA APIKEY*
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
 
 〆 ${prefix}tahta
 〆 ${prefix}cup
@@ -400,11 +415,10 @@ return`*「 MAKER MENU 」*
 
 `
 }
-exports.toolsMenu = (prefix, pushname, isOwner, isPremium, baterai) => {
+exports.toolsMenu = (prefix) => {
 return`*「 TOOLS MENU 」*
-*Username :* ${pushname}
-*Status User :* ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
-*Info Baterai :* ${baterai}%
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
+_APA ITU APIKEY? KETIK_  *${prefix}pa*
 
 〆 ${prefix}addvn
 〆 ${prefix}listvn
