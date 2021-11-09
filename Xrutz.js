@@ -1030,7 +1030,7 @@ if (mek.key.fromMe){
            if (isBanned) return reply(mess.ban)
         menu =`${tampilUcapan} @${sender.split('@')[0]}, 
 
-_saya ${botName} yang siap membantu anda dalam membuat sticker, downloader, dll. gunakan bot ini dengan bijak!_
+_saya ${botName} yang siap membantu anda dalam membuat sticker, downloader, dll. gunakan bot ini dengan bijak!_\n\n_WhatsApp Mod Belum Support Button Message._
 
 『 *CALENDER* 』
 〆⁩ Day : ${week} ${weton}
@@ -1062,8 +1062,8 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤
         case 'command':
         if (isBanned) return reply(mess.ban)
         list = []
-        listmenu = [`groupmenu`,`stickermenu`,`wibumenu`,`downloadmenu`,`islammenu`,`kristenmenu`,`stalkmenu`,`informationmenu`,`urlmenu`,`sertimenu`,`ceritamenu`,`makermenu`,`ownermenu`,`gamemenu`,`funmenu`,`infomenu`,`toolsmenu`,`othermenu`]
-        listmenuu = [`Menu Group`,`Menu Sticker`,`Menu Wibu`,`Menu Download`,`Menu Islam`,`Menu Kristen`,`Menu Stalking`,`Menu Informasi`,`Menu URL`,`Menu Sertifikat`,`Menu Cerita`,`Menu Maker`,`Menu Owner`,`Menu Game`,`Menu Fun`,`Menu Info`,`Menu Tools`,`Menu Lainnya`]
+        listmenu = [`soundmenu`,`groupmenu`,`stickermenu`,`wibumenu`,`downloadmenu`,`islammenu`,`kristenmenu`,`stalkmenu`,`informationmenu`,`urlmenu`,`sertimenu`,`ceritamenu`,`makermenu`,`ownermenu`,`gamemenu`,`funmenu`,`infomenu`,`toolsmenu`,`othermenu`]
+        listmenuu = [`Menu Lagu Sad`,`Menu Group`,`Menu Sticker`,`Menu Wibu`,`Menu Download`,`Menu Islam`,`Menu Kristen`,`Menu Stalking`,`Menu Informasi`,`Menu URL`,`Menu Sertifikat`,`Menu Cerita`,`Menu Maker`,`Menu Owner`,`Menu Game`,`Menu Fun`,`Menu Info`,`Menu Tools`,`Menu Lainnya`]
         nombor = 1
         startnum = 0
         for (let x of listmenu) {
@@ -1103,6 +1103,66 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤
            }
                listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak ${pushname}! 🕊️\nSilahkan dipilih, mau Jenis Game apa?`, list, {quoted: faketroli})
                break
+               case 'soundmenu':
+               list = []
+               listmenu = [`sound1`,`sound2`,`sound3`,`sound4`,`sound5`,`sound6`,`sound7`,`sound8`,`sound9`,`sound10`]
+               listmenuu = [`Lagu 1`,`Lagu 2`,`Lagu 3`,`Lagu 4`,`Lagu 5`,`Lagu 6`,`Lagu 7`,`Lagu 8`,`Lagu 9`,`Lagu 10`]
+               nombor = 1
+               startnum = 0
+               for (let x of listmenu) {
+               const yy = {title: 'PILIH LAGU' + nombor++,
+                    rows: [
+                       {
+                        title: `${listmenuu[startnum++]}`,
+                        description: `Menu Lagu Sad :(`,
+                        rowId: `${prefix}${x}`
+                      }
+                    ]
+                   }
+                        list.push(yy)
+           }
+               listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak ${pushname}! 🕊️\nSilahkan pilih lagu 20-60 Detik disini\n\njika ingin request lagu bisa ketik *${prefix}owner*`, list, {quoted: faketroli})
+               break
+case 'sound1':
+sound = fs.readFileSync('./assets/audio1.mp3')
+Xrutz.sendMessage(from, sound, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
+break
+case 'sound2':
+sound = fs.readFileSync('./assets/audio2.mp3')
+Xrutz.sendMessage(from, sound, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
+break
+case 'sound3':
+sound = fs.readFileSync('./assets/audio3.mp3')
+Xrutz.sendMessage(from, sound, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
+break
+case 'sound4':
+sound = fs.readFileSync('./assets/audio4.mp3')
+Xrutz.sendMessage(from, sound, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
+break
+case 'sound5':
+sound = fs.readFileSync('./assets/audio5.mp3')
+Xrutz.sendMessage(from, sound, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
+break
+case 'sound6':
+sound = fs.readFileSync('./assets/audio6.mp3')
+Xrutz.sendMessage(from, sound, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
+break
+case 'sound7':
+sound = fs.readFileSync('./assets/audio7.mp3')
+Xrutz.sendMessage(from, sound, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
+break
+case 'sound8':
+sound = fs.readFileSync('./assets/audio8.mp3')
+Xrutz.sendMessage(from, sound, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
+break
+case 'sound9':
+sound = fs.readFileSync('./assets/audio9.mp3')
+Xrutz.sendMessage(from, sound, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
+break
+case 'sound10':
+sound = fs.readFileSync('./assets/audio10.mp3')
+Xrutz.sendMessage(from, sound, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
+break
 
        case 'dmff':
        if (isBanned) return reply(mess.ban)
