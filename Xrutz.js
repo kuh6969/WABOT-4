@@ -3295,19 +3295,6 @@ case 'otakudesu':
 }
        reply(ini_txt)
        break
-case 'cekresi':
-       if (args.length == 0) return reply(`Example: ${prefix + command} 123456`)
-       no = args[0]
-       get_result = await fetchJson(`https://api.lolhuman.xyz/api/resi/jnt/${no}?apikey=${setting.lolkey}`)
-       x = get_result.result
-       ini_txt = `Informasi JNT dari ${no}\n\n`
-       ini_txt += `\`\`\`◪ Asal :\`\`\` ${x.status}\n`
-       ini_txt += `\`\`\`◪ Garis Lintang :\`\`\` ${x.current_position}\n`
-       ini_txt += `\`\`\`◪ Garis Bujur :\`\`\` ${x.history.time}\n\n`
-       ini_txt += `\`\`\`◪ Garis Bujur :\`\`\` ${x.history.position}\n\n`
-       ini_txt += `\`\`\`◪ Garis Bujur :\`\`\` ${x.history.desc}\n\n`
-       reply(ini_txt)
-       break
 case 'nekopoisearch':
        if (args.length == 0) return reply(`Example: ${prefix + command} Isekai Harem`)
        query = args.join(" ")
