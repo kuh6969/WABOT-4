@@ -1561,7 +1561,6 @@ futer = `*Pastikan semua format data sudah benar,*
                Xrutz.relayWAMessage(prep)
                break
 //Akhir fitur Jualan
-
        case 'mode':
        if (isBanned) return reply(mess.ban)
        
@@ -1684,7 +1683,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
 
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakanime.hasOwnProperty(sender.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
-              get_result = await fetchJson(`https://lolhuman.herokuapp.com/api/tebakchara?apikey=${setting.lolkey}`)
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebakchara?apikey=${setting.lolkey}`)
               get_result = get_result.result
               ini_image = get_result.image
               jawaban = get_result.name
@@ -2931,9 +2930,23 @@ case 'tiktokstalk':
 case 'ffstalk':
 if (args.length == 0) return reply(`Idnya mana kak?`)
                     ff_id = args[0]
-                    get_result = await fetchJson(`https://lolhuman.herokuapp.com/api/freefire/${ff_id}?apikey=genbotkey`)
-                    reply(`nih kak`)
+                    get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/freefire?id=${ff_id}`)
+                    ini_text = get_result.nickname
+                    ini_id = ff_id
+                    reply(`UID : ${ini_id}\nNickname : ${ini_text}`)
                     break  
+case 'mlstalk':
+       if (!q) return reply(mess.wrongFormat)
+       top = arg.split('|')[0]
+       bottom = arg.split('|')[1]
+                    ml_id = top
+                    ml_server = bottom
+                    get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/mobilelegend?id=${ml_id}&server=${ml_server}`)
+                    ini_text = get_result.nickname           
+                    ini_id = ml_id
+                    ini_server = ml_server
+                    reply(`UID : ${ini_id}\nServer : ${ini_server}\nNickname : ${ini_text}`)
+                    break
 //------------------< Sticker/Tools >-------------------
 
        case 'dadu': // by CHIKAA CHANTEKKXXZZ
@@ -3280,6 +3293,19 @@ case 'otakudesu':
 }
 }
 }
+       reply(ini_txt)
+       break
+case 'cekresi':
+       if (args.length == 0) return reply(`Example: ${prefix + command} 123456`)
+       no = args[0]
+       get_result = await fetchJson(`https://api.lolhuman.xyz/api/resi/jnt/${no}?apikey=${setting.lolkey}`)
+       x = get_result.result
+       ini_txt = `Informasi JNT dari ${no}\n\n`
+       ini_txt += `\`\`\`◪ Asal :\`\`\` ${x.status}\n`
+       ini_txt += `\`\`\`◪ Garis Lintang :\`\`\` ${x.current_position}\n`
+       ini_txt += `\`\`\`◪ Garis Bujur :\`\`\` ${x.history.time}\n\n`
+       ini_txt += `\`\`\`◪ Garis Bujur :\`\`\` ${x.history.position}\n\n`
+       ini_txt += `\`\`\`◪ Garis Bujur :\`\`\` ${x.history.desc}\n\n`
        reply(ini_txt)
        break
 case 'nekopoisearch':
