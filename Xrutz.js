@@ -2320,13 +2320,11 @@ teksnya = `*[ PEMBAYARAN ]*
               reply(mess.wait)
               res = await axios.get(`https://api.zeks.xyz/api/ig?apikey=${setting.zekskey}&url=${args[0]}`)
               for(let i = 0; i < res.data.result.length; i++) {
-              sendMediaURL(from, res.data.result[i].url, `┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
-┆ *INSTAGRAM MEDIA*
-└┈┈┈┈┈┈┈┈┈┈┈⌣ ┈̥-̶̯͡..̷̴✽̶⌣ ✽̶
+              sendMediaURL(from, res.data.result[i].url, `*『 INSTAGRAM MEDIA 』*
 
 *Data Berhasil Didapatkan!*
-*き⃟🦈 Username : ${res.data.owner}*
-*き⃟🦈 Caption : ${res.data.caption}*`, {thumbnail: Buffer.alloc(0)})
+➤ *Username :* ${res.data.owner}
+➤ *Caption :* ${res.data.caption}`, {thumbnail: Buffer.alloc(0)})
 }
               } catch (e) {
               console.log(e)
@@ -2369,8 +2367,6 @@ teksnya = `*[ PEMBAYARAN ]*
              break
       case 'ytmp3':
             if (isBanned) return reply(mess.ban)
- 
-            if (!isPremium) return reply(mess.only.premium)
             if (args.length < 1) return reply('Link Nya Mana?')
             if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
             teks = args.join(' ')
@@ -2378,14 +2374,12 @@ teksnya = `*[ PEMBAYARAN ]*
             res = await y2mateA(teks).catch(e => {
             reply('_[ ! ] Error Gagal Dalam Memasuki Web Y2mate_')
 })
-            result = `┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
-┆ *YOUTUBE MP3*
-└┈┈┈┈┈┈┈┈┈┈┈⌣ ┈̥-̶̯͡..̷̴✽̶⌣ ✽̶
+            result = `*『 YOUTUBE MP3 』*
 
 *Data Berhasil Didapatkan!*
-*き⃟🦈 Title : ${res[0].judul}*
-*き⃟🦈 Ext : MP3*
-*き⃟?? Size : ${res[0].size}*
+➤ *Title :* ${res[0].judul}
+➤ *Ext :* MP3*
+➤ *Size :* ${res[0].size}
 
 _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
 
@@ -2395,8 +2389,6 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
             break
      case 'ytmp4':
             if (isBanned) return reply(mess.ban)
- 
-            if (!isPremium) return reply(mess.only.premium)
             if (args.length < 1) return reply('Link Nya Mana?')
             if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
             teks = args.join(' ')
@@ -2404,14 +2396,12 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
             res = await y2mateV(teks).catch(e => {
             reply('_[ ! ] Error Gagal Memasuki Web Y2mate_')
 })
-            result = `┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
-┆ *YOUTUBE MP4*
-└┈┈┈┈┈┈┈┈┈┈┈⌣ ┈̥-̶̯͡..̷̴✽̶⌣ ✽̶
+            result = `*『 YOUTUBE MP4 』*
 
 *Data Berhasil Didapatkan!*
-*き⃟🦈 Title : ${res[0].judul}*
-*き⃟🦈 Ext : MP4*
-*き⃟🦈 Size : ${res[0].size}*
+➤ *Title :* ${res[0].judul}
+➤ *Ext :* MP4
+➤ *Size :* ${res[0].size}
 
 _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
 
@@ -2433,27 +2423,23 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
             axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
            .then((a) => {
             if (Number(filesize) >= 40000) return sendMediaURL(from, thumb, 
-`┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
-┆ *YOUTUBE MP4*
-└┈┈┈┈┈┈┈┈┈┈┈⌣ ┈̥-̶̯͡..̷̴✽̶⌣ ✽̶
+`*『 YOUTUBE MP4 』*
 
 *Data Berhasil Didapatkan!*
-*き⃟🦈 Title : ${title}*
-*き⃟🦈 Kualitas* : 720p*
-*き⃟🦈 Size* : ${filesizeF}*
-*き⃟🦈 Link* : ${a.data}*
+➤ *Title :* ${title}
+➤ *Kualitas :* 720p
+➤ *Size :* ${filesizeF}
+➤ *Link :* ${a.data}
 
 _Untuk durasi lebih dari batas disajikan dalam Bentuk link_`)
 
             const captionsYtmp4 = 
-`┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
-┆ *YOUTUBE MP4*
-└┈┈┈┈┈┈┈┈┈┈┈⌣ ┈̥-̶̯͡..̷̴✽̶⌣ ✽̶
+`*『 YOUTUBE MP4 』*
 
 *Data Berhasil Didapatkan!*
-*き⃟🦈 Title : ${title}*
-*き⃟🦈 Kualitas : 720p*
-*き⃟🦈 Size : ${filesizeF}*
+➤ *Title :* ${title}
+➤ *Kualitas :* 720p
+➤ *Size :* ${filesizeF}
 
 _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
 
@@ -2482,20 +2468,17 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
 })
                break
         case 'mediafire':
-               if (!isPremium) return reply(mess.only.premium)
                if (args.length < 1) return reply('Link Nya Mana? ')
                if(!isUrl(args[0]) && !args[0].includes('mediafire')) return reply(mess.error.Iv)
                reply(mess.wait)
                teks = args.join(' ')
                res = await mediafireDl(teks)
-               result = `┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
-┆ *MEDIAFIRE DOWNLOAD*
-└┈┈┈┈┈┈┈┈┈┈┈⌣ ┈̥-̶̯͡..̷̴✽̶⌣ ✽̶
+               result = `*『 MEDIAFIRE 』*
 
 *Data Berhasil Didapatkan!*
-*き⃟🦈 Nama : ${res[0].nama}*
-*き⃟🦈 Ukuran : ${res[0].size}*
-*き⃟🦈 Link : ${res[0].link}*
+➤ *Nama :* ${res[0].nama}
+➤ *Ukuran :* ${res[0].size}
+➤ *Link :* ${res[0].link}
 
 _*Tunggu Proses Upload Media......*_`
              reply(result)
@@ -2504,7 +2487,6 @@ _*Tunggu Proses Upload Media......*_`
        case 'tiktok': 
        case 'ttdl':
        if (isBanned) return reply(mess.ban)
-       
              if (!q) return reply('Linknya?')
              if (!q.includes('tiktok')) return reply(mess.error.Iv)
              reply(mess.wait)
@@ -2515,7 +2497,6 @@ _*Tunggu Proses Upload Media......*_`
       case 'ttnowm': 
       case 'tiktoknowm':
              if (isBanned) return reply(mess.ban)
-  
              if (!q) return reply('Linknya?')
              if (!q.includes('tiktok')) return reply(mess.error.Iv)
              reply(mess.wait)
@@ -2525,7 +2506,6 @@ _*Tunggu Proses Upload Media......*_`
              break
 case 'tiktok':
               if (isBanned) return reply(mess.ban)
-   
               if (!q) return reply('Linknya?')
               if (!q.includes('tiktok')) return reply(mess.error.Iv)
               buttons = [{buttonId: `${prefix}tiktoknowm ${q}`,buttonText:{displayText: `🎥 Video`},type:1},{buttonId:`${prefix}ttaudio ${q}`,buttonText:{displayText:'🎵 Mp3'},type:1}]
@@ -2586,7 +2566,7 @@ case 'tiktok':
              await Xrutz.sendMessage(from, ini_buffer, image, { quoted: mek })
              break
 case 'jarak':
-if (args.length == 0) return reply(`Nama Kotanya Mana kak?\nContoh: ${prefix + command} jakarta - yogyakarta`)
+if (args.length == 0) return reply(`Nama Kotanya Mana kak?\nContoh: ${prefix + command} Semarang - Jakarta`)
 pauls = args.join(" ")
 teks1 = pauls.split("-")[0].trim()
 teks2 = pauls.split("-")[1].trim()
@@ -3511,12 +3491,10 @@ break
                 })
                 .on('end', function () {
                 console.log('Finish')
-                exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
                 Xrutz.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek})
                  fs.unlinkSync(media)
                 fs.unlinkSync(ran)
               })
-                })
                 .addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
                 .toFormat('webp')
                 .save(ran)
@@ -3538,11 +3516,9 @@ break
             })
             .on('end', function () {
             console.log('Finish')
-            exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
             Xrutz.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek})
             fs.unlinkSync(media)
             fs.unlinkSync(ran)
-                })
               })
                 .addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
                 .toFormat('webp')
