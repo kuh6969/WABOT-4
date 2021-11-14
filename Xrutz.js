@@ -643,6 +643,89 @@ var imageTime = await getBuffer('https://i.pinimg.com/736x/15/8e/ea/158eea299c01
                      fakelink = (tekslink) => { 
                             return {"externalAdReply": { "title": tekslink, "thumbnail": ikyads, "sourceUrl": "https://wa.me/12816245470" }}
                      }
+                     let kuhownermenu = await getBuffer(`https://i.ibb.co/N3pqB6c/20211114-131308.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhownermenu, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
+                     let kuhdownloadmenu = await getBuffer(`https://i.ibb.co/5Mc4hpw/20211114-132246.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhdownloadmenu, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
+
+                     let kuhsertimenu = await getBuffer(`https://i.ibb.co/0q9t3by/20211114-132608.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhsertimenu, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
+
+                     let kuhislammenu = await getBuffer(`https://i.ibb.co/dpBgXhW/20211114-132556.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhislammenu, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
+
+                     let kuhceritamenu = await getBuffer(`https://i.ibb.co/VCb9HT5/20211114-132620.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhceritamenu, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
+
+                     let kuhinfomenu = await getBuffer(`https://i.ibb.co/G5d1VHj/20211114-132542.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhinfomenu, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
+
+                     let kuhgrubmenu = await getBuffer(`https://i.ibb.co/V942xkw/20211114-132522.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhgrubmenu, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
+
+                     let kuhstickermenu = await getBuffer(`https://i.ibb.co/YbtDZmn/20211114-132505.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhstickermenu, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
+
+                     let kuhstalkmenu = await getBuffer(`https://i.ibb.co/hszdncW/20211114-132438.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhstalkmenu, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
+
+                     let kuhothermenu = await getBuffer(`https://i.ibb.co/NY3pqg9/20211114-132420.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhothermenu, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
+
+                     let kuhkristenmenu = await getBuffer(`https://i.ibb.co/cFfwrtC/20211114-132406.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhkristenmenu, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
+
+                     let kuhurlmenu = await getBuffer(`https://i.ibb.co/jJJrtvX/20211114-132349.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhurlmenu, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
+
+                     let kuhwibumenu = await getBuffer(`https://i.ibb.co/TMBq6bY/20211114-132334.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhwibumenu, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
+
+                     let kuhfunmenu = await getBuffer(`https://i.ibb.co/rmkCbxr/20211114-132318.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhfunmenu, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
+
+                     let kuhtoolsmenu = await getBuffer(`https://i.ibb.co/KxbP62p/20211114-154811.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhtoolsmenu, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
+
+                     let kuhinformationmenu = await getBuffer(`https://i.ibb.co/6NnnVQZ/20211114-155340.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhinformationmenu, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
+
+                     let kuhmakermenu = await getBuffer(`https://i.ibb.co/TPbWPmf/20211114-155406.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhmakermenu, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
 // Fake Item by Xrutz
 // Creditnya dipake anjg
 const fakefoto = { key: {fromMe: false, participant: `${numbernye}@s.whatsapp.net`, ...(from ? {remoteJid: "status@broadcast"}: {})}, message: {imageMessage: {caption: `${week}, ${calender} 𝐘𝐨𝐮𝐭𝐮𝐛𝐞 : ${botName}`, jpegThumbnail: thumb}}}
@@ -3412,58 +3495,62 @@ break
 			case 'stickergif':  
 				case 'sticker':
 				  case 'stiker':
-					     if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-            const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-            const media = await Xrutz.downloadAndSaveMediaMessage(encmedia)
-                ran = '666.webp'
-                await ffmpeg(`./${media}`)
-                .input(media)
-                .on('start', function (cmd) {
-                     console.log(`Started : ${cmd}`)
-                })
-                .on('error', function (err) {
-                 console.log(`Error : ${err}`)
-                fs.unlinkSync(media)
-                reply('error')
-                })
-                .on('end', function () {
-                console.log('Finish')
-                Xrutz.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek})
-                 fs.unlinkSync(media)
-                fs.unlinkSync(ran)
-                })
-                .addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-                .toFormat('webp')
-                .save(ran)
-                } else if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
-                const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-                const media = await Xrutz.downloadAndSaveMediaMessage(encmedia)
-            ran = '999.webp'
-            reply(mess.wait)
-            await ffmpeg(`./${media}`)
-            .inputFormat(media.split('.')[1])
-            .on('start', function (cmd) {
-            console.log(`Started : ${cmd}`)
-            })
-            .on('error', function (err) {
-            console.log(`Error : ${err}`)
-            fs.unlinkSync(media)
-            tipe = media.endsWith('.mp4') ? 'video' : 'gif'
-            reply(`Gagal, pada saat mengkonversi ${tipe} ke stiker`)
-            })
-            .on('end', function () {
-            console.log('Finish')
-            Xrutz.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek})
-            fs.unlinkSync(media)
-            fs.unlinkSync(ran)
-                })
-                .addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-                .toFormat('webp')
-                .save(ran)
-            } else {
-                reply(`Kirim gambar dengan caption ${prefix}sticker\nDurasi Sticker Video 1-9 Detik`)
-            }
-            break    
+                                   if (isMedia && !mek.message.videoMessage || isQuotedImage) {
+                                          const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+                                          const media = await Xrutz.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
+                                          await ffmpeg(`${media}`)
+                                                  .input(media)
+                                                  .on('start', function (cmd) {
+                                                      console.log(`Started : ${cmd}`)
+                                                  })
+                                                  .on('error', function (err) {
+                                                      console.log(`Error : ${err}`)
+                                                      fs.unlinkSync(media)
+                                                      reply(mess.error.api)
+                                                  })
+                                                  .on('end', function () {
+                                                      console.log('Finish')
+                                                      exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
+                                                          if (error) return reply(mess.error.api)
+                                                          Xrutz.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
+                                                          fs.unlinkSync(media)	
+                                                          fs.unlinkSync(`./sticker/${sender}.webp`)	
+                                                      })
+                                                  })
+                                                  .addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+                                                  .toFormat('webp')
+                                                  .save(`./sticker/${sender}.webp`)
+                                      } else if ((isMedia && mek.message.videoMessage.fileLength < 10000000 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.fileLength < 10000000)) {
+                                          const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+                                          const media = await Xrutz.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
+                                          reply(mess.wait)
+                                              await ffmpeg(`${media}`)
+                                                  .inputFormat(media.split('.')[4])
+                                                  .on('start', function (cmd) {
+                                                      console.log(`Started : ${cmd}`)
+                                                  })
+                                                  .on('error', function (err) {
+                                                      console.log(`Error : ${err}`)
+                                                      fs.unlinkSync(media)
+                                                      tipe = media.endsWith('.mp4') ? 'video' : 'gif'
+                                                      reply(mess.error.api)
+                                                  })
+                                                  .on('end', function () {
+                                                      console.log('Finish')
+                                                      exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
+                                                          if (error) return reply(mess.error.api)
+                                                          Xrutz.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
+                                                          fs.unlinkSync(media)
+                                                          fs.unlinkSync(`./sticker/${sender}.webp`)
+                                                      })
+                                                  })
+                                                  .addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+                                                  .toFormat('webp')
+                                                  .save(`./sticker/${sender}.webp`)
+                                      } else {
+                                          reply(`Kirim gambar/video dengan caption ${prefix}sticker atau tag gambar/video yang sudah dikirim\nNote : Durasi video maximal 10 detik`)
+                                      }
+                                      break   
        case 'take':
        case 'colong':
               if (!isQuotedSticker) return reply('Stiker aja om')
@@ -3891,12 +3978,14 @@ teks = `*BOT STATISTICS*
              textImg('Oke Desu ~')
              break
       case 'exif':
-             if (!isOwner) return  reply(mess.only.owner)
-             if (!q) return reply(mess.wrongFormat)
-             if (!arg.split('|')) return reply(`Penggunaan ${prefix}exif nama|author`)
-             exif.create(arg.split('|')[0], arg.split('|')[1])
-             reply('sukses')
-             break	
+       case 'exif':
+              if (!isOwner) return reply(mess.only.owner)
+                             const exifff = `${args.join(' ')}`
+                             const namaPack = exifff.split('|')[0]
+                             const authorPack = exifff.split('|')[1]
+                             exif.create(namaPack, authorPack)
+                             await reply('Done gan')
+                      break
 //-----------add hiburan   
 case 'tupai':
 				reply('PROSES')
@@ -5044,15 +5133,72 @@ await Xrutz.sendMessage(from, buttnasu, MessageType.buttonsMessage, {sendEphemer
              break
 
 // Diemin aja Ngerti!
-      case 'ownermenu':
-             Xrutz.sendMessage(from, ownerMenu(prefix), MessageType.text, {quoted: faketroli})
-             break
+case 'ownermenu':
+          thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
+       if (isBanned) return reply(mess.ban)
+    menu =`${tampilUcapan} @${sender.split('@')[0]}
+
+    *「 OWNER MENU 」*
+
+〆 ${prefix}bc *_teks_*
+〆 ${prefix}term
+〆 ${prefix}eval
+〆 ${prefix}reset
+〆 ${prefix}clearall
+〆 ${prefix}leaveall
+〆 ${prefix}join *_link_*
+〆 ${prefix}shutdown
+〆 ${prefix}getquoted
+〆 ${prefix}addupdate _fitur_
+〆 ${prefix}exif *_nama|author_*
+〆 ${prefix}sewa add/del *_waktu_*
+〆 ${prefix}premium add *_@tag|nomor_*
+〆 ${prefix}premium del *_@tag|nomor_*`
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhownermenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+           break
       case 'downloadmenu':
-             Xrutz.sendMessage(from, downloadMenu(prefix), MessageType.text, {quoted: faketroli})
-             break
-      case 'gamemenu':
-             Xrutz.sendMessage(from, gameMenu(prefix), MessageType.text, {quoted: faketroli})
-             break
+       thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
+       if (isBanned) return reply(mess.ban)
+    menu =`${tampilUcapan} @${sender.split('@')[0]}
+
+    *「 DOWNLOADER MENU 」*
+    
+〆 ${prefix}fbdl *_link_*
+〆 ${prefix}igdl *_link_*
+〆 ${prefix}igdl2 *_link_*
+〆 ${prefix}twitter *_link_*
+〆 ${prefix}tiktok *_link_*
+〆 ${prefix}play *_judul_*
+〆 ${prefix}ytmp3 *_link_*
+〆 ${prefix}ytmp4 *_link_*
+〆 ${prefix}ythd *_link_*
+〆 ${prefix}soundcloud *_link_*
+〆 ${prefix}tiktoknowm *_link_*
+〆 ${prefix}tiktokaudio *_link_*
+〆 ${prefix}mediafire *_link_*`
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhdownloadmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+break
+case 'gamemenu':
+       if (isBanned) return reply(mess.ban)
+       list = []
+       listmenu = [`limitgame`,`slot`,`sa`,`f100`,`km`,`ao`,`tk`,`tli`,`tla`,`sk`,`kk`,`cl`,`tj`,`ta`,`tg`,`ttn`,`tu`,`suit gunting`,`suit batu`,`suit kertas`,`ma`]
+       listmenuu = [`Cek Limit Game Kamu`,`Slot`,`Siapakah Aku`,`Family 100`,`Matematika Kuis`,`Asah Otak`,`Tebak Kata`,`Tebak Lirik`,`Tebak Lagu`,`Susun Kata`,`Kuis Kimia`,`Cak Lontong`,`Tebak Jenaka`,`Tebak Anime`,`Tebak Gambar`,`Tebak-Tebakan`,`Tebak Umur`,`Suit - Gunting`,`Suit - Batu`,`Suit - Kertas`,`Matematika`]
+       nombor = 1
+       startnum = 0
+       for (let x of listmenu) {
+       const yy = {title: 'PILIH GAME ' + nombor++,
+            rows: [
+               {
+                title: `${listmenuu[startnum++]}`,
+                description: `Menu game`,
+                rowId: `${prefix}${x}`
+              }
+            ]
+           }
+                list.push(yy)
+   }
+       listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak @${pushname}! 🕊️\nSilahkan pilih game disini`, list, {quoted: faketroli})
+       break
       case 'rules':
              Xrutz.sendMessage(from, rulesBot(prefix), MessageType.text, {quoted: faketroli})
              break
@@ -5060,54 +5206,305 @@ await Xrutz.sendMessage(from, buttnasu, MessageType.buttonsMessage, {sendEphemer
              Xrutz.sendMessage(from, owner(prefix), MessageType.text, {quoted: faketroli})
              break
       case 'infomenu':
-             Xrutz.sendMessage(from, infoMenu(prefix), MessageType.text, {quoted: faketroli})
-             break
+       thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
+       if (isBanned) return reply(mess.ban)
+    menu =`${tampilUcapan} @${sender.split('@')[0]}
+ 
+    *「 INFO MENU 」*
+    
+ 〆 ${prefix}update
+ 〆 ${prefix}level
+ 〆 ${prefix}rules
+ 〆 ${prefix}profile
+ 〆 ${prefix}waktu
+ 〆 ${prefix}botstat
+ 〆 ${prefix}sewabot
+ 〆 ${prefix}listsewa
+ 〆 ${prefix}owner
+ 〆 ${prefix}ping
+ 〆 ${prefix}runtime
+ 〆 ${prefix}donasi
+ 〆 ${prefix}listdm
+ 〆 ${prefix}leaderboard
+ 〆 ${prefix}cekpremium
+ 〆 ${prefix}listpremium
+ 〆 ${prefix}getpp
+ 〆 ${prefix}setpp _reply image_
+ 〆 ${prefix}bugreport _keluhan_`
+ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhinfomenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+ break
       case 'stickermenu':
-             Xrutz.sendMessage(from, stickerMenu(prefix), MessageType.text, {quoted: faketroli})
-             break
+       thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
+       if (isBanned) return reply(mess.ban)
+    menu =`${tampilUcapan} @${sender.split('@')[0]}
+
+    *「 STICKER MENU 」*
+    
+〆 ${prefix}attp _teks_
+〆 ${prefix}ttp2 _teks_
+〆 ${prefix}ttp3 _teks_
+〆 ${prefix}ttp4 _teks_
+〆 ${prefix}amongus _teks_
+〆 ${prefix}dadu
+〆 ${prefix}doge
+〆 ${prefix}patrick
+〆 ${prefix}gura
+〆 ${prefix}stickeranime
+〆 ${prefix}semoji _emoji_
+〆 ${prefix}sticker _reply image_
+〆 ${prefix}smeme _teks|teks_
+〆 ${prefix}swm _pack|author_
+〆 ${prefix}take _pack|author_
+〆 ${prefix}tovideo
+〆 ${prefix}toimg`
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhstickermenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+break
        case 'islammenu':
-             Xrutz.sendMessage(from, islamMenu(prefix), MessageType.text, {quoted: faketroli})
-             break
+              thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
+              if (isBanned) return reply(mess.ban)
+           menu =`${tampilUcapan} @${sender.split('@')[0]}
+        
+    *「 ISLAM MENU 」*
+           
+〆 ${prefix}kisahnabi
+〆 ${prefix}jadwalsholat
+〆 ${prefix}alquran
+〆 ${prefix}asmaulhusna
+〆 ${prefix}alquranaudio
+〆 ${prefix}listsurah`
+        Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhislammenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+        break
        case 'sertimenu':
-             Xrutz.sendMessage(from, sertiMenu(prefix), MessageType.text, {quoted: faketroli})
-             break
+              thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
+              if (isBanned) return reply(mess.ban)
+           menu =`${tampilUcapan} @${sender.split('@')[0]}
+        
+    *「 SERTI MENU 」*
+           
+〆 ${prefix}sertitolol
+〆 ${prefix}bucinserti
+〆 ${prefix}fuckboy
+〆 ${prefix}fuckgirl
+〆 ${prefix}badboy
+〆 ${prefix}badgirl
+〆 ${prefix}goodboy
+〆 ${prefix}goodgirl`
+        Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhsertimenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+        break
        case 'ceritamenu':
-             Xrutz.sendMessage(from, ceritaMenu(prefix), MessageType.text, {quoted: faketroli})
-             break  
+              thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
+              if (isBanned) return reply(mess.ban)
+           menu =`${tampilUcapan} @${sender.split('@')[0]}
+        
+    *「 CERITA MENU 」*
+           
+〆 ${prefix}cerpen
+〆 ${prefix}horor
+〆 ${prefix}quotsdilan
+〆 ${prefix}pantun
+〆 ${prefix}faktaunik
+〆 ${prefix}bucin
+〆 ${prefix}quotes`
+        Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhceritamenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+        break
        case 'makermenu':
-             Xrutz.sendMessage(from, makerMenu(prefix), MessageType.text, {quoted: faketroli})
-             break 
+              thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
+              if (isBanned) return reply(mess.ban)
+           menu =`${tampilUcapan} @${sender.split('@')[0]}
+       
+    *「 MAKER MENU 」*
+           
+〆 ${prefix}tahta
+〆 ${prefix}cup
+〆 ${prefix}cup1
+〆 ${prefix}coffe
+〆 ${prefix}birthdaycake
+〆 ${prefix}metallogo
+〆 ${prefix}lighttext
+〆 ${prefix}halloween
+〆 ${prefix}vampire
+〆 ${prefix}matrix
+〆 ${prefix}googletxt
+〆 ${prefix}spiderman
+〆 ${prefix}express`
+       Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhmakermenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+       break
      case 'toolsmenu':
-              Xrutz.sendMessage(from,toolsMenu(prefix), MessageType.text, {quoted: faketroli})
-              break
-      case 'registered':
-              Xrutz.sendMessage(from,regisTered(prefix), MessageType.text, {quoted: fakekontak})
-              break                   
+       thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
+       if (isBanned) return reply(mess.ban)
+    menu =`${tampilUcapan} @${sender.split('@')[0]}
+
+    *「 TOOLS MENU 」*
+    
+〆 ${prefix}addvn
+〆 ${prefix}listvn
+〆 ${prefix}getvn
+〆 ${prefix}addimg
+〆 ${prefix}listimg
+〆 ${prefix}addvid
+〆 ${prefix}listvid
+〆 ${prefix}addstik
+〆 ${prefix}liststik
+〆 ${prefix}getstik`
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhtoolsmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+break                
       case 'othermenu':
-             Xrutz.sendMessage(from, otherMenu(prefix), MessageType.text, {quoted: faketroli})
-             break
+       thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
+       if (isBanned) return reply(mess.ban)
+    menu =`${tampilUcapan} @${sender.split('@')[0]}
+
+    *「 OTHER MENU 」*
+    
+〆 ${prefix}cerpen
+〆 ${prefix}cecan
+〆 ${prefix}brainly _query_
+〆 ${prefix}artinama _namamu_
+〆 ${prefix}shopee _query_
+〆 ${prefix}playstore _query_
+〆 ${prefix}ssweb _query_
+〆 ${prefix}google _query_
+〆 ${prefix}image _query_
+〆 ${prefix}pinterest _query_
+〆 ${prefix}nulis
+〆 ${prefix}img2url _reply image_
+〆 ${prefix}ytsearch _query_`
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhothermenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+break
       case 'groupmenu': 
       case 'grupmenu': 
-             Xrutz.sendMessage(from, groupMenu(prefix), MessageType.text, {quoted: faketroli})
-             break
+      thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
+      if (isBanned) return reply(mess.ban)
+   menu =`${tampilUcapan} @${sender.split('@')[0]}
+
+    *「 GROUP MENU 」*
+   
+〆 ${prefix}gelud _@tag_
+〆 ${prefix}tictactoe _@tag_
+〆 ${prefix}cekganteng
+〆 ${prefix}cekcantik
+〆 ${prefix}babi
+〆 ${prefix}beban
+〆 ${prefix}cantik
+〆 ${prefix}ganteng
+〆 ${prefix}groupsetting
+〆 ${prefix}afk _alasan_
+〆 ${prefix}ceksewa
+〆 ${prefix}kickall
+〆 ${prefix}infogroup
+〆 ${prefix}promote _@tag_
+〆 ${prefix}demote _@tag_
+〆 ${prefix}listonline
+〆 ${prefix}tagall _teks_
+〆 ${prefix}leave
+〆 ${prefix}kick _@tag_
+〆 ${prefix}add _62xxx_
+〆 ${prefix}setnamegc
+〆 ${prefix}setppgc _reply image_
+〆 ${prefix}setdeskgc
+〆 ${prefix}sider _reply chat bot_
+〆 ${prefix}hidetag _teks_
+〆 ${prefix}linkgc`
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhgrubmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+break
       case 'funmenu':
-             Xrutz.sendMessage(from, funMenu(prefix), MessageType.text, {quoted: faketroli})
-             break
+       thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
+       if (isBanned) return reply(mess.ban)
+    menu =`${tampilUcapan} @${sender.split('@')[0]}
+
+    *「 FUN MENU 」*
+    
+〆 ${prefix}mining
+〆 ${prefix}cekwatak *_nama_*
+〆 ${prefix}cekmati *_nama_*
+〆 ${prefix}wangy *_nama_*
+〆 ${prefix}citacita
+〆 ${prefix}toxic
+〆 ${prefix}truth
+〆 ${prefix}dare
+〆 ${prefix}apakah *_teks_*
+〆 ${prefix}bisakah *_teks_*
+〆 ${prefix}kapankah *_teks_*
+〆 ${prefix}rate`
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhfunmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+break
        case 'wibumenu':
-              Xrutz.sendMessage(from, wibuMenu(prefix), MessageType.text, {quoted: faketroli})
-              break
+              thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
+              if (isBanned) return reply(mess.ban)
+           menu =`${tampilUcapan} @${sender.split('@')[0]}
+       
+    *「 WIBU MENU 」*
+           
+〆 ${prefix}loli
+〆 ${prefix}lolivideo [ERROR]
+〆 ${prefix}husbu
+〆 ${prefix}milf
+〆 ${prefix}cosplay
+〆 ${prefix}wallml
+〆 ${prefix}waifu
+〆 ${prefix}quotesanime
+〆 ${prefix}animequotes
+〆 ${prefix}manga _query_
+〆 ${prefix}kusonime _query_
+〆 ${prefix}anime _query_
+〆 ${prefix}nekopoisearch _query_
+〆 ${prefix}nhentai _code_
+〆 ${prefix}nhentai2 _code_
+〆 ${prefix}nhentai3 _code_
+〆 ${prefix}nhentaipdf _code_`
+       Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhwibumenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+       break
        case 'kristenmenu':
-              Xrutz.sendMessage(from, kristenMenu(prefix), MessageType.text, {quoted: faketroli})
-              break
+              thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
+              if (isBanned) return reply(mess.ban)
+           menu =`${tampilUcapan} @${sender.split('@')[0]}
+       
+    *「 KRISTEN MENU 」*
+           
+〆 ${prefix}alkitab
+〆 ${prefix}bacaharian`
+       Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhkristenmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+       break
        case 'stalkmenu':
-              Xrutz.sendMessage(from, stalkMenu(prefix), MessageType.text, {quoted: faketroli})
-              break
+              thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
+              if (isBanned) return reply(mess.ban)
+           menu =`${tampilUcapan} @${sender.split('@')[0]}
+       
+    *「 STALK MENU 」*
+           
+〆 ${prefix}igstalk _username_
+〆 ${prefix}tiktokstalk _username_
+〆 ${prefix}githubstalk _username_`
+       Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhstalkmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+       break
        case 'urlmenu':
-               Xrutz.sendMessage(from, urlMenu(prefix), MessageType.text, {quoted: faketroli})
-              break
+              thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
+              if (isBanned) return reply(mess.ban)
+           menu =`${tampilUcapan} @${sender.split('@')[0]}
+       
+    *「 URL MENU 」*
+           
+〆 ${prefix}tinyurl _url_
+〆 ${prefix}bitly _url_
+〆 ${prefix}shorturl _url_
+〆 ${prefix}cuttly _url_`
+       Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhurlmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+       break
        case 'informationmenu':
-              Xrutz.sendMessage(from, informationMenu(prefix), MessageType.text, {quoted: faketroli})
-              break
+              thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
+              if (isBanned) return reply(mess.ban)
+           menu =`${tampilUcapan} @${sender.split('@')[0]}
+        
+    *「 INFORMATION MENU 」*
+           
+〆 ${prefix}infogempa
+〆 ${prefix}infogempa2
+〆 ${prefix}infotsunami
+〆 ${prefix}jarak _kota1 - kota2_
+〆 ${prefix}cuaca _daerah_
+〆 ${prefix}covidindo
+〆 ${prefix}covidglobal`
+        Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhinformationmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+        break
 
 default:
 if (fs.existsSync(`./media/${from}.json`)) {
