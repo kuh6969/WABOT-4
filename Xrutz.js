@@ -726,6 +726,11 @@ var imageTime = await getBuffer('https://i.pinimg.com/736x/15/8e/ea/158eea299c01
                      fakelink = (tekslink) => { 
                             return {"externalAdReply": { "title": tekslink, "thumbnail": kuhmakermenu, "sourceUrl": "https://wa.me/12816245470" }}
                      }
+
+                     let kuhbayarmenu = await getBuffer(`https://i.ibb.co/RpvPdYF/20211115-161038.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhbayarmenu, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
 // Fake Item by Xrutz
 // Creditnya dipake anjg
 const fakefoto = { key: {fromMe: false, participant: `${numbernye}@s.whatsapp.net`, ...(from ? {remoteJid: "status@broadcast"}: {})}, message: {imageMessage: {caption: `${week}, ${calender} 𝐘𝐨𝐮𝐭𝐮𝐛𝐞 : ${botName}`, jpegThumbnail: thumb}}}
@@ -1197,14 +1202,14 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤
                     rows: [
                        {
                         title: `${listmenuu[startnum++]}`,
-                        description: `Menu Lagu Sad :(`,
+                        description: `#BRINGBACK2019`,
                         rowId: `${prefix}${x}`
                       }
                     ]
                    }
                         list.push(yy)
            }
-               listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak ${pushname}! 🕊️\nSilahkan pilih lagu 20-60 Detik disini\n\njika ingin request lagu bisa ketik *${prefix}owner*`, list, {quoted: faketroli})
+               listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak ${pushname}! 🕊️\nSilahkan Pilih Lagu 20-60 Detik Disini\n\nJika Ingin Request Lagu Bisa Ketik *${prefix}reqlagu <JUDUL>*`, list, {quoted: faketroli})
                break
 case 'sound1':
 sound = fs.readFileSync('./assets/audio1.mp3')
@@ -2228,36 +2233,18 @@ if (isBanned) return reply(mess.ban)
               txt += `➸ *ID :* @${i.id.split("@")[0]}\n➸ *Expired*: ${checkExp.days} day(s) ${checkExp.hours} hour(s) ${checkExp.minutes} minute(s)\n\n`
 }
               mentions(txt, men, true)
-              break
-       case 'belipremium':
-       case 'buypremium':
-       case 'sewabot':
-       if (isBanned) return reply(mess.ban)
-       
-              gopeynya = `${thumblo}`
-              teksnya = `*[ PRICE LIST ]*
-*Sewa Bot Xrutz ON 24 Jam*
-*1 Hari :* 2K
-*1 Minggu :* 10K
-*1 Bulan :* 20K
-*Minat untuk Sewa Bot?* Chat Owner!
-*Dengan cara, Ketik* ${prefix}owner *Ya!*`
-              Xrutz.sendMessage(from, await getBuffer(gopeynya), image, {quoted: mek, caption: teksnya })
-              break             
+              break      
 //------------------< bayar menu >-------------------  
-case 'bayar':
-if (isBanned) return reply(mess.ban)
-
-gopeynya = `${thumblo}`
-teksnya = `*[ PEMBAYARAN ]*
-
-*Gopay :* ${Nogpy}
-*Dana :* ${Nodana}
-*Pulsa :* ${Nopulsa}
-
-*[ SERTAKAN BUKTI SCREENSHOT! ]*`
-        Xrutz.sendMessage(from, await getBuffer(gopeynya), image, {quoted: fakekontak, caption: teksnya })
-              break
+              case 'bayar':
+                     thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
+                     if (isBanned) return reply(mess.ban)
+                  menu =`${tampilUcapan} @${sender.split('@')[0]}
+              
+    *「 PEMBAYARAN 」*
+                  
+UNTUK PEMESANAN BISA WHATSAPP KE wa.me/12816245470\n\n( BOT HANYA MEMBERIKAN LIST HARGA SAJA )`
+              Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhbayarmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+              break              
 			
                                                                                                                         
 //------------------< Sticker Cmd >-------------------
@@ -4744,8 +4731,20 @@ case 'caripesan':  //by ANU TEAM
               if (args.length < 1) return reply(`Ketik ${prefix}bugreport [fiturnya] [Error Nya Gimana]`) 
               teks = args.join(' ')
               reply('Terima Kasih Telah Melaporkan Bug Pada Owner, Jika Itu Sekedar Iseng Maka Akan Di Ban Oleh Bot!')
-              Xrutz.sendMessage('6282287486762@s.whatsapp.net',`*Bug Report:* ${teks}`, text)
+              Xrutz.sendMessage('12816245470@s.whatsapp.net',`*Bug Report:* ${teks}`, text)
               break
+       case 'reqlagu':
+let pesan = body.slice(8)
+if (pesan.length > 300) return Xrutz.sendMessage(from, 'Maaf Teks Terlalu Panjang, Maksimal 300 Teks', text, { quoted: ftrol })
+var nomor = mek.participant
+let teks1 = `*[REQUEST LAGU]*\nNomor : @${sender.split("@s.whatsapp.net")[0]}\nPesan : ${pesan}`
+var options = {
+text: teks1,
+contextInfo: { mentionedJid: [nomor] },
+}
+Xrutz.sendMessage(`12816245470@s.whatsapp.net`, options, text, { quoted: faketroli })
+reply('Request Lagu Anda Sudah Terkirim Dan Sedang Dalam Pengecekan. Durasi Lagu Max 60 Detik Guna Menghindari DELAY\n\n TERIMA KASIH YANG SUDAH REQUEST')
+break
        case 'readall':
               totalchat.map( async ({ jid }) => {
               await Xrutz.chatRead(jid)
