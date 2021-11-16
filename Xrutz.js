@@ -3481,7 +3481,6 @@ break
 													exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
 														if (error) return reply(mess.error)
 														Xrutz.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
-														limitAdd(sender, limit)
 														fs.unlinkSync(media)
 														fs.unlinkSync(`./sticker/${sender}.webp`)
 														})
@@ -3509,7 +3508,6 @@ break
 																		exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
 																			if (error) return reply(mess.error)
 																			Xrutz.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
-																			limitAdd(sender, limit)
 																			fs.unlinkSync(media)
 																			fs.unlinkSync(`./sticker/${sender}.webp`)
 																			})
