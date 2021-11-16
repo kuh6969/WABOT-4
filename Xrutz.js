@@ -3518,7 +3518,6 @@ break
 																			} else {
 																				reply(`Kirim gambar/video dengan caption ${prefix}sticker atau tag gambar/video yang sudah dikirim\nNote : Durasi video maximal 10 detik`)
 																				}
-																				limitAdd(sender, limit)
 												break
        case 'take':
        case 'colong':
