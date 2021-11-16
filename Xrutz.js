@@ -3463,63 +3463,65 @@ break
 			case 'stickergif':  
 				case 'sticker':
 				  case 'stiker':
-					    
-						if (isMedia && !mek.message.videoMessage || isQuotedImage) {
-							const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-							const media = await Xrutz.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
-							await ffmpeg(`${media}`)
-									.input(media)
-									.on('start', function (cmd) {
-										console.log(`Started : ${cmd}`)
-									})
-									.on('error', function (err) {
-										console.log(`Error : ${err}`)
-										fs.unlinkSync(media)
-										reply(mess.error.api)
-									})
-									.on('end', function () {
-										console.log('Finish')
-										exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
-											if (error) return reply(mess.error.api)
-											Xrutz.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
-											fs.unlinkSync(media)	
-											fs.unlinkSync(`./sticker/${sender}.webp`)	
-										})
-									})
-									.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-									.toFormat('webp')
-									.save(`./sticker/${sender}.webp`)
-						} else if ((isMedia && mek.message.videoMessage.fileLength < 10000000 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.fileLength < 10000000)) {
-							const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-							const media = await Xrutz.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
-							
-								await ffmpeg(`${media}`)
-									.inputFormat(media.split('.')[4])
-									.on('start', function (cmd) {
-										console.log(`Started : ${cmd}`)
-									})
-									.on('error', function (err) {
-										console.log(`Error : ${err}`)
-										fs.unlinkSync(media)
-										tipe = media.endsWith('.mp4') ? 'video' : 'gif'
-										reply(mess.error.api)
-									})
-									.on('end', function () {
-										console.log('Finish')
-										exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
-											if (error) return reply(mess.error.api)
-											Xrutz.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
-											fs.unlinkSync(media)
-											fs.unlinkSync(`./sticker/${sender}.webp`)
-										})
-									})
-									.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-									.toFormat('webp')
-									.save(`./sticker/${sender}.webp`)
-						} else {
-							reply(`Kirim gambar/video dengan caption ${prefix}sticker atau tag gambar/video yang sudah dikirim\nNote : Durasi video maximal 10 detik`)
-						}
-						break
+					if ( isQuotedImage) {
+										let encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+										let media = await Xrutz.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
+										await ffmpeg(`${media}`)
+										.input(media)
+										.on('start', function (cmd) {
+											console.log(color(`STARTED : ${cmd}`))
+											})
+											.on('error', function (err) {
+												console.log(color(`ERROR : ${err}`))
+												fs.unlinkSync(media)
+												reply(mess.error)
+												})
+												.on('end', function () {
+													console.log(color(`FINISH`,'magenta'))
+													exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
+														if (error) return reply(mess.error)
+														Xrutz.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
+														limitAdd(sender, limit)
+														fs.unlinkSync(media)
+														fs.unlinkSync(`./sticker/${sender}.webp`)
+														})
+														})
+														.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+														.toFormat('webp')
+														.save(`./sticker/${sender}.webp`)
+														} else if ((isQuotedVideo && mek.message.videoMessage.fileLength < 10000000 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.fileLength < 10000000)) {
+															let encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+															let media = await Xrutz.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
+															reply(mess.wait)
+															await ffmpeg(`${media}`)
+															.inputFormat(media.split('.')[4])
+															.on('start', function (cmd) {
+																console.log(color(`STARTED : ${cmd}`))
+																})
+																.on('error', function (err) {
+																	console.log(color(`ERROR : ${err}`))
+																	fs.unlinkSync(media)
+																	let tipe = media.endsWith('.mp4') ? 'video' : 'gif'
+																	reply(mess.error)
+																	})
+																	.on('end', function () {
+																		console.log(color(`FINISH`,'magenta'))
+																		exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
+																			if (error) return reply(mess.error)
+																			Xrutz.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
+																			limitAdd(sender, limit)
+																			fs.unlinkSync(media)
+																			fs.unlinkSync(`./sticker/${sender}.webp`)
+																			})
+																			})
+																			.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+																			.toFormat('webp')
+																			.save(`./sticker/${sender}.webp`)
+																			} else {
+																				reply(`Kirim gambar/video dengan caption ${prefix}sticker atau tag gambar/video yang sudah dikirim\nNote : Durasi video maximal 10 detik`)
+																				}
+																				limitAdd(sender, limit)
+												break
        case 'take':
        case 'colong':
               if (!isQuotedSticker) return reply('Stiker aja om')
