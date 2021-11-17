@@ -3477,7 +3477,7 @@ break
                                                })
                                           .on('end', async function () {
                                               console.log('Finish')
-                                              await Xrutz.sendMessage(from, fs.readFileSync(ran), sticker, { quoted: fgclink })
+                                              await Xrutz.sendMessage(from, fs.readFileSync(ran), sticker, { quoted: mek })
                                                   fs.unlinkSync(media)
                                                   fs.unlinkSync(ran)
                                               })
