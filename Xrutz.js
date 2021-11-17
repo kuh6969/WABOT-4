@@ -1769,27 +1769,27 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'ta':
        if (isBanned) return reply(mess.ban)
 
-              if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
-              if (tebakanime.hasOwnProperty(sender.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
-              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebakchara?apikey=${setting.lolkey}`)
-              get_result = get_result.result
-              ini_image = get_result.image
-              jawaban = get_result.name
-              kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
-              ini_buffer = await getBuffer(ini_image)
-              Xrutz.sendMessage(from, ini_buffer, image, { quoted: mek, caption: '*+* ```Tebak Anime```\n\n• *Petunjuk* :'+kisi_kisi+'\n• *Waktu* : 30s' }).then(() => {
-              tebakanime[sender.split('@')[0]] = jawaban.toLowerCase()
-              fs.writeFileSync("./database/tebakanime.json", JSON.stringify(tebakanime))
+       if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
+       if (tebakanime.hasOwnProperty(sender.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
+       get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebakchara?apikey=${setting.lolkey}`)
+       get_result = get_result.result
+       ini_image = get_result.image
+       jawaban = get_result.name
+       kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
+       ini_buffer = await getBuffer(ini_image)
+       Xrutz.sendMessage(from, ini_buffer, image, { quoted: mek, caption: '*+* ```Tebak Anime```\n\n• *Petunjuk* :'+kisi_kisi+'\n• *Waktu* : 30s' }).then(() => {
+       tebakanime[sender.split('@')[0]] = jawaban.toLowerCase()
+       fs.writeFileSync("./database/tebakanime.json", JSON.stringify(tebakanime))
 })
-              await sleep(30000)
-              if (tebakanime.hasOwnProperty(sender.split('@')[0])) {
-              console.log(color("Jawaban: " + jawaban))
-              reply("*Jawaban*: " + jawaban)
-              delete tebakanime[sender.split('@')[0]]
-              fs.writeFileSync("./database/tebakanime.json", JSON.stringify(tebakanime))
+       await sleep(30000)
+       if (tebakanime.hasOwnProperty(sender.split('@')[0])) {
+       console.log(color("Jawaban: " + jawaban))
+       reply("*Jawaban*: " + jawaban)
+       delete tebakanime[sender.split('@')[0]]
+       fs.writeFileSync("./database/tebakanime.json", JSON.stringify(tebakanime))
 }
-              gameAdd(sender, glimit)
-              break
+       gameAdd(sender, glimit)
+       break
        case 'tebaklagu':
        case 'tlu':
        if (isBanned) return reply(mess.ban)
@@ -2172,6 +2172,17 @@ if (isBanned) return reply(mess.ban)
               let premiumnya = `*「 SEWA EXPIRE 」*\n\n➤ *ID User*: ${from}\n➤ *Expired :* ${cekvip.days} day(s) ${cekvip.hours} hour(s) ${cekvip.minutes} minute(s)`
               reply(premiumnya)
               break
+              case 'spam':
+                     if (!isOwner && !mek.key.fromMe) return sticOwner(from)
+                            if (!arg) return reply(`Penggunaan ${prefix}spam teks|jumlah`)
+                     argzi = arg.split("|")
+                     if (!argzi) return reply(`Penggunaan ${prefix}spam teks|jumlah`)
+                     if (Number(argzi[1]) >= 50) return reply('Kebanyakan Kak!')
+                     if (isNaN(argzi[1])) return reply(`harus berupa angka`)
+                     for (let i = 0; i < argzi[1]; i++){
+                            Xrutz.sendMessage(from, argzi[0], MessageType.text)
+                     }
+                     break
          case 'spamsms':
          if (isBanned) return reply(mess.ban)
 
@@ -3170,21 +3181,31 @@ await Xrutz.sendMessage(from, { degreesLatitude: get_result.latitude, degreesLon
 reply(ini_txt)
 break
 case 'covidindo':
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/corona/indonesia?apikey=${setting.lolkey}`)
-get_result = get_result.result
+anu = await fetchJson(`https://apicovid19indonesia-v2.vercel.app/api/indonesia`)
+get_result = anu
 ini_txt = `Positif : ${get_result.positif}\n`
 ini_txt += `Sembuh : ${get_result.sembuh}\n`
 ini_txt += `Dirawat : ${get_result.dirawat}\n`
-ini_txt += `Meninggal : ${get_result.meninggal}`
+ini_txt += `Meninggal : ${get_result.meninggal}\n`
+ini_txt += `Last Update : ${get_result.lastUpdate}\n`
+reply(ini_txt)
+break
+case 'vaksin':
+anu = await fetchJson(`https://apicovid19indonesia-v2.vercel.app/api/indonesia`)
+get_result = anu
+ini_txt = `Vaksin Pertama : ${get_result.vaksinasi1}\n`
+ini_txt += `Vaksin Kedua : ${get_result.vaksinasi2}\n`
+ini_txt += `Last Update : ${get_result.lastUpdate}\n`
 reply(ini_txt)
 break
 case 'covidglobal':
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/corona/global?apikey=${setting.lolkey}`)
+get_result = await fetchJson(`https://zahirr-web.herokuapp.com/api/covidworld?apikey=zahirgans`)
 get_result = get_result.result
-ini_txt = `Positif : ${get_result.positif}\n`
-ini_txt += `Sembuh : ${get_result.sembuh}\n`
-ini_txt += `Dirawat : ${get_result.dirawat}\n`
-ini_txt += `Meninggal : ${get_result.meninggal}`
+ini_txt = `Positif : ${get_result.totalCases}\n`
+ini_txt += `Sembuh : ${get_result.recovered}\n`
+ini_txt += `Dirawat : ${get_result.activeCases}\n`
+ini_txt += `Meninggal : ${get_result.deaths}\n`
+ini_txt += `Last Update : ${get_result.lastUpdate}`
 reply(ini_txt)
 break
 case 'cecan':
@@ -3457,69 +3478,111 @@ break
                      Xrutz.relayWAMessage(prep)
                      fs.unlinkSync(`./${sender}.jpeg`)
                      break
+                     case 'robot':
+encmedial = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+medial = await Xrutz.downloadAndSaveMediaMessage(encmedial)
+ran = getRandom('.mp3')
+exec(`ffmpeg -i ${medial} -filter_complex "afftfilt=real='hypot(re,im)*sin(0)':imag='hypot(re,im)*cos(0)':win_size=512:overlap=0.75" ${ran}`, (err, stderr, stdout) => {
+fs.unlinkSync(medial)
+if (err) return reply(mess.error.api)
+hah = fs.readFileSync(ran)
+Xrutz.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', duration: 359996400, ptt:true, quoted: mek})
+fs.unlinkSync(ran)
+})
+break
+case 'gemuk':
+          encmediaz = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+          mediaz = await Xrutz.downloadAndSaveMediaMessage(encmediaz)
+          ran = getRandom('.mp3')
+          exec(`ffmpeg -i ${mediaz} -filter:a "atempo=1.6,asetrate=22100" ${ran}`, (err, stderr, stdout) => {
+              fs.unlinkSync(mediaz)
+              if (err) return ephe('Error!')
+              hah = fs.readFileSync(ran)
+          Xrutz.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, duration: 359996400, quoted:mek})
+              fs.unlinkSync(ran)
+          })
+          break
+case 'balik':
+encmediau = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+mediau = await Xrutz.downloadAndSaveMediaMessage(encmediau)
+ran = getRandom('.mp3')
+exec(`ffmpeg -i ${mediau} -filter_complex "areverse" ${ran}`, (err, stderr, stdout) => {
+fs.unlinkSync(mediau)
+if (err) return reply('Error!')
+hah = fs.readFileSync(ran)
+Xrutz.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 359996400, quoted:mek})
+fs.unlinkSync(ran)
+})
+break
+case 'bass':                 
+          encmediao = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+          mediao = await Xrutz.downloadAndSaveMediaMessage(encmediao)
+          ran = getRandom('.mp3')
+          exec(`ffmpeg -i ${mediao} -af equalizer=f=94:width_type=o:width=2:g=30 ${ran}`, (err, stderr, stdout) => {
+              fs.unlinkSync(mediao)
+              if (err) return reply('Error!')
+              hah = fs.readFileSync(ran)
+              Xrutz.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 359996400, quoted:mek})
+              fs.unlinkSync(ran)
+          })
+      break
        case 'gifstiker':
 				case 's':
 			case 'stickergif':  
 				case 'sticker':
 				  case 'stiker':
-                                   if (isMedia && !mek.message.videoMessage || isQuotedImage) {
+                                   if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
                                           const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-                                          const media = await Xrutz.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
-                                          ran = getRandom('.webp')
-                                          await ffmpeg(`${media}`)
-                                                  .input(media)
-                                                  .on('start', function (cmd) {
-                                                      console.log(`Started : ${cmd}`)
-                                                  })
-                                                  .on('error', function (err) {
-                                                      console.log(`Error : ${err}`)
-                                                      fs.unlinkSync(media)
-                                                      reply(mess.error.api)
-                                                  })
-                                                  .on('end', function () {
-                                                      console.log('Finish')
-                                                      exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
-                                                          if (error) return reply(mess.error.api)
-                                                          Xrutz.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
-                                                          fs.unlinkSync(media)	
-                                                          fs.unlinkSync(ran)
-                                                      })
-                                                  })
-                                                  .addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-                                                  .toFormat('webp')
-                                                  .save(`./sticker/${sender}.webp`)
-                                      } else if ((isMedia && mek.message.videoMessage.fileLength < 10000000 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.fileLength < 10000000)) {
-                                          const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-                                          const media = await Xrutz.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
-                                          ran = getRandom('.webp')
-                                              await ffmpeg(`${media}`)
-                                                  .inputFormat(media.split('.')[4])
-                                                  .on('start', function (cmd) {
-                                                      console.log(`Started : ${cmd}`)
-                                                  })
-                                                  .on('error', function (err) {
-                                                      console.log(`Error : ${err}`)
-                                                      fs.unlinkSync(media)
-                                                      tipe = media.endsWith('.mp4') ? 'video' : 'gif'
-                                                      reply(mess.error.api)
-                                                  })
-                                                  .on('end', function () {
-                                                      console.log('Finish')
-                                                      exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
-                                                          if (error) return reply(mess.error.api)
-                                                          Xrutz.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
-                                                          fs.unlinkSync(media)
-                                                          fs.unlinkSync(ran)
-                                                          fs.unlinkSync(`./sticker/${sender}.webp`)
-                                                      })
-                                                  })
-                                                  .addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-                                                  .toFormat('webp')
-                                                  .save(`./sticker/${sender}.webp`)
-                                      } else {
-                                          reply(`Kirim gambar/video dengan caption ${prefix}sticker atau tag gambar/video yang sudah dikirim\nNote : Durasi video maximal 10 detik`)
-                                      }
-                                      break
+                                          const media = await Xrutz.downloadAndSaveMediaMessage(encmedia)
+                                              ran = '666.webp'
+                                              await ffmpeg(`./${media}`)
+                                              .input(media)
+                                              .on('start', function (cmd) {
+                                                   console.log(`Started : ${cmd}`)
+                                              })
+                                              .on('error', function (err) {
+                                               console.log(`Error : ${err}`)
+                                              fs.unlinkSync(media)
+                                              reply('error')
+                                              })
+                                              .on('end', function () {
+                                              console.log('Finish')
+                                              Xrutz.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek})
+                                               fs.unlinkSync(media)
+                                              fs.unlinkSync(ran)
+                                            })
+                                              .addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+                                              .toFormat('webp')
+                                              .save(ran)
+                                              } else if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
+                                              const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+                                              const media = await Xrutz.downloadAndSaveMediaMessage(encmedia)
+                                          ran = '999.webp'
+                                          reply(mess.wait)
+                                          await ffmpeg(`./${media}`)
+                                          .inputFormat(media.split('.')[1])
+                                          .on('start', function (cmd) {
+                                          console.log(`Started : ${cmd}`)
+                                          })
+                                          .on('error', function (err) {
+                                          console.log(`Error : ${err}`)
+                                          fs.unlinkSync(media)
+                                          tipe = media.endsWith('.mp4') ? 'video' : 'gif'
+                                          reply(`Gagal, pada saat mengkonversi ${tipe} ke stiker`)
+                                          })
+                                          .on('end', function () {
+                                          console.log('Finish')
+                                          Xrutz.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek})
+                                          fs.unlinkSync(media)
+                                          fs.unlinkSync(ran)
+                                            })
+                                              .addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+                                              .toFormat('webp')
+                                              .save(ran)
+                                          } else {
+                                              reply(`Kirim gambar dengan caption ${prefix}sticker\nDurasi Sticker Video 1-9 Detik`)
+                                          }
+                                          break     
        case 'take':
        case 'colong':
               if (!isQuotedSticker) return reply('Stiker aja om')
