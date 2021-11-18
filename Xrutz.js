@@ -69,6 +69,8 @@ const { mediafireDl } = require('./lib/mediafire.js')
 const { webp2gifFile, igDownloader, TiktokDownloader } = require("./lib/gif.js")
 const { y2mateA, y2mateV } = require('./lib/y2mate')
 const { ythd } = require('./lib/ytdl')
+const { herolist } = require('./lib/herolist.js')
+const { herodetails } = require('./lib/herodetail.js')
 const premium = require("./lib/premium");
 const afk = require("./lib/afk");
 const level = require("./lib/level");
@@ -2183,6 +2185,13 @@ if (isBanned) return reply(mess.ban)
                             Xrutz.sendMessage(from, argzi[0], MessageType.text)
                      }
                      break
+case 'restart':
+if (!isOwner && !mek.key.fromMe) return reply(mess.only.owner)
+reply(`_Restarting_`)
+exec(`npm start`)
+sleep(4000)
+reply('Sukses')
+break
          case 'spamsms':
          if (isBanned) return reply(mess.ban)
 
@@ -3114,6 +3123,61 @@ break
               console.error(err)
               reply('Error!')
 })
+break
+case 'herolist':
+       await herolist().then((ress) => {
+       let listt = `*List hero untuk feature ${prefix}herodetail*\n\n`
+       for (var i = 0; i < ress.hero.length; i++) {
+       listt += '-  ' + ress.hero[i] + '\n'
+       }
+       reply(listt)
+       })
+       break
+       case 'herodetail':
+res = await herodetails(body.slice(12))
+her = `*Hero Details ${body.slice(12)}*
+              
+*Nama* : ${res.hero_name}
+*Role* : ${res.role}
+*Quotes* : ${res.entrance_quotes}
+*Fitur Hero* : ${res.hero_feature}
+*Spesial* : ${res.speciality}
+*Rekomendasi Lane* : ${res.laning_recommendation}
+*Harga* : ${res.price.battle_point} [Battle point] | ${res.price.diamond} [DM] | ${res.price.hero_fragment} [Fragment]
+*Rilis* : ${res.release_date}
+              
+*Durability* : ${res.skill.durability}
+*Offence* : ${res.skill.offense}
+*Skill Effect* : ${res.skill_effects}
+*Difficulty* : ${res.skill.difficulty}
+               
+*Movement Speed* : ${res.attributes.movement_speed}
+*Physical Attack* : ${res.attributes.physical_attack}
+*Magic Defense* : ${res.attributes.magic_defense}
+*Ability Crit Rate* : ${res.attributes.ability_crit_rate}
+*HP* : ${res.attributes.hp}
+*Mana* : ${res.attributes.mana}
+*Mana Regen* : ${res.attributes.mana_regen}
+              
+*Story* : ${res.background_story}`
+reply(her)
+break
+case 'google':
+case 'googlesearch':
+case 'ggs':
+if (args.length < 1) return reply('Yang mau di cari apaan?')
+teks = args.join(' ')
+reply(mess.wait)
+res = await ggs({'query' : `${teks}`})
+kant = ``
+for (let i of res) {
+kant += `*Judul* : ${i.title}
+*Link* : ${i.link}
+*Keterangan* : ${i.snippet}`
+}
+var akhir = kant.trim()
+reply(akhir)
+break
 case 'infotsunami':
        ini_result = await fetchJson('https://ronove-bot-api.herokuapp.com/api/infotsunami?apikey=Alphabot')
        get_result = ini_result.result
@@ -3478,53 +3542,6 @@ break
                      Xrutz.relayWAMessage(prep)
                      fs.unlinkSync(`./${sender}.jpeg`)
                      break
-                     case 'robot':
-encmedial = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-medial = await Xrutz.downloadAndSaveMediaMessage(encmedial)
-ran = getRandom('.mp3')
-exec(`ffmpeg -i ${medial} -filter_complex "afftfilt=real='hypot(re,im)*sin(0)':imag='hypot(re,im)*cos(0)':win_size=512:overlap=0.75" ${ran}`, (err, stderr, stdout) => {
-fs.unlinkSync(medial)
-if (err) return reply(mess.error.api)
-hah = fs.readFileSync(ran)
-Xrutz.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', duration: 359996400, ptt:true, quoted: mek})
-fs.unlinkSync(ran)
-})
-break
-case 'gemuk':
-          encmediaz = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-          mediaz = await Xrutz.downloadAndSaveMediaMessage(encmediaz)
-          ran = getRandom('.mp3')
-          exec(`ffmpeg -i ${mediaz} -filter:a "atempo=1.6,asetrate=22100" ${ran}`, (err, stderr, stdout) => {
-              fs.unlinkSync(mediaz)
-              if (err) return ephe('Error!')
-              hah = fs.readFileSync(ran)
-          Xrutz.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, duration: 359996400, quoted:mek})
-              fs.unlinkSync(ran)
-          })
-          break
-case 'balik':
-encmediau = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-mediau = await Xrutz.downloadAndSaveMediaMessage(encmediau)
-ran = getRandom('.mp3')
-exec(`ffmpeg -i ${mediau} -filter_complex "areverse" ${ran}`, (err, stderr, stdout) => {
-fs.unlinkSync(mediau)
-if (err) return reply('Error!')
-hah = fs.readFileSync(ran)
-Xrutz.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 359996400, quoted:mek})
-fs.unlinkSync(ran)
-})
-break
-case 'bass':                 
-          encmediao = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-          mediao = await Xrutz.downloadAndSaveMediaMessage(encmediao)
-          ran = getRandom('.mp3')
-          exec(`ffmpeg -i ${mediao} -af equalizer=f=94:width_type=o:width=2:g=30 ${ran}`, (err, stderr, stdout) => {
-              fs.unlinkSync(mediao)
-              if (err) return reply('Error!')
-              hah = fs.readFileSync(ran)
-              Xrutz.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 359996400, quoted:mek})
-              fs.unlinkSync(ran)
-          })
       break
        case 'gifstiker':
 				case 's':
@@ -5072,25 +5089,23 @@ const btnasu = {
 await Xrutz.sendMessage(from, btnasu, MessageType.buttonsMessage, {quoted: fakekontak})
 					}
 					break
-       
        case 'welcome':
             if (!isGroupAdmins) return reply(mess.only.admin)
             if (!isGroup) return reply(mess.only.group)
-            if (!isOwner) return reply(mess.only.owner)
 					if (args[0] === 'enable') {
-						if (isWelkom) return reply('Udah aktif')
+						if (isWelkom) return reply('Sudah Aktif Kak')
 						welkom.push(from)
-						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
+						fs.writeFileSync('./database/group/welcome.json', JSON.stringify(welkom))
 						reply('Sukses mengaktifkan fitur Welcome')
 					    } else if (args[0] === 'disable') {
-						if (!isAntiLink) return reply('Sudah Mati Kak')
+						if (!isWelkom) return reply('Sudah Mati Kak')
 						let anu = welkom.indexOf(from)
                         welkom.splice(anu, 1)
 						fs.writeFileSync('./database/group/welcome.json', JSON.stringify(welkom))
                         reply('Sukses menonaktifkan fitur Welcome')
 					    } else if (!q){
- anu =`Silahkan pilih salah satu!\n*Enable :* untuk mengaktifkan\n*Disable :* untuk menonaktifkan`
-punten = [{buttonId: '#welcome disable', buttonText: {displayText: 'DISABLE'}, type: 1},{buttonId: '#welcome enable', buttonText: {displayText: 'ENABLE'}, type: 1}]
+ anu =`Silahkan pilih salah satu!`
+punten = [{buttonId: '#welcome enable', buttonText: {displayText: 'ON'}, type: 1},{buttonId: '#welcome disable', buttonText: {displayText: 'OFF'}, type: 1}]
 const buttnasu = {
     contentText: `${anu}`,
     footerText: '*_© KUHXBOT_*',
@@ -5544,10 +5559,12 @@ break
 〆 ${prefix}infogempa
 〆 ${prefix}infogempa2
 〆 ${prefix}infotsunami
-〆 ${prefix}jarak _kota1 - kota2_
-〆 ${prefix}cuaca _daerah_
+〆 ${prefix}jarak *<Kota 1 - Kota 2>*
+〆 ${prefix}cuaca *<daerah>*
 〆 ${prefix}covidindo
-〆 ${prefix}covidglobal`
+〆 ${prefix}covidglobal
+〆 ${prefix}herolist
+〆 ${prefix}herodetail *<hero ml>*`
         Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhinformationmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
         break
 
