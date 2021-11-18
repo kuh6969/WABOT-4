@@ -2185,13 +2185,6 @@ if (isBanned) return reply(mess.ban)
                             Xrutz.sendMessage(from, argzi[0], MessageType.text)
                      }
                      break
-case 'restart':
-if (!isOwner && !mek.key.fromMe) return reply(mess.only.owner)
-reply(`_Restarting_`)
-exec(`npm start`)
-sleep(4000)
-reply('Sukses')
-break
          case 'spamsms':
          if (isBanned) return reply(mess.ban)
 
