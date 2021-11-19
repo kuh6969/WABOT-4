@@ -119,6 +119,8 @@ mess = {
 
             ban: '_*Maaf Kamu Sudah TerBanned, Silahkam Hubungi .owner!!*_',
 			wrongFormat: '*_Format salah, coba liat lagi di Menu_*',
+                     IsiFormatTopupFF: '*Command :* .topupml id|nominal\n*_Example :* .topupff 12345678|70\n\n*Pastikan ID & Nominal Benar\nNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket',
+                     IsiFormatTopupML: '*Command :* .topupml id|server|nominal\n*_Example :* .topupml 12345678|1234|86\n\n*Pastikan ID Server& Nominal Benar\nNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket',
 			error: {
 				api: '*_Habis brok blm beli_*',
 				stick: '*_Emang itu sticker?!?!_*',
@@ -641,6 +643,11 @@ var imageTime = await getBuffer('https://i.pinimg.com/736x/15/8e/ea/158eea299c01
 }
 
 			/////
+                     let kuhconftopup = await getBuffer(`https://i.ibb.co/zRnMDs5/20211119-172110.jpg`)
+                     fakelink = (tekslink) => { 
+                            return {"externalAdReply": { "title": tekslink, "thumbnail": kuhconftopup, "sourceUrl": "https://wa.me/12816245470" }}
+                     }
+
                      let ikyads = await getBuffer(`https://i.ibb.co/3hTBvwP/images-8.jpg`)
                      fakelink = (tekslink) => { 
                             return {"externalAdReply": { "title": tekslink, "thumbnail": ikyads, "sourceUrl": "https://wa.me/12816245470" }}
@@ -1258,8 +1265,8 @@ break
        if (isBanned) return reply(mess.ban)
        
                list = []
-               listmenu = [`70💎`,`100💎`,`140💎`,`210💎`,`280💎`,`355💎`,`720💎`]
-               listmenuu = [`70 💎 = IDR 9.500`,`100 💎 = IDR 14.500`,`140 💎 = IDR 19.000`,`210 💎 = IDR 30.000`,`280 💎 = IDR 38.000`,`355 💎 = IDR 48.000`,`720 💎 = IDR 95.000`]
+               listmenu = [`topupff`,`topupff`,`topupff`,`topupff`,`topupff`,`topupff`,`topupff`]
+               listmenuu = [`70 💎 = IDR 9.500`,`100 💎 = IDR 14.500`,`140 💎 = IDR 19.000`,`210 💎 = IDR 28.500`,`280 💎 = IDR 38.000`,`355 💎 = IDR 48.000`,`720 💎 = IDR 95.000`]
                nombor = 1
                startnum = 0
                for (let x of listmenu) {
@@ -1274,14 +1281,14 @@ break
                    }
                         list.push(yy)
            }
-               listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak ${pushname}! 🕊️\nBerikut adalah *List Diamond* Free fire`, list, {quoted: faketroli})
+               listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak ${pushname}! 🕊️\nBerikut adalah *List Diamond* Free fire\n\nNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket*\n\nUntuk Via Cash & Pulsa Hubungi Owner`, list, {quoted: faketroli})
                break
 
        case 'dmml':
        if (isBanned) return reply(mess.ban)
        
                list = []
-               listmenu = [`86💎`,`172💎`,`257💎`,`344💎`,`429💎`,`514💎`,`706💎`]
+               listmenu = [`topupml`,`topupml`,`topupml`,`topupml`,`topupml`,`topupml`,`topupml`]
                listmenuu = [`86 💎 = IDR 19.000`,`172 💎 = IDR 38.000`,`257 💎 = IDR 58.000`,`344 💎 = IDR 76.000`,`429 💎 = IDR 96.000`,`514 💎 = IDR 115.000`,`706 💎 = IDR 150.000`]
                nombor = 1
                startnum = 0
@@ -1297,293 +1304,11 @@ break
                    }
                         list.push(yy)
            }
-               listmsg(from, `_${week}, ${jmn} - ${calender}_`,   `Hallo kak ${pushname}! 🕊️\nBerikut adalah *List Diamond* Mobile legend`, list, {quoted: faketroli})
+               listmsg(from, `_${week}, ${jmn} - ${calender}_`,   `Hallo kak ${pushname}! 🕊️\nBerikut adalah *List Diamond* Mobile legend\n\nNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket*\n\nUntuk Via Cash & Pulsa Hubungi Owner`, list, {quoted: faketroli})
                break
        
 //List diamond Ngep ngep
-case '70💎':
-if (isBanned) return reply(mess.ban)
-
-               txtt =`*Hai Kak ${pushname} 🕊️*
-Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
-
-               buttons = [
-{buttonId: '!idff',buttonText:{displayText: 'LANJUT'},type:1},
-{buttonId:'!storegame',buttonText:{displayText:'KEMBALI'},type:1}]
-
-               buttonsMessage = {
-               contentText: `${txtt}`,
-               footerText: '© KUHXBOT',
-               buttons: buttons,
-               headerType: 1
-}
-
-               prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{sendEphemeral:true, quoted: fakekontak, contextInfo:{ forwardingScore:508, isForwarded:true, mentionedJid:[senderr]}})
-               Xrutz.relayWAMessage(prep)
-               break
-case '100💎':
-if (isBanned) return reply(mess.ban)
-
-               txtt =`*Hai Kak ${pushname} 🕊️*
-Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
-
-               buttons = [
-{buttonId: '!idff',buttonText:{displayText: 'LANJUT'},type:1},
-{buttonId:'!storegame',buttonText:{displayText:'KEMBALI'},type:1}]
-
-               buttonsMessage = {
-               contentText: `${txtt}`,
-               footerText: '© KUHXBOT',
-               buttons: buttons,
-               headerType: 1
-}
-
-               prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{sendEphemeral:true, quoted: fakekontak, contextInfo:{ forwardingScore:508, isForwarded:true, mentionedJid:[senderr]}})
-               Xrutz.relayWAMessage(prep)
-               break
-case '140💎':
-if (isBanned) return reply(mess.ban)
-
-               txtt =`*Hai Kak ${pushname} 🕊️*
-Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
-
-               buttons = [
-{buttonId: '!idff',buttonText:{displayText: 'LANJUT'},type:1},
-{buttonId:'!storegame',buttonText:{displayText:'KEMBALI'},type:1}]
-
-               buttonsMessage = {
-               contentText: `${txtt}`,
-               footerText: '© KUHXBOT',
-               buttons: buttons,
-               headerType: 1
-}
-
-               prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{sendEphemeral:true, quoted: fakekontak, contextInfo:{ forwardingScore:508, isForwarded:true, mentionedJid:[senderr]}})
-               Xrutz.relayWAMessage(prep)
-               break
-case '210💎':
-if (isBanned) return reply(mess.ban)
-
-               txtt =`*Hai Kak ${pushname} 🕊️*
-Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
-
-               buttons = [
-{buttonId: '!idff',buttonText:{displayText: 'LANJUT'},type:1},
-{buttonId:'!storegame',buttonText:{displayText:'KEMBALI'},type:1}]
-
-               buttonsMessage = {
-               contentText: `${txtt}`,
-               footerText: '© KUHXBOT',
-               buttons: buttons,
-               headerType: 1
-}
-
-               prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{sendEphemeral:true, quoted: fakekontak, contextInfo:{ forwardingScore:508, isForwarded:true, mentionedJid:[senderr]}})
-               Xrutz.relayWAMessage(prep)
-               break
-case '280💎':
-if (isBanned) return reply(mess.ban)
-
-               txtt =`*Hai Kak ${pushname} 🕊️*
-Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
-
-               buttons = [
-{buttonId: '!idff',buttonText:{displayText: 'LANJUT'},type:1},
-{buttonId:'!storegame',buttonText:{displayText:'KEMBALI'},type:1}]
-
-               buttonsMessage = {
-               contentText: `${txtt}`,
-               footerText: '© KUHXBOT',
-               buttons: buttons,
-               headerType: 1
-}
-
-               prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{sendEphemeral:true, quoted: fakekontak, contextInfo:{ forwardingScore:508, isForwarded:true, mentionedJid:[senderr]}})
-               Xrutz.relayWAMessage(prep)
-               break
-case '355💎':
-if (isBanned) return reply(mess.ban)
-
-               txtt =`*Hai Kak ${pushname} 🕊️*
-Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
-
-               buttons = [
-{buttonId: '!idff',buttonText:{displayText: 'LANJUT'},type:1},
-{buttonId:'!storegame',buttonText:{displayText:'KEMBALI'},type:1}]
-
-               buttonsMessage = {
-               contentText: `${txtt}`,
-               footerText: '© KUHXBOT',
-               buttons: buttons,
-               headerType: 1
-}
-
-               prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{sendEphemeral:true, quoted: fakekontak, contextInfo:{ forwardingScore:508, isForwarded:true, mentionedJid:[senderr]}})
-               Xrutz.relayWAMessage(prep)
-               break
-case '720💎':
-if (isBanned) return reply(mess.ban)
-
-               txtt =`*Hai Kak ${pushname} 🕊️*
-Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
-
-               buttons = [
-{buttonId: '!idff',buttonText:{displayText: 'LANJUT'},type:1},
-{buttonId:'!storegame',buttonText:{displayText:'KEMBALI'},type:1}]
-
-               buttonsMessage = {
-               contentText: `${txtt}`,
-               footerText: '© KUHXBOT',
-               buttons: buttons,
-               headerType: 1
-}
-
-               prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{sendEphemeral:true, quoted: fakekontak, contextInfo:{ forwardingScore:508, isForwarded:true, mentionedJid:[senderr]}})
-               Xrutz.relayWAMessage(prep)
-               break
-
 //List Emel nya
-case '343💎':
-if (isBanned) return reply(mess.ban)
-
-               txtt =`*Hai Kak ${pushname} 🕊️*
-Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
-
-               buttons = [
-{buttonId: '!idml',buttonText:{displayText: 'LANJUT'},type:1},
-{buttonId:'!storegame',buttonText:{displayText:'KEMBALI'},type:1}]
-
-               buttonsMessage = {
-               contentText: `${txtt}`,
-               footerText: '© KUHXBOT',
-               buttons: buttons,
-               headerType: 1
-}
-
-               prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{sendEphemeral:true, quoted: fakekontak, contextInfo:{ forwardingScore:508, isForwarded:true, mentionedJid:[senderr]}})
-               Xrutz.relayWAMessage(prep)
-               break
-case '429💎':
-if (isBanned) return reply(mess.ban)
-
-               txtt =`*Hai Kak ${pushname} 🕊️*
-Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
-
-               buttons = [
-{buttonId: '!idml',buttonText:{displayText: 'LANJUT'},type:1},
-{buttonId:'!storegame',buttonText:{displayText:'KEMBALI'},type:1}]
-
-               buttonsMessage = {
-               contentText: `${txtt}`,
-               footerText: '© KUHXBOT',
-               buttons: buttons,
-               headerType: 1
-}
-
-               prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{sendEphemeral:true, quoted: fakekontak, contextInfo:{ forwardingScore:508, isForwarded:true, mentionedJid:[senderr]}})
-               Xrutz.relayWAMessage(prep)
-               break
-case '514💎':
-if (isBanned) return reply(mess.ban)
-
-               txtt =`*Hai Kak ${pushname} 🕊️*
-Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
-
-               buttons = [
-{buttonId: '!idml',buttonText:{displayText: 'LANJUT'},type:1},
-{buttonId:'!storegame',buttonText:{displayText:'KEMBALI'},type:1}]
-
-               buttonsMessage = {
-               contentText: `${txtt}`,
-               footerText: '© KUHXBOT',
-               buttons: buttons,
-               headerType: 1
-}
-
-               prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{sendEphemeral:true, quoted: fakekontak, contextInfo:{ forwardingScore:508, isForwarded:true, mentionedJid:[senderr]}})
-               Xrutz.relayWAMessage(prep)
-               break
-case '706💎':
-if (isBanned) return reply(mess.ban)
-
-               txtt =`*Hai Kak ${pushname} 🕊️*
-Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
-
-               buttons = [
-{buttonId: '!idml',buttonText:{displayText: 'LANJUT'},type:1},
-{buttonId:'!storegame',buttonText:{displayText:'KEMBALI'},type:1}]
-
-               buttonsMessage = {
-               contentText: `${txtt}`,
-               footerText: '© KUHXBOT',
-               buttons: buttons,
-               headerType: 1
-}
-
-               prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{sendEphemeral:true, quoted: fakekontak, contextInfo:{ forwardingScore:508, isForwarded:true, mentionedJid:[senderr]}})
-               Xrutz.relayWAMessage(prep)
-               break
-case '86💎':
-if (isBanned) return reply(mess.ban)
-
-               txtt =`*Hai Kak ${pushname} 🕊️*
-Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
-
-               buttons = [
-{buttonId: '!idff',buttonText:{displayText: 'LANJUT'},type:1},
-{buttonId:'!storegame',buttonText:{displayText:'KEMBALI'},type:1}]
-
-               buttonsMessage = {
-               contentText: `${txtt}`,
-               footerText: '© KUHXBOT',
-               buttons: buttons,
-               headerType: 1
-}
-
-               prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{sendEphemeral:true, quoted: fakekontak, contextInfo:{ forwardingScore:508, isForwarded:true, mentionedJid:[senderr]}})
-               Xrutz.relayWAMessage(prep)
-               break
-case '172💎':
-if (isBanned) return reply(mess.ban)
-
-               txtt =`*Hai Kak ${pushname} 🕊️*
-Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
-
-               buttons = [
-{buttonId: '!idml',buttonText:{displayText: 'LANJUT'},type:1},
-{buttonId:'!storegame',buttonText:{displayText:'KEMBALI'},type:1}]
-
-               buttonsMessage = {
-               contentText: `${txtt}`,
-               footerText: '© KUHXBOT',
-               buttons: buttons,
-               headerType: 1
-}
-
-               prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{sendEphemeral:true, quoted: fakekontak, contextInfo:{ forwardingScore:508, isForwarded:true, mentionedJid:[senderr]}})
-               Xrutz.relayWAMessage(prep)
-               break
-case '257💎':
-if (isBanned) return reply(mess.ban)
-
-               txtt =`*Hai Kak ${pushname} 🕊️*
-Apakah anda lanjut untuk Membeli diamond by *${botName}?*`
-
-               buttons = [
-{buttonId: '!idml',buttonText:{displayText: 'LANJUT'},type:1},
-{buttonId:'!storegame',buttonText:{displayText:'KEMBALI'},type:1}]
-
-               buttonsMessage = {
-               contentText: `${txtt}`,
-               footerText: '© KUHXBOT',
-               buttons: buttons,
-               headerType: 1
-}
-
-               prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{sendEphemeral:true, quoted: fakekontak, contextInfo:{ forwardingScore:508, isForwarded:true, mentionedJid:[senderr]}})
-               Xrutz.relayWAMessage(prep)
-               break
-
 //Format data dm
 case 'idff':
 if (isBanned) return reply(mess.ban)
@@ -2998,6 +2723,33 @@ if (args.length == 0) return reply(`Idnya mana kak?`)
                     ini_id = ff_id
                     reply(`UID : ${ini_id}\nNickname : ${ini_text}`)
                     break  
+case 'topupff':
+       const serialUser = createSerial(16)
+       if (!q) return reply(mess.IsiFormatTopupFF)
+       top = arg.split('|')[0]
+       bottom = arg.split('|')[1]
+       ff_id = top
+       order = bottom
+              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/freefire?id=${ff_id}`)
+              ini_text = get_result.nickname
+              ini_id = ff_id
+              ini_order = order
+menu =` Hai Kak @${sender.split('@')[0]}
+
+       *「 TOPUP FF 」*
+
+〆 UID : ${ini_id}
+〆 Nickname : ${ini_text}
+〆 Order : ${ini_order} Diamond
+〆 Status : Only Payment "Minimarket"
+〆 Tanggal : ${calender}
+〆 Waktu : ${jmn} 
+〆 SN No : ${serialUser}
+〆 WhatsApp : ${sender.split('@')[0]}`
+                     
+                                         
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: 'Fitur Topup With Bot Masih Dalam Program Beta.\n\nKeterangan Code:\n402 = Hubungi Owner Untuk Konfirmasi Pembayaran\n\n404 = Server Dari Penyedia Layanan Sedang Mengalami Gangguan\n\n ```Made With ❤️ Kukuh``` \n\n', buttons: [{ buttonId: `.owner`, buttonText: { displayText: 'OWNER' }, type: 1 },{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 }], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhconftopup, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+break  
 case 'mlstalk':
        if (!q) return reply(mess.wrongFormat)
        top = arg.split('|')[0]
@@ -3010,6 +2762,37 @@ case 'mlstalk':
                     ini_server = ml_server
                     reply(`UID : ${ini_id}\nServer : ${ini_server}\nNickname : ${ini_text}`)
                     break
+case 'topupml':
+       const serialML = createSerial(16)
+       if (!q) return reply(mess.IsiFormatTopupML)
+       top = arg.split('|')[0]
+       bottom = arg.split('|')[1]
+       left = arg.split('|')[2]
+       ml_id = top
+       ml_server = bottom
+       order = left
+              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/mobilelegend?id=${ml_id}&server=${ml_server}`)
+              ini_text = get_result.nickname           
+              ini_id = ml_id
+              ini_server = ml_server
+              ini_order = order
+menu =` Hai Kak @${sender.split('@')[0]}
+
+       *「 TOPUP ML 」*
+
+〆 UID : ${ini_id}
+〆 Server : ${ini_server}
+〆 Nickname : ${ini_text}
+〆 Order : ${ini_order} Diamond
+〆 Status : Only Payment "Minimarket"
+〆 Tanggal : ${calender}
+〆 Waktu : ${jmn} 
+〆 SN No : ${serialML}
+〆 WhatsApp : ${sender.split('@')[0]}`
+                     
+                                         
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: 'Fitur Topup With Bot Masih Dalam Program Beta.\n\nKeterangan Code:\n402 = Hubungi Owner Untuk Konfirmasi Pembayaran\n\n404 = Server Dari Penyedia Layanan Sedang Mengalami Gangguan\n\n ```Made With ❤️ Kukuh``` \n\n', buttons: [{ buttonId: `.owner`, buttonText: { displayText: 'OWNER' }, type: 1 },{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 }], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhconftopup, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+break  
 //------------------< Sticker/Tools >-------------------
 
        case 'dadu': // by CHIKAA CHANTEKKXXZZ
