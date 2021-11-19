@@ -119,8 +119,8 @@ mess = {
 
             ban: '_*Maaf Kamu Sudah TerBanned, Silahkam Hubungi .owner!!*_',
 			wrongFormat: '*_Format salah, coba liat lagi di Menu_*',
-                     IsiFormatTopupFF: '*Command :* .topupml id|nominal\n*_Example :* .topupff 12345678|70\n\n*Pastikan ID & Nominal Benar\nNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket',
-                     IsiFormatTopupML: '*Command :* .topupml id|server|nominal\n*_Example :* .topupml 12345678|1234|86\n\n*Pastikan ID Server& Nominal Benar\nNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket',
+                     IsiFormatTopupFF: '*Command :* .topupff id|nominal\n*Example :* .topupff 12345678|70\n\n*Pastikan ID & Nominal Benar\nNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket*',
+                     IsiFormatTopupML: '*Command :* .topupml id|server|nominal\n*Example :* .topupml 12345678|1234|86\n\n*Pastikan ID Server& Nominal Benar\nNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket*',
 			error: {
 				api: '*_Habis brok blm beli_*',
 				stick: '*_Emang itu sticker?!?!_*',
