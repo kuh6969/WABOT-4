@@ -2697,7 +2697,7 @@ case 'happymod':
                      ini_result = await fetchJson(`https://api.dhnjing.xyz/api/apk/happymod?apps=${apk}&apikey=f6921005b1a75905c12a`)
                      ini_result = ini_result.result
                      ini_nama = ini_result.apps_name
-                     ini_rate = ini_resul.apps_rate
+                     ini_rate = ini_result.apps_rate
                      ini_apk = ini_result.apps_linkdl
                      ini_buffer = await getBuffer(ini_result.apps_thumb)
                      ini_txt = `『 *HAPPY MOD* 』
