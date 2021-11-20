@@ -2741,7 +2741,7 @@ menu =` Hai Kak @${sender.split('@')[0]}
 〆 UID : ${ini_id}
 〆 Nickname : ${ini_text}
 〆 Order : ${ini_order} Diamond
-〆 Status : Only Payment "Minimarket"
+〆 Status : Code 402
 〆 Tanggal : ${calender}
 〆 Waktu : ${jmn} 
 〆 SN No : ${serialUser}
@@ -2784,7 +2784,7 @@ menu =` Hai Kak @${sender.split('@')[0]}
 〆 Server : ${ini_server}
 〆 Nickname : ${ini_text}
 〆 Order : ${ini_order} Diamond
-〆 Status : Only Payment "Minimarket"
+〆 Status : Code 402
 〆 Tanggal : ${calender}
 〆 Waktu : ${jmn} 
 〆 SN No : ${serialML}
