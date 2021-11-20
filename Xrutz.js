@@ -2691,6 +2691,23 @@ case 'igstalk':
         `
                     Xrutz.sendMessage(from, ini_buffer, image, { caption: ini_txt, thumbnail: Buffer.alloc(0) })
                      break
+case 'happymod':
+                     if (args.length == 0) return reply(`Example: ${prefix + command} epep mex`)
+                     apk = args[0]
+                     ini_result = await fetchJson(`https://api.dhnjing.xyz/api/apk/happymod?apps=${apk}&apikey=f6921005b1a75905c12a`)
+                     ini_result = ini_result.result
+                     ini_nama = ini_result.apps_name
+                     ini_rate = ini_resul.apps_rate
+                     ini_apk = ini_result.apps_linkdl
+                     ini_buffer = await getBuffer(ini_result.apps_thumb)
+                     ini_txt = `『 *HAPPY MOD* 』
+
+*Data Berhasil Didapatkan!*
+➤ *Aplikasi :* ${ini_nama}
+➤ *Rating :* ${ini_rate}
+➤ *Link Download :* ${ini_apk}`
+                    Xrutz.sendMessage(from, ini_buffer, image, { caption: ini_txt, thumbnail: Buffer.alloc(0) })
+                     break
       case 'stalktiktok':
 case 'tiktokstalk':
               if (args.length == 0) return reply(`Example: ${prefix + command} kukuh6969`)
@@ -2741,7 +2758,7 @@ menu =` Hai Kak @${sender.split('@')[0]}
 〆 UID : ${ini_id}
 〆 Nickname : ${ini_text}
 〆 Order : ${ini_order} Diamond
-〆 Status : Code 402
+〆 Status : Code 404
 〆 Tanggal : ${calender}
 〆 Waktu : ${jmn} 
 〆 SN No : ${serialUser}
@@ -2784,7 +2801,7 @@ menu =` Hai Kak @${sender.split('@')[0]}
 〆 Server : ${ini_server}
 〆 Nickname : ${ini_text}
 〆 Order : ${ini_order} Diamond
-〆 Status : Code 402
+〆 Status : Code 404
 〆 Tanggal : ${calender}
 〆 Waktu : ${jmn} 
 〆 SN No : ${serialML}
