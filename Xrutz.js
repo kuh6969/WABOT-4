@@ -119,8 +119,8 @@ mess = {
 
             ban: '_*Maaf Kamu Sudah TerBanned, Silahkam Hubungi .owner!!*_',
 			wrongFormat: '*_Format salah, coba liat lagi di Menu_*',
-                     IsiFormatTopupFF: '*Command :* .topupff id|nominal\n*Example :* .topupff 12345678|70\n\n*Pastikan ID & Nominal Benar\nNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket*',
-                     IsiFormatTopupML: '*Command :* .topupml id|server|nominal\n*Example :* .topupml 12345678|1234|86\n\n*Pastikan ID Server& Nominal Benar\nNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket*',
+                     IsiFormatTopupFF: '*Command :* .tff id-nominal\n*Example :* .tff 12345678-70\n\n*Pastikan ID & Nominal Benar*',
+                     IsiFormatTopupML: '*Command :* .tml id-server-nominal\n*Example :* .tml 12345678-1234-86\n\n*Pastikan ID Server& Nominal Benar',
 			error: {
 				api: '*_Habis brok blm beli_*',
 				stick: '*_Emang itu sticker?!?!_*',
@@ -576,6 +576,27 @@ var imageTime = await getBuffer('https://i.pinimg.com/736x/81/98/aa/8198aaf07083
 if(time2 < "06:00:00"){
 var imageTime = await getBuffer('https://i.pinimg.com/736x/15/8e/ea/158eea299c01433aae6744599d2fdc3a.jpg')
 }
+
+const time3 = moment().tz('Asia/Jakarta').format('HH:mm:ss')
+if(time3 < "23:59:00"){
+var sayingtime = 'Selamat Malam'
+}
+if(time3 < "19:00:00"){
+var sayingtime = 'Selamat Petang'
+}
+if(time3 < "18:00:00"){
+var sayingtime = 'Selamat Sore'
+}
+if(time3 < "15:00:00"){
+var sayingtime = 'Selamat Siang'
+}
+if(time3 < "11:00:00"){
+var sayingtime = 'Selamat Pagi'
+}
+if(time3 < "05:00:00"){
+var sayingtime = 'Selamat Malam'
+}
+
          const levelRole = level.getLevelingLevel(sender, _level)
         var role = 'Warrior III'
         if (levelRole <= 5) {
@@ -1125,7 +1146,7 @@ if (mek.key.fromMe){
               const WaktuWita = moment.tz('Asia/Jayapura').format('DD/MM HH:mm:ss')
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
            if (isBanned) return reply(mess.ban)
-        menu =`${tampilUcapan} @${sender.split('@')[0]}, 
+        menu =`${sayingtime} @${sender.split('@')[0]}, 
 
 _saya ${botName} yang siap membantu anda dalam membuat sticker, downloader, dll. gunakan bot ini dengan bijak!_\n\n_WhatsApp Mod Belum Support Button Message._
 
@@ -1265,7 +1286,7 @@ break
        if (isBanned) return reply(mess.ban)
        
                list = []
-               listmenu = [`topupff`,`topupff`,`topupff`,`topupff`,`topupff`,`topupff`,`topupff`]
+               listmenu = [`tff`,`tff`,`tff`,`tff`,`tff`,`tff`,`tff`]
                listmenuu = [`70 💎 = IDR 9.500`,`100 💎 = IDR 14.500`,`140 💎 = IDR 19.000`,`210 💎 = IDR 28.500`,`280 💎 = IDR 38.000`,`355 💎 = IDR 48.000`,`720 💎 = IDR 95.000`]
                nombor = 1
                startnum = 0
@@ -1288,7 +1309,7 @@ break
        if (isBanned) return reply(mess.ban)
        
                list = []
-               listmenu = [`topupml`,`topupml`,`topupml`,`topupml`,`topupml`,`topupml`,`topupml`]
+               listmenu = [`tml`,`tml`,`tml`,`tml`,`tml`,`tpml`,`tml`]
                listmenuu = [`86 💎 = IDR 19.000`,`172 💎 = IDR 38.000`,`257 💎 = IDR 58.000`,`344 💎 = IDR 76.000`,`429 💎 = IDR 96.000`,`514 💎 = IDR 115.000`,`706 💎 = IDR 150.000`]
                nombor = 1
                startnum = 0
@@ -2292,12 +2313,12 @@ case 'tiktok':
              break
 case 'jarak':
 if (args.length == 0) return reply(`Nama Kotanya Mana kak?\nContoh: ${prefix + command} Semarang - Jakarta`)
-pauls = args.join(" ")
-teks1 = pauls.split("-")[0].trim()
-teks2 = pauls.split("-")[1].trim()
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/jaraktempuh?apikey=${setting.lolkey}&kota1=${teks1}&kota2=${teks2}`)
+anu = args.join(" ")
+kota1 = anu.split("-")[1].trim()
+kota2 = anu.split("-")[2].trim()
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/jaraktempuh?apikey=${setting.lolkey}&kota1=${kota1}&kota2=${kota2}`)
 x = get_result.result
-ini_txt = `Informasi Jarak dari ${teks1} ke ${teks2} :\n\n`
+ini_txt = `Informasi Jarak dari ${kota1} ke ${kota2} :\n\n`
 ini_txt += `\`\`\`◪ Asal :\`\`\` ${x.from.name}\n`
 ini_txt += `\`\`\`◪ Garis Lintang :\`\`\` ${x.from.latitude}\n`
 ini_txt += `\`\`\`◪ Garis Bujur :\`\`\` ${x.from.longitude}\n\n`
@@ -2694,19 +2715,20 @@ case 'igstalk':
 case 'happymod':
                      if (args.length == 0) return reply(`Example: ${prefix + command} epep mex`)
                      apk = args[0]
-                     ini_result = await fetchJson(`https://api.dhnjing.xyz/api/apk/happymod?apps=${apk}&apikey=f6921005b1a75905c12a`)
-                     ini_result = ini_result.result
-                     ini_nama = ini_result.apps_name
-                     ini_rate = ini_result.apps_rate
-                     ini_apk = ini_result.apps_linkdl
-                     ini_buffer = await getBuffer(ini_result.apps_thumb)
-                     ini_txt = `『 *HAPPY MOD* 』
-
-*Data Berhasil Didapatkan!*
-➤ *Aplikasi :* ${ini_nama}
-➤ *Rating :* ${ini_rate}
-➤ *Link Download :* ${ini_apk}`
-                    Xrutz.sendMessage(from, ini_buffer, image, { caption: ini_txt, thumbnail: Buffer.alloc(0) })
+                     anu = await fetchJson(`https://api.dhnjing.xyz/api/apk/happymod?apps=${apk}&apikey=f6921005b1a75905c12a`)
+                     hepi = anu.result[0]
+                     buffer = await getBuffer(hepi.apps_thumb)
+                     teks = `『 *HAPPY MOD* 』 \n\n➣ Title : ${hepi.apps_name} \n➣ Rating : ${hepi.apps_rate} \n➣ Link Download : ${hepi.apps_linkdl}`
+                     Xrutz.sendMessage(from, buffer, image, {quoted: mek, caption: teks})
+                     break
+case 'moddroid':
+                     if (args.length < 1) return reply(`game yang mau di cari apa kak? \nContoh : ${prefix}happymod pubg`)
+                     apk = args[0]
+                     data = await fetchJson(`https://api.dhnjing.xyz/api/apk/moddroid?apps=${apk}&page=1&apikey=f6921005b1a75905c12a`)
+                     hepi = data.result[0] 
+                     teks = `『 *MODDROID* 』 \n\n*➣ Title*: ${hepi.apps_name}\n*➣ Versi*: ${hepi.apps_version}\n*➣ Deskripsi:* ${hepi.apps_desc}\n*➣ Link Download*: ${hepi.apps_linkdl}`
+                     buff = await getBuffer(hepi.apps_thumb)
+                     Xrutz.sendMessage(from, buff, image, {quoted: mek, caption: `${teks}`})
                      break
       case 'stalktiktok':
 case 'tiktokstalk':
@@ -2740,11 +2762,11 @@ if (args.length == 0) return reply(`Idnya mana kak?`)
                     ini_id = ff_id
                     reply(`UID : ${ini_id}\nNickname : ${ini_text}`)
                     break  
-case 'topupff':
+case 'tff':
        const serialUser = createSerial(16)
        if (!q) return reply(mess.IsiFormatTopupFF)
-       top = arg.split('|')[0]
-       bottom = arg.split('|')[1]
+       top = arg.split('-')[0]
+       bottom = arg.split('-')[1]
        ff_id = top
        order = bottom
               get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/freefire?id=${ff_id}`)
@@ -2758,14 +2780,14 @@ menu =` Hai Kak @${sender.split('@')[0]}
 〆 UID : ${ini_id}
 〆 Nickname : ${ini_text}
 〆 Order : ${ini_order} Diamond
-〆 Status : Code 404
+〆 Status : ${isOwner ? 'Success' : isPremium ? 'Gagal' : 'Gagal'}
 〆 Tanggal : ${calender}
 〆 Waktu : ${jmn} 
 〆 SN No : ${serialUser}
 〆 WhatsApp : ${sender.split('@')[0]}`
                      
-                                         
-Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: 'Fitur Topup With Bot Masih Dalam Program Beta.\n\nKeterangan Code:\n402 = Hubungi Owner Untuk Konfirmasi Pembayaran\n\n404 = Server Dari Penyedia Layanan Sedang Mengalami Gangguan\n\n ```Made With ❤️ Kukuh``` \n\n', buttons: [{ buttonId: `.owner`, buttonText: { displayText: 'OWNER' }, type: 1 },{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 }], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhconftopup, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: 'Fitur Topup With Bot Masih Dalam Program Beta.\n\nJika Gagal Hubungi Owner Dan Lakukan Pembayaran\n\n ```Made With ❤️ Kukuh``` \n\n', buttons: [{ buttonId: `.owner`, buttonText: { displayText: 'OWNER' }, type: 1 },{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 }], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhconftopup, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+Xrutz.sendMessage('12816245470@s.whatsapp.net',`*ORDER:* ${menu}`, text)
 break  
 case 'mlstalk':
        if (!q) return reply(mess.wrongFormat)
@@ -2779,12 +2801,12 @@ case 'mlstalk':
                     ini_server = ml_server
                     reply(`UID : ${ini_id}\nServer : ${ini_server}\nNickname : ${ini_text}`)
                     break
-case 'topupml':
+case 'tml':
        const serialML = createSerial(16)
        if (!q) return reply(mess.IsiFormatTopupML)
-       top = arg.split('|')[0]
-       bottom = arg.split('|')[1]
-       left = arg.split('|')[2]
+       top = arg.split('-')[0]
+       bottom = arg.split('-')[1]
+       left = arg.split('-')[2]
        ml_id = top
        ml_server = bottom
        order = left
@@ -2801,15 +2823,16 @@ menu =` Hai Kak @${sender.split('@')[0]}
 〆 Server : ${ini_server}
 〆 Nickname : ${ini_text}
 〆 Order : ${ini_order} Diamond
-〆 Status : Code 404
+〆 Status : ${isOwner ? 'Success' : isPremium ? 'Gagal' : 'Gagal'}
 〆 Tanggal : ${calender}
 〆 Waktu : ${jmn} 
 〆 SN No : ${serialML}
 〆 WhatsApp : ${sender.split('@')[0]}`
                      
                                          
-Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: 'Fitur Topup With Bot Masih Dalam Program Beta.\n\nKeterangan Code:\n402 = Hubungi Owner Untuk Konfirmasi Pembayaran\n\n404 = Server Dari Penyedia Layanan Sedang Mengalami Gangguan\n\n ```Made With ❤️ Kukuh``` \n\n', buttons: [{ buttonId: `.owner`, buttonText: { displayText: 'OWNER' }, type: 1 },{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 }], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhconftopup, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
-break  
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: 'Fitur Topup With Bot Masih Dalam Program Beta.\n\nJika Gagal Hubungi Owner Dan Lakukan Pembayaran\n\n ```Made With ❤️ Kukuh``` \n\n', buttons: [{ buttonId: `.owner`, buttonText: { displayText: 'OWNER' }, type: 1 },{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 }], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhconftopup, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+Xrutz.sendMessage('12816245470@s.whatsapp.net',`*ORDER:* ${menu}`, text)
+break
 //------------------< Sticker/Tools >-------------------
 
        case 'dadu': // by CHIKAA CHANTEKKXXZZ
@@ -5212,7 +5235,9 @@ break
 〆 ${prefix}cecan
 〆 ${prefix}brainly _query_
 〆 ${prefix}artinama _namamu_
-〆 ${prefix}shopee _query_
+〆 ${prefix}brainly _query_
+〆 ${prefix}happymod _query_
+〆 ${prefix}moddroid _query_
 〆 ${prefix}playstore _query_
 〆 ${prefix}ssweb _query_
 〆 ${prefix}google _query_
