@@ -113,25 +113,25 @@ const imagebb = "https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/
 
 //Messagenya Brow
 mess = {
-	        wait: '*_Sabar kak Proses!_*',
-			success: '*_Sukses kak!_*',
+	        wait: '```[ ! ] Proses kak...```',
+			success: '```[ ✓ ] Proses Selesai...```',
 
 
             ban: '_*Maaf Kamu Sudah TerBanned, Silahkam Hubungi .owner!!*_',
-			wrongFormat: '*_Format salah, coba liat lagi di Menu_*',
+			wrongFormat: '```[ x ] Format salah, coba liat lagi di Menu```',
                      IsiFormatTopupFF: '*Command :* .tff id-nominal\n*Example :* .tff 12345678-70\n\n*Pastikan ID & Nominal Benar*',
-                     IsiFormatTopupML: '*Command :* .tml id-server-nominal\n*Example :* .tml 12345678-1234-86\n\n*Pastikan ID Server& Nominal Benar',
+                     IsiFormatTopupML: '*Command :* .tml id-server-nominal\n*Example :* .tml 12345678-1234-86\n\n*Pastikan ID Server& Nominal Benar*',
 			error: {
-				api: '*_Habis brok blm beli_*',
-				stick: '*_Emang itu sticker?!?!_*',
-				Iv: '*_Link Tidak Valid bro!_*'
+				api: '```[ x ] Parameter Tidak Valid, Silahkan Hubungi Owner```',
+				stick: '```[ x ] Itu Bukan Sticker```',
+				Iv: '```[ x ] Link Tidak Valid bro!```'
 			},
 			only: {
-				group: '*_Khusus Grup kak!_*',
-				admin: '*_Khusus Admin Grup kak!_*',
-				premium: '*_Khusus User Premium!_*',
-				owner: '*_Khusus Owner kak!_*',
-				Badmin: '_*Bot Bukan Admin_*'
+				group: '```[ x ] Khusus Grup kak!```',
+				admin: '```[ x ] Khusus Admin Grup kak!```',
+				premium: '```[ x ] Khusus User Premium!```',
+				owner: '```[ x ] Khusus Owner kak!```',
+				Badmin: '```[ x ] Bot Bukan Admin```'
 			}
 		}
 //
@@ -1997,7 +1997,7 @@ if (isBanned) return reply(mess.ban)
               case 'bayar':
                      thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
                      if (isBanned) return reply(mess.ban)
-                  menu =`${tampilUcapan} @${sender.split('@')[0]}
+                  menu =`${sayingtime} @${sender.split('@')[0]}
               
     *「 PEMBAYARAN 」*
                   
@@ -2313,18 +2313,20 @@ case 'tiktok':
              break
 case 'jarak':
 if (args.length == 0) return reply(`Nama Kotanya Mana kak?\nContoh: ${prefix + command} Semarang - Jakarta`)
-anu = args.join(" ")
-kota1 = anu.split("-")[1].trim()
-kota2 = anu.split("-")[2].trim()
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/jaraktempuh?apikey=${setting.lolkey}&kota1=${kota1}&kota2=${kota2}`)
-x = get_result.result
+arg = args.join(" ")
+kota1 = arg.split("-")[1]
+kota2 = arg.split("-")[2]
+anu = await fetchJson(`https://api.lolhuman.xyz/api/jaraktempuh?apikey=${setting.lolkey}&kota1=${kota1}&kota2=${kota2}`)
+x = anu.result
+y = anu.from
+z = anu.to
 ini_txt = `Informasi Jarak dari ${kota1} ke ${kota2} :\n\n`
-ini_txt += `\`\`\`◪ Asal :\`\`\` ${x.from.name}\n`
-ini_txt += `\`\`\`◪ Garis Lintang :\`\`\` ${x.from.latitude}\n`
-ini_txt += `\`\`\`◪ Garis Bujur :\`\`\` ${x.from.longitude}\n\n`
-ini_txt += `\`\`\`◪ Tujuan :\`\`\` ${x.to.name}\n`
-ini_txt += `\`\`\`◪ Garis Lintang :\`\`\` ${x.to.latitude}\n`
-ini_txt += `\`\`\`◪ Garis Bujur :\`\`\` ${x.to.longitude}\n\n`
+ini_txt += `\`\`\`◪ Asal :\`\`\` ${y.name}\n`
+ini_txt += `\`\`\`◪ Garis Lintang :\`\`\` ${y.latitude}\n`
+ini_txt += `\`\`\`◪ Garis Bujur :\`\`\` ${y.longitude}\n\n`
+ini_txt += `\`\`\`◪ Tujuan :\`\`\` ${z.name}\n`
+ini_txt += `\`\`\`◪ Garis Lintang :\`\`\` ${z.latitude}\n`
+ini_txt += `\`\`\`◪ Garis Bujur :\`\`\` ${z.longitude}\n\n`
 ini_txt += `\`\`\`◪ Jarak Tempuh :\`\`\` ${x.jarak}\n`
 ini_txt += `\`\`\`◪ Waktu Tempuh :\`\`\`\n`
 ini_txt += `   ╭───────────────❏\n`
@@ -2467,14 +2469,14 @@ Source : ${anu.result.source}
 
 *Data Berhasil Didapatkan!*\n`
 for(let i = 0; i < get_data.length; i++) {
-teks += `*き⃟🦈 Nama : ${get_data[i].name}*
-*き⃟🦈 Harga : ${get_data[i].harga}*
-*き⃟🦈 Terjual : ${get_data[i].terjual}*
-*き⃟🦈 Lokasi : ${get_data[i].location}*
-*き⃟🦈 Deskripsi*: ${get_data[i].desc}*
-*き⃟🦈 Stok : ${get_data[i].stock}*
-*き⃟🦈 Informasi : ${get_data[i].information}*
-*き⃟🦈 Link : ${get_data[i].url}*`
+teks += `➤ Nama : ${get_data[i].name}*
+➤ Harga : ${get_data[i].harga}*
+➤ Terjual : ${get_data[i].terjual}*
+➤ Lokasi : ${get_data[i].location}*
+➤ Deskripsi*: ${get_data[i].desc}*
+➤ Stok : ${get_data[i].stock}*
+➤ Informasi : ${get_data[i].information}*
+➤ Link : ${get_data[i].url}*`
 }
               ini_buffer = await getBuffer(get_data[0].img_detail[0])
               Xrutz.sendMessage(from, ini_buffer, image, { quoted: mek, caption: teks })
@@ -2494,10 +2496,10 @@ teks += `*き⃟🦈 Nama : ${get_data[i].name}*
 
 *Data Berhasil Didapatkan!*\n`
 for(let i = 0; i < get_result.length; i++) {
-teks += `*き⃟🦈 Title : ${get_result[i].title}*
-*き⃟🦈 Harga : ${get_result[i].price}*
-*き⃟🦈 Rate : ${get_result[i].rating}*
-*き⃟🦈 Link : ${get_result[i].url}*
+teks += `➤ Title : ${get_result[i].title}*
+➤ Harga : ${get_result[i].price}*
+➤ Rate : ${get_result[i].rating}*
+➤ Link : ${get_result[i].url}*
 
 `
 }
@@ -2519,12 +2521,12 @@ teks += `*き⃟🦈 Title : ${get_result[i].title}*
 
 *Data Berhasil Didapatkan!*\n`
 for (let i of res.all) {
-a += `*き⃟🦈 Title : ${i.title}*
-*き⃟🦈 Views : ${i.views}*
-*き⃟🦈 Upload : ${i.ago}*
-*き⃟🦈 Durasi : ${i.timestamp}*
-*き⃟🦈 Channel : ${i.author.name}*
-*き⃟🦈 Link : ${i.url}*`
+a += `➤ Title : ${i.title}*
+➤ Views : ${i.views}*
+➤ Upload : ${i.ago}*
+➤ Durasi : ${i.timestamp}*
+➤ Channel : ${i.author.name}*
+➤ Link : ${i.url}*`
 }
                b = a.trim()
                sendFileFromUrl(res.all[0].image, image, {quoted: mek, caption: b})
@@ -2773,7 +2775,7 @@ case 'tff':
               ini_text = get_result.nickname
               ini_id = ff_id
               ini_order = order
-menu =` Hai Kak @${sender.split('@')[0]}
+menu =`${sayingtime} @${sender.split('@')[0]}
 
        *「 TOPUP FF 」*
 
@@ -2815,7 +2817,7 @@ case 'tml':
               ini_id = ml_id
               ini_server = ml_server
               ini_order = order
-menu =` Hai Kak @${sender.split('@')[0]}
+menu =`${sayingtime} @${sender.split('@')[0]}
 
        *「 TOPUP ML 」*
 
@@ -3063,7 +3065,8 @@ break
 case 'covidindo':
 anu = await fetchJson(`https://apicovid19indonesia-v2.vercel.app/api/indonesia`)
 get_result = anu
-ini_txt = `Positif : ${get_result.positif}\n`
+ini_txt = `Positif : ${get_result.provinsi}\n`
+ini_txt = `Positif : ${get_result.kasus}\n`
 ini_txt += `Sembuh : ${get_result.sembuh}\n`
 ini_txt += `Dirawat : ${get_result.dirawat}\n`
 ini_txt += `Meninggal : ${get_result.meninggal}\n`
@@ -3798,23 +3801,23 @@ break
               latensie = speed() - timestampe
               total = math(`${groups.length}*${privat.length}`)
 teks = `*BOT STATISTICS*
-*き⃟🦈 Group Chats : ${groups.length}*
-*き⃟🦈 Private Chats : ${privat.length}*
-*き⃟🦈 Total Chats : ${totalChat.length}*
-*き⃟🦈 Speed : ${latensie.toFixed(4)} _Second_*
-*き⃟🦈 Active Time : ${kyun(uptime)}*
+➤ Group Chats : ${groups.length}
+➤ Private Chats : ${privat.length}
+➤ Total Chats : ${totalChat.length}
+➤ Speed : ${latensie.toFixed(4)} _Second_
+➤ Active Time : ${kyun(uptime)}
 
 *PHONE STATISTICS*
-*き⃟🦈 Baterai : ${baterai}% ${charger}*
-*き⃟🦈 Ram Usage : ${ram2}*
-*き⃟🦈 Platform : ${os.platform()}*
-*き⃟🦈 Hostname : ${os.hostname()}*
-*き⃟🦈 Uptime : ${runtime(process.uptime())}*
-*き⃟🦈 Wa Version: ${Xrutz.user.phone.wa_version}*
-*き⃟🦈 Os Version: ${Xrutz.user.phone.os_version}*
-*き⃟🦈 Device Manufacturer: ${Xrutz.user.phone.device_manufacturer}*
-*き⃟🦈 Device Model: ${Xrutz.user.phone.device_model}*
-*き⃟🦈 Os Build Number: ${Xrutz.user.phone.os_build_number}*`
+➤ Baterai : ${baterai}% ${charger}
+➤ Ram Usage : ${ram2}
+➤ Platform : ${os.platform()}
+➤ Hostname : ${os.hostname()}
+➤ Uptime : ${runtime(process.uptime())}
+➤ Wa Version: ${Xrutz.user.phone.wa_version}
+➤ Os Version: ${Xrutz.user.phone.os_version}
+➤ Device Manufacturer: ${Xrutz.user.phone.device_manufacturer}
+➤ Device Model: ${Xrutz.user.phone.device_model}
+➤ Os Build Number: ${Xrutz.user.phone.os_build_number}`
              reply(teks)
              break  
 //------------------< Owner >-------------------
@@ -5012,7 +5015,7 @@ await Xrutz.sendMessage(from, buttnasu, MessageType.buttonsMessage, {sendEphemer
 case 'ownermenu':
           thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
        if (isBanned) return reply(mess.ban)
-    menu =`${tampilUcapan} @${sender.split('@')[0]}
+    menu =`${sayingtime} @${sender.split('@')[0]}
 
     *「 OWNER MENU 」*
 
@@ -5035,7 +5038,7 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤
       case 'downloadmenu':
        thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
        if (isBanned) return reply(mess.ban)
-    menu =`${tampilUcapan} @${sender.split('@')[0]}
+    menu =`${sayingtime} @${sender.split('@')[0]}
 
     *「 DOWNLOADER MENU 」*
     
@@ -5084,7 +5087,7 @@ case 'gamemenu':
       case 'infomenu':
        thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
        if (isBanned) return reply(mess.ban)
-    menu =`${tampilUcapan} @${sender.split('@')[0]}
+    menu =`${sayingtime} @${sender.split('@')[0]}
  
     *「 INFO MENU 」*
     
@@ -5112,7 +5115,7 @@ case 'gamemenu':
       case 'stickermenu':
        thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
        if (isBanned) return reply(mess.ban)
-    menu =`${tampilUcapan} @${sender.split('@')[0]}
+    menu =`${sayingtime} @${sender.split('@')[0]}
 
     *「 STICKER MENU 」*
     
@@ -5138,7 +5141,7 @@ break
        case 'islammenu':
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
               if (isBanned) return reply(mess.ban)
-           menu =`${tampilUcapan} @${sender.split('@')[0]}
+           menu =`${sayingtime} @${sender.split('@')[0]}
         
     *「 ISLAM MENU 」*
            
@@ -5153,7 +5156,7 @@ break
        case 'sertimenu':
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
               if (isBanned) return reply(mess.ban)
-           menu =`${tampilUcapan} @${sender.split('@')[0]}
+           menu =`${sayingtime} @${sender.split('@')[0]}
         
     *「 SERTI MENU 」*
            
@@ -5170,7 +5173,7 @@ break
        case 'ceritamenu':
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
               if (isBanned) return reply(mess.ban)
-           menu =`${tampilUcapan} @${sender.split('@')[0]}
+           menu =`${sayingtime} @${sender.split('@')[0]}
         
     *「 CERITA MENU 」*
            
@@ -5186,7 +5189,7 @@ break
        case 'makermenu':
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
               if (isBanned) return reply(mess.ban)
-           menu =`${tampilUcapan} @${sender.split('@')[0]}
+           menu =`${sayingtime} @${sender.split('@')[0]}
        
     *「 MAKER MENU 」*
            
@@ -5208,7 +5211,7 @@ break
      case 'toolsmenu':
        thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
        if (isBanned) return reply(mess.ban)
-    menu =`${tampilUcapan} @${sender.split('@')[0]}
+    menu =`${sayingtime} @${sender.split('@')[0]}
 
     *「 TOOLS MENU 」*
     
@@ -5227,7 +5230,7 @@ break
       case 'othermenu':
        thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
        if (isBanned) return reply(mess.ban)
-    menu =`${tampilUcapan} @${sender.split('@')[0]}
+    menu =`${sayingtime} @${sender.split('@')[0]}
 
     *「 OTHER MENU 」*
     
@@ -5252,7 +5255,7 @@ break
       case 'grupmenu': 
       thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
       if (isBanned) return reply(mess.ban)
-   menu =`${tampilUcapan} @${sender.split('@')[0]}
+   menu =`${sayingtime} @${sender.split('@')[0]}
 
     *「 GROUP MENU 」*
    
@@ -5287,7 +5290,7 @@ break
       case 'funmenu':
        thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
        if (isBanned) return reply(mess.ban)
-    menu =`${tampilUcapan} @${sender.split('@')[0]}
+    menu =`${sayingtime} @${sender.split('@')[0]}
 
     *「 FUN MENU 」*
     
@@ -5308,7 +5311,7 @@ break
        case 'wibumenu':
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
               if (isBanned) return reply(mess.ban)
-           menu =`${tampilUcapan} @${sender.split('@')[0]}
+           menu =`${sayingtime} @${sender.split('@')[0]}
        
     *「 WIBU MENU 」*
            
@@ -5334,7 +5337,7 @@ break
        case 'kristenmenu':
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
               if (isBanned) return reply(mess.ban)
-           menu =`${tampilUcapan} @${sender.split('@')[0]}
+           menu =`${sayingtime} @${sender.split('@')[0]}
        
     *「 KRISTEN MENU 」*
            
@@ -5345,7 +5348,7 @@ break
        case 'stalkmenu':
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
               if (isBanned) return reply(mess.ban)
-           menu =`${tampilUcapan} @${sender.split('@')[0]}
+           menu =`${sayingtime} @${sender.split('@')[0]}
        
     *「 STALK MENU 」*
            
@@ -5357,7 +5360,7 @@ break
        case 'urlmenu':
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
               if (isBanned) return reply(mess.ban)
-           menu =`${tampilUcapan} @${sender.split('@')[0]}
+           menu =`${sayingtime} @${sender.split('@')[0]}
        
     *「 URL MENU 」*
            
@@ -5370,7 +5373,7 @@ break
        case 'informationmenu':
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
               if (isBanned) return reply(mess.ban)
-           menu =`${tampilUcapan} @${sender.split('@')[0]}
+           menu =`${sayingtime} @${sender.split('@')[0]}
         
     *「 INFORMATION MENU 」*
            
