@@ -2312,14 +2312,13 @@ case 'tiktok':
              await Xrutz.sendMessage(from, ini_buffer, image, { quoted: mek })
              break
 case 'jarak':
-if (args.length == 0) return reply(`Nama Kotanya Mana kak?\nContoh: ${prefix + command} Semarang - Jakarta`)
-arg = args.join(" ")
-kota1 = arg.split("-")[1]
-kota2 = arg.split("-")[2]
-anu = await fetchJson(`https://api.lolhuman.xyz/api/jaraktempuh?apikey=${setting.lolkey}&kota1=${kota1}&kota2=${kota2}`)
-x = anu.result
-y = anu.from
-z = anu.to
+if (args.length == 0) return reply(`Nama Kotanya Mana kak?\nContoh: ${prefix + command} Semarang-Jakarta`)
+kota1 = arg.split("-")[0]
+kota2 = arg.split("-")[1]
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/jaraktempuh?apikey=${setting.lolkey}&kota1=${kota1}&kota2=${kota2}`)
+x = get_result.result
+y = x.from
+z = x.to
 ini_txt = `Informasi Jarak dari ${kota1} ke ${kota2} :\n\n`
 ini_txt += `\`\`\`◪ Asal :\`\`\` ${y.name}\n`
 ini_txt += `\`\`\`◪ Garis Lintang :\`\`\` ${y.latitude}\n`
@@ -2782,13 +2781,13 @@ menu =`${sayingtime} @${sender.split('@')[0]}
 〆 UID : ${ini_id}
 〆 Nickname : ${ini_text}
 〆 Order : ${ini_order} Diamond
-〆 Status : ${isOwner ? 'Success' : isPremium ? 'Gagal' : 'Gagal'}
+〆 Status : ${isOwner ? 'Success' : isPremium ? 'Gagal' : 'Out Of Stock'}
 〆 Tanggal : ${calender}
 〆 Waktu : ${jmn} 
 〆 SN No : ${serialUser}
 〆 WhatsApp : ${sender.split('@')[0]}`
                      
-Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: 'Fitur Topup With Bot Masih Dalam Program Beta.\n\nJika Gagal Hubungi Owner Dan Lakukan Pembayaran\n\n ```Made With ❤️ Kukuh``` \n\n', buttons: [{ buttonId: `.owner`, buttonText: { displayText: 'OWNER' }, type: 1 },{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 }], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhconftopup, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: 'Fitur Topup With Bot Masih Dalam Program Beta.\n\nJika Gagal Hubungi Owner Dan Lakukan Pembayaran\n\nJika Out Of Stock Berarti Stok Sedang Habis\n\n ```Made With ❤️ Kukuh``` \n\n', buttons: [{ buttonId: `.owner`, buttonText: { displayText: 'OWNER' }, type: 1 },{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 }], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhconftopup, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 Xrutz.sendMessage('12816245470@s.whatsapp.net',`*ORDER:* ${menu}`, text)
 break  
 case 'mlstalk':
@@ -2997,44 +2996,31 @@ var akhir = kant.trim()
 reply(akhir)
 break
 case 'infotsunami':
-       ini_result = await fetchJson('https://ronove-bot-api.herokuapp.com/api/infotsunami?apikey=Alphabot')
-       get_result = ini_result.result
+       anu = await fetchJson('https://x-restapi.herokuapp.com/api/info-tsunami?apikey=BETA')
+       get_result = anu
           ini_txt = `INFO TSUNAMI TERKINI
   
   `
-          ini_txt += `tanggal : ${get_result.tangal}\n`
-          ini_txt += `lokasi : ${get_result.lokasi}\n`
-          ini_txt += `magnitude : ${get_result.magnitude}\n`
-          ini_txt += `kedalaman : ${get_result.kedalaman}\n`
-          ini_txt += `wilayah : ${get_result.wilayah}`
-       reply (ini_txt)
-       break
-          case 'infogempa':
-       ini_result = await fetchJson('https://ronove-bot-api.herokuapp.com/api/infogempa?apikey=Alphabot')
-       get_result = ini_result.result
-          ini_txt = `INFO GEMPA TERKINI
-  
-  `
-          ini_txt += `Waktu : ${get_result.Waktu}\n`
-          ini_txt += `Lintang : ${get_result.Lintang}\n`
-          ini_txt += `Bujur : ${get_result.Bujur}\n`
-          ini_txt += `Magnitudo : ${get_result.Magnitudo}\n`
+          ini_txt += `Magnitude : ${get_result.magnitude}\n`
           ini_txt += `Kedalaman : ${get_result.Kedalaman}\n`
-          ini_txt += `Wilayah : ${get_result.Wilayah}`
+          ini_txt += `Koordinat : ${get_result.koordinat}\n`
+          ini_txt += `Wilayah : ${get_result.Wilayah}\n`
+          ini_txt += `Waktu : ${get_result.waktu}`
        reply (ini_txt)
        break
-       case 'jadwaltv':
-if (args.length == 0) return reply(`Nama Channel Nya Apa Kak?\nContoh: ${prefix + command} SCTV`)
-channel = args[0]
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/jadwaltv/${channel}?apikey=${setting.lolkey}`)
-get_result = get_result.result
-ini_txt = `Jadwal TV ${channel.toUpperCase()}\n`
-for (var x in get_result) {
-ini_txt += `${x} - ${get_result[x]}\n`
-}
-reply(ini_txt)
-break
-case 'infogempa2':
+       case 'infogempa':
+              get_result = await fetchJson(`https://megayaa.herokuapp.com/api/infogempa`)
+              get_result = get_result.result
+              ini_txt = `Lintang : ${get_result.Lintang}\n`
+              ini_txt += `Bujur : ${get_result.Bujur}\n`
+              ini_txt += `Magnitudo : ${get_result.Magnitudo}\n`
+              ini_txt += `Kedalaman : ${get_result.Kedalaman}\n`
+              ini_txt += `Waktu : ${get_result.Waktu}\n`
+              ini_txt += `Wilayah : ${get_result.Wilayah}`
+              get_buffer = await getBuffer(get_result.Map)
+              await Xrutz.sendMessage(from, get_buffer, image, { quoted: mek, caption: ini_txt })
+              break
+              case 'infogempa2':
 get_result = await fetchJson(`https://api.lolhuman.xyz/api/infogempa?apikey=${setting.lolkey}`)
 get_result = get_result.result
 ini_txt = `Lokasi : ${get_result.lokasi}\n`
@@ -3045,6 +3031,27 @@ ini_txt += `Kedalaman : ${get_result.kedalaman}\n`
 ini_txt += `Koordinat : ${get_result.koordinat}`
 get_buffer = await getBuffer(get_result.map)
 await Xrutz.sendMessage(from, get_buffer, image, { quoted: faketroli, caption: ini_txt })
+break
+              case 'nomorhoki':
+if (args.length == 0) return reply(`Masukkan Nomor Handphone Dengan Awalan Kode Negara`)
+nomor = args[0]
+anu = await fetchJson(`https://x-restapi.herokuapp.com/api/nomor-hoki?q=${nomor}&apikey=BETA`)
+get_result = anu
+ini_txt = `*Energi Positif :* ${get_result.energipositif}\n\n`
+ini_txt += `*Energi Negatif :* ${get_result.energinegatif}\n\n`
+ini_txt += `*Rate :* ${get_result.rate}\n`
+reply(ini_txt)
+break
+       case 'jadwaltv':
+if (args.length == 0) return reply(`Nama Channel Nya Apa Kak?\nContoh: ${prefix + command} SCTV`)
+channel = args[0]
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/jadwaltv/${channel}?apikey=${setting.lolkey}`)
+get_result = get_result.result
+ini_txt = `Jadwal TV ${channel.toUpperCase()}\n`
+for (var x in get_result) {
+ini_txt += `${x} - ${get_result[x]}\n`
+}
+reply(ini_txt)
 break
 case 'cuaca':
 if (args.length == 0) return reply(`Nama Kotanya Apa Kak?\nContoh: ${prefix + command} Semarang`)
@@ -3059,7 +3066,7 @@ ini_txt += `Kelembapan : ${get_result.kelembapan}\n`
 ini_txt += `Suhu : ${get_result.suhu}\n`
 ini_txt += `Udara : ${get_result.udara}\n`
 ini_txt += `Permukaan laut : ${get_result.permukaan_laut}\n`
-await Xrutz.sendMessage(from, { degreesLatitude: get_result.latitude, degreesLongitude: get_result.longitude }, location, { quoted: faketroli })
+await Xrutz.sendMessage(from, { degreesLatitude: get_result.latitude, degreesLongitude: get_result.longitude }, location, { quoted: mek })
 reply(ini_txt)
 break
 case 'covidindo':
@@ -3070,14 +3077,6 @@ ini_txt = `Positif : ${get_result.kasus}\n`
 ini_txt += `Sembuh : ${get_result.sembuh}\n`
 ini_txt += `Dirawat : ${get_result.dirawat}\n`
 ini_txt += `Meninggal : ${get_result.meninggal}\n`
-ini_txt += `Last Update : ${get_result.lastUpdate}\n`
-reply(ini_txt)
-break
-case 'vaksin':
-anu = await fetchJson(`https://apicovid19indonesia-v2.vercel.app/api/indonesia`)
-get_result = anu
-ini_txt = `Vaksin Pertama : ${get_result.vaksinasi1}\n`
-ini_txt += `Vaksin Kedua : ${get_result.vaksinasi2}\n`
 ini_txt += `Last Update : ${get_result.lastUpdate}\n`
 reply(ini_txt)
 break
@@ -4743,7 +4742,27 @@ case 'asmaulhusna':
                     surah = args[0]
                     ini_buffer = await getBuffer(`http://api.lolhuman.xyz/api/quran/audio/${surah}?apikey=${setting.lolkey}`)
                     Xrutz.sendMessage(from, ini_buffer, audio, { quoted: mek, mimetype: Mimetype.mp4Audio })      
-                    break                                         
+                    break   
+case 'hadits':
+       if (args.length == 0) return reply(`Hadits Nya Apa Kak?\nNama Hadits Menggunakan Awalan Huruf Kecil Ya Kak...\n\n*Command:* ${prefix}hadits nama hadist-Nomor\n*Contoh:* ${prefix}hadits bukhari-10`)
+       top = arg.split('-')[0]
+       bottom = arg.split('-')[1]
+       kitab = top
+       no = bottom
+                     anu = await fetchJson(`https://zahirr-web.herokuapp.com/api/hadits?kitab=${kitab}&nomor=${no}&apikey=zahirgans`)
+                     ini_mess = anu.result
+                     ini_data = anu.result.data
+                     ini_ayat = anu.result.data.contents
+                     ini_txt = `➤ *Pesan :* ${ini_mess.message}\n\n`
+                     ini_txt += `➤ *Nama :* ${ini_data.name}\n`
+                     ini_txt += `➤ *Hadist :* ${ini_data.id}\n`
+                     ini_txt += `➤ *Tersedia :* ${ini_data.available}\n`
+                     ini_txt += `➤ *Nomor :* ${ini_ayat.number}\n\n`
+                     ini_txt += `➤ *Arab :* ${ini_ayat.arab}\n\n`
+                     ini_txt += `➤ *Indonesia :* ${ini_ayat.id}\n\n\n`
+                     ini_txt += `➤ *Hadist :* ${ini_data.id}\n`
+                     reply(ini_txt)
+                     break
 //========== [ Kristen Menu ] ==========
 case 'alkitab':
                      get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/alkitab-search?keyword=allah&apikey=f6921005b1a75905c12a`)
