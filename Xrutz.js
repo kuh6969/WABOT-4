@@ -1148,7 +1148,7 @@ if (mek.key.fromMe){
            if (isBanned) return reply(mess.ban)
         menu =`${sayingtime} @${sender.split('@')[0]}, 
 
-_saya ${botName} yang siap membantu anda dalam membuat sticker, downloader, dll. gunakan bot ini dengan bijak!_\n\n_WhatsApp Mod Belum Support Button Message._
+_saya ${botName} yang siap membantu anda dalam membuat sticker, downloader, dll. gunakan bot ini dengan bijak!_
 
 『 *CALENDER* 』
 〆⁩ Day : ${week} ${weton}
@@ -1174,14 +1174,14 @@ _saya ${botName} yang siap membantu anda dalam membuat sticker, downloader, dll.
 
 const loli = fs.readFileSync('./assets/MENU.mp3')
 Xrutz.sendMessage(from, loli, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
-Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.command`, buttonText: { displayText: 'SHOW MENU' }, type: 1 },{ buttonId: `.storegame`, buttonText: { displayText: 'TOPUP GAME' }, type: 1 },{ buttonId: `!owner`, buttonText: { displayText: 'DEVELOPER' }, type: 1 },{ buttonId: `!owner`, buttonText: { displayText: 'OWNER 👑' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: ikyads, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. WhatsApp Mod Belum Support Button Message.\n\n2. Bot Ini Gratis, Jika Ingin Join Di Grub Kalian Silahkan.\n\n3. Gunakan Dengan Bijak DAN JANGAN SPAM ( SPAM/TELP = BANNED )\n\n4. Jika Menemukan BUG / BOT Tidak Merespon Segera Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.command`, buttonText: { displayText: 'SHOW MENU' }, type: 1 },{ buttonId: `.storegame`, buttonText: { displayText: 'TOPUP GAME' }, type: 1 },{ buttonId: `!owner`, buttonText: { displayText: 'DEVELOPER' }, type: 1 },{ buttonId: `!owner`, buttonText: { displayText: 'OWNER 👑' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: ikyads, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
                break
     
         case 'command':
         if (isBanned) return reply(mess.ban)
         list = []
         listmenu = [`soundmenu`,`groupmenu`,`stickermenu`,`wibumenu`,`downloadmenu`,`islammenu`,`kristenmenu`,`stalkmenu`,`informationmenu`,`urlmenu`,`sertimenu`,`ceritamenu`,`makermenu`,`ownermenu`,`gamemenu`,`funmenu`,`infomenu`,`toolsmenu`,`othermenu`]
-        listmenuu = [`Menu Lagu Sad`,`Menu Group`,`Menu Sticker`,`Menu Wibu`,`Menu Download`,`Menu Islam`,`Menu Kristen`,`Menu Stalking`,`Menu Informasi`,`Menu URL`,`Menu Sertifikat`,`Menu Cerita`,`Menu Maker`,`Menu Owner`,`Menu Game`,`Menu Fun`,`Menu Info`,`Menu Tools`,`Menu Lainnya`]
+        listmenuu = [`Menu Lagu 30 Detik`,`Menu Group`,`Menu Sticker`,`Menu Wibu`,`Menu Download`,`Menu Islam`,`Menu Kristen`,`Menu Stalking`,`Menu Informasi`,`Menu URL`,`Menu Sertifikat`,`Menu Cerita`,`Menu Maker`,`Menu Owner`,`Menu Game`,`Menu Fun`,`Menu Info`,`Menu Tools`,`Menu Lainnya`]
         nombor = 1
         startnum = 0
         for (let x of listmenu) {
