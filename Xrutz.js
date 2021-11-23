@@ -1172,7 +1172,7 @@ _saya ${botName} yang siap membantu anda dalam membuat sticker, downloader, dll.
 〆⁩ Github : ramadhankukuh
 〆⁩ Active : ${runtime(process.uptime())}`
 
-const loli = fs.readFileSync('./assets/MENU.mp3')
+const loli = fs.readFileSync('./assets/MENU2.mp3')
 Xrutz.sendMessage(from, loli, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
 Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. WhatsApp Mod Belum Support Button Message.\n\n2. Bot Ini Gratis, Jika Ingin Join Di Grub Kalian Silahkan.\n\n3. Gunakan Dengan Bijak DAN JANGAN SPAM ( SPAM/TELP = BANNED )\n\n4. Jika Menemukan BUG / BOT Tidak Merespon Segera Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.command`, buttonText: { displayText: 'SHOW MENU' }, type: 1 },{ buttonId: `.storegame`, buttonText: { displayText: 'TOPUP GAME' }, type: 1 },{ buttonId: `!owner`, buttonText: { displayText: 'DEVELOPER' }, type: 1 },{ buttonId: `!owner`, buttonText: { displayText: 'OWNER 👑' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: ikyads, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
                break
