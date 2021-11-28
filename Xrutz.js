@@ -1500,7 +1500,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
 
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (game.isfam(from, family100)) return reply(`Masih ada soal yang belum di selesaikan`)
-              anu = await axios.get(`https://velgrynd.herokuapp.com/api/family100`)
+              anu = await axios.get(`https://api.ichikaa.xyz/api/family100`)
               reply(`*JAWABLAH SOAL BERIKUT*\n\n*Soal :* ${anu.data.result.question}\n*Total Jawaban :* ${anu.data.result.answer.length}\n\nWaktu : ${gamewaktu}s`)
               let anoh = anu.data.result.answer
               let rgfds = []
@@ -1568,7 +1568,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'ttn':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebaktebakan.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/tebakan`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebak/tebakan`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1632,7 +1632,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'sa':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebaksiapaaku.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/siapakahaku`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/siapakahaku`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1654,7 +1654,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tk':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakata.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/kata`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebak/kata`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               pertanyaan = get_result.soal
@@ -1675,7 +1675,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tli':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebaklirik.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/lirik`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebak/lirik`)
               get_result = get_result.result
               jawaban = get_result.answer
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1697,7 +1697,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tj':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakjenaka.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/jenaka`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebak/jenaka`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1719,7 +1719,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'kk':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakimia.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/kimia`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebak/kimia`)
               get_result = get_result.result
               jawaban = get_result.lambang
               pertanyaan = get_result.nama
@@ -1739,7 +1739,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tebakbendera':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakbendera.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/bendera`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebak/bendera`)
               get_result = get_result.result
               jawaban = get_result.nama
               pertanyaan = get_result.bendera
@@ -1760,7 +1760,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'sk':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (susunkata.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/susunkata`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/susunkata`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               pertanyaan = get_result.soal
@@ -1783,7 +1783,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (isBanned) return reply(mess.ban)
               if (asahotak.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/asahotak`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/asahotak`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1807,7 +1807,7 @@ case 'cl':
        if (isBanned) return reply(mess.ban)
               if (isGame(sender, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (caklontong.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/caklontong`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/caklontong`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               desc = get_result.desc
@@ -2671,7 +2671,7 @@ case 'stalkgithub':
       case 'githubstalk':
               if (args.length == 0) return reply(`Example: ${prefix + command} ramadhankukuh`)
               username = args[0]
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/stalkgithub?username=${username}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/stalkgithub?username=${username}`)
               ini_result = get_result.result
               ini_buffer = await getBuffer(ini_result.avatar_url)
               ini_txt = `『 *GITHUB PROFILE* 』
@@ -2694,29 +2694,29 @@ case 'stalkgithub':
 case 'igstalk':
                      if (args.length == 0) return reply(`Example: ${prefix + command} ramadhankukuh`)
                      username = args[0]
-                     ini_result = await fetchJson(`https://api.dhnjing.xyz/api/stalk/instagram?user=${username}&apikey=f6921005b1a75905c12a`)
+                     ini_result = await fetchJson(`https://api.jarx.me/api/igstalk?u=${username}&apikey=${setting.jarxkey}`)
                      ini_result = ini_result.result
                      ini_followers = ini_result.edge_followed_by
                      ini_follow = ini_result.edge_follow
-                     ini_buffer = await getBuffer(ini_result.profile_pic_url_hd)
+                     ini_buffer = await getBuffer(ini_result.profilehd)
                      ini_txt = `『 *INSTAGRAM PROFILE* 』
 
 *Data Berhasil Didapatkan!*
-➤ *Username :* ${ini_result.username}
-➤ *Nama :* ${ini_result.full_name}
-➤ *Bio :* ${ini_result.biography}
-➤ *Followers :* ${ini_followers.count}
-➤ *Following :* ${ini_follow.count}
-➤ *Akun Private :* ${ini_result.is_private}
-➤ *Akun Verified :* ${ini_result.is_verified}
-➤ *Link :* https://instagram.com/${ini_result.username}
+➤ *Username :* ${username}
+➤ *Nama :* ${ini_result.fullname}
+➤ *Bio :* ${ini_result.bio}
+➤ *Followers :* ${ini_result.follower}
+➤ *Following :* ${ini_result.following}
+➤ *Akun Private :* ${ini_result.private}
+➤ *Akun Verified :* ${ini_result.verified}
+➤ *Link :* https://instagram.com/${username}
         `
                     Xrutz.sendMessage(from, ini_buffer, image, { caption: ini_txt, thumbnail: Buffer.alloc(0) })
                      break
 case 'happymod':
                      if (args.length == 0) return reply(`Example: ${prefix + command} epep mex`)
                      apk = args[0]
-                     anu = await fetchJson(`https://api.dhnjing.xyz/api/apk/happymod?apps=${apk}&apikey=f6921005b1a75905c12a`)
+                     anu = await fetchJson(`https://api.dhnjing.xyz/api/apk/happymod?apps=${apk}&apikey=${setting.dhnjing}`)
                      hepi = anu.result[0]
                      buffer = await getBuffer(hepi.apps_thumb)
                      teks = `『 *HAPPY MOD* 』 \n\n➣ Title : ${hepi.apps_name} \n➣ Rating : ${hepi.apps_rate} \n➣ Link Download : ${hepi.apps_linkdl}`
@@ -2725,7 +2725,7 @@ case 'happymod':
 case 'moddroid':
                      if (args.length < 1) return reply(`game yang mau di cari apa kak? \nContoh : ${prefix}happymod pubg`)
                      apk = args[0]
-                     data = await fetchJson(`https://api.dhnjing.xyz/api/apk/moddroid?apps=${apk}&page=1&apikey=f6921005b1a75905c12a`)
+                     data = await fetchJson(`https://api.dhnjing.xyz/api/apk/moddroid?apps=${apk}&page=1&apikey=${setting.dhnjing}`)
                      hepi = data.result[0] 
                      teks = `『 *MODDROID* 』 \n\n*➣ Title*: ${hepi.apps_name}\n*➣ Versi*: ${hepi.apps_version}\n*➣ Deskripsi:* ${hepi.apps_desc}\n*➣ Link Download*: ${hepi.apps_linkdl}`
                      buff = await getBuffer(hepi.apps_thumb)
@@ -2735,7 +2735,7 @@ case 'moddroid':
 case 'tiktokstalk':
               if (args.length == 0) return reply(`Example: ${prefix + command} kukuh6969`)
               stalk_toktok = args[0]
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/stalktiktok?username=${stalk_toktok}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/stalktiktok?username=${stalk_toktok}`)
               ini_user = get_result.result.user
               ini_fllws = get_result.result.stats
               ini_buffer = await getBuffer(ini_user.avatarThumb)
@@ -2758,7 +2758,7 @@ case 'tiktokstalk':
 case 'ffstalk':
 if (args.length == 0) return reply(`Idnya mana kak?`)
                     ff_id = args[0]
-                    get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/freefire?id=${ff_id}`)
+                    get_result = await fetchJson(`https://api.ichikaa.xyz/api/freefire?id=${ff_id}`)
                     ini_text = get_result.nickname
                     ini_id = ff_id
                     reply(`UID : ${ini_id}\nNickname : ${ini_text}`)
@@ -2770,7 +2770,7 @@ case 'tff':
        bottom = arg.split('-')[1]
        ff_id = top
        order = bottom
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/freefire?id=${ff_id}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/freefire?id=${ff_id}`)
               ini_text = get_result.nickname
               ini_id = ff_id
               ini_order = order
@@ -2796,7 +2796,7 @@ case 'mlstalk':
        bottom = arg.split('|')[1]
                     ml_id = top
                     ml_server = bottom
-                    get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/mobilelegend?id=${ml_id}&server=${ml_server}`)
+                    get_result = await fetchJson(`https://api.ichikaa.xyz/api/mobilelegend?id=${ml_id}&server=${ml_server}`)
                     ini_text = get_result.nickname           
                     ini_id = ml_id
                     ini_server = ml_server
@@ -2811,7 +2811,7 @@ case 'tml':
        ml_id = top
        ml_server = bottom
        order = left
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/mobilelegend?id=${ml_id}&server=${ml_server}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/mobilelegend?id=${ml_id}&server=${ml_server}`)
               ini_text = get_result.nickname           
               ini_id = ml_id
               ini_server = ml_server
@@ -2834,6 +2834,22 @@ menu =`${sayingtime} @${sender.split('@')[0]}
 Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: 'Fitur Topup With Bot Masih Dalam Program Beta.\n\nJika Gagal Hubungi Owner Dan Lakukan Pembayaran\n\n ```Made With ❤️ Kukuh``` \n\n', buttons: [{ buttonId: `.owner`, buttonText: { displayText: 'OWNER' }, type: 1 },{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 }], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhconftopup, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 Xrutz.sendMessage('12816245470@s.whatsapp.net',`*ORDER:* ${menu}`, text)
 break
+case 'hitungwr':
+      if (!q) return reply(mess.wrongFormat)
+       top = arg.split('-')[0]
+       bottom = arg.split('-')[1]
+       left = arg.split('-')[2]
+       total_match = top
+       total_winrate = bottom
+       req_winrate = left
+              get_result = await fetchJson(`https://zenzapi.xyz/api/information/hitungwr?apikey=${setting.zenzapi}&text=${total_match}&text2=${total_winrate}&text3=${req_winrate}`)
+              ini_result = get_result.result           
+                    ini_txt = `Total Match : ${ini_result.total_match}\n`
+                    ini_txt += `Total Winrate : ${ini_result.total_winrate}\n`
+                    ini_txt += `Req Winrate : ${ini_result.req_winrate}\n`
+                    ini_txt += `Deskripsi : ${ini_result.description}\n`
+                    reply(ini_txt)
+                    break
 //------------------< Sticker/Tools >-------------------
 
        case 'dadu': // by CHIKAA CHANTEKKXXZZ
@@ -3069,6 +3085,19 @@ ini_txt += `Permukaan laut : ${get_result.permukaan_laut}\n`
 await Xrutz.sendMessage(from, { degreesLatitude: get_result.latitude, degreesLongitude: get_result.longitude }, location, { quoted: mek })
 reply(ini_txt)
 break
+case 'vaksin':
+anu = await fetchJson(`https://vaksincovid19-api.vercel.app/api`)
+get_result = anu
+ini_txt = `Total : ${get_result.totalsasaran}\n`
+ini_txt += `Vaksin 1 : ${get_result.vaksinasi1}\n`
+ini_txt += `Vaksin 2 : ${get_result.vaksinasi2}\n\n\n`
+ini_txt += `↓ Target Vaksin ↓\n`
+ini_txt += `Sumber Daya Manusia Kesehatan : ${get_result.sasaranvaksinsdmk}\n`
+ini_txt += `Lansia : ${get_result.sasaranvaksinlansia}\n`
+ini_txt += `Petugas Publik : ${get_result.sasaranvaksinpetugaspublik}\n\n\n`
+ini_txt += `Last Update : ${get_result.lastUpdate}\n`
+reply(ini_txt)
+break
 case 'covidindo':
 anu = await fetchJson(`https://apicovid19indonesia-v2.vercel.app/api/indonesia`)
 get_result = anu
@@ -3080,8 +3109,22 @@ ini_txt += `Meninggal : ${get_result.meninggal}\n`
 ini_txt += `Last Update : ${get_result.lastUpdate}\n`
 reply(ini_txt)
 break
+case 'covidcountry':
+if (args.length == 0) return reply(`Negara Apa Kak?\nContoh: ${prefix + command} indonesia`)
+negara = args[0]
+get_result = await fetchJson(`https://kocakz.herokuapp.com/api/edu/corona?country=${negara}`)
+data = get_result.result
+ini_txt = `Negara : ${data.country}\n\n`
+ini_txt = `Total Kasus : ${data.cases}\n`
+ini_txt += `Kasus Hari Ini : ${data.todayCases}\n\n`
+ini_txt += `Meninggal : ${data.deaths}\n`
+ini_txt += `Meninggal Hari Ini : ${data.todayDeaths}\n\n`
+ini_txt += `Sembuh : ${data.recovered}\n`
+ini_txt += `Kasus Aktif : ${data.active}\n`
+reply(ini_txt)
+break
 case 'covidglobal':
-get_result = await fetchJson(`https://zahirr-web.herokuapp.com/api/covidworld?apikey=zahirgans`)
+get_result = await fetchJson(`https://zenzapi.xyz/api/covidworld?apikey=${setting.zenzapi}`)
 get_result = get_result.result
 ini_txt = `Positif : ${get_result.totalCases}\n`
 ini_txt += `Sembuh : ${get_result.recovered}\n`
@@ -4663,20 +4706,35 @@ break
 //========== [ Islam Menu ] ==========
 case 'kisahnabi':
                 if (args.length == 0) return reply(`Example: ${prefix + command} Muhammad`)
-                    query = args.join(" ")
-                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/kisahnabi/${query}?apikey=${setting.lolkey}`)
+                    nabi = args.join(" ")
+                    get_result = await fetchJson(`https://server-api-rey.herokuapp.com/api/muslim/kisahnabi?nabi=${nabi}&apikey=${setting.apirey}`)
                     get_result = get_result.result
                     ini_txt = `Name : ${get_result.name}\n`
-                    ini_txt += `Lahir : ${get_result.thn_kelahiran}\n`
-                    ini_txt += `Umur : ${get_result.age}\n`
-                    ini_txt += `Tempat : ${get_result.place}\n`
-                    ini_txt += `Story : \n${get_result.story}`
+                    ini_txt += `Lahir : ${get_result.kelahiran}\n`
+                    ini_txt += `Umur : ${get_result.wafat_usia}\n`
+                    ini_txt += `Tempat : ${get_result.singgah}\n`
+                    ini_txt += `Story : ${get_result.kisah}`
                     reply(ini_txt)
                     break
 case 'jadwalsholat':
                     if (args.length == 0) return reply(`Example: ${prefix + command} Yogyakarta`)
                     daerah = args.join(" ")
-get_result = await fetchJson(`http://api.lolhuman.xyz/api/sholat/${daerah}?apikey=${setting.lolkey}`)
+get_result = await fetchJson(`https://zenzapi.xyz/api/jadwalshalat?kota=${daerah}&apikey=${setting.zenzapi}`)
+                    get_result = get_result.result
+                    ini_txt = `Daerah : ${get_result.daerah}\n`
+                    ini_txt += `Tanggal : ${get_result.tanggal}\n`
+                    ini_txt += `Subuh : ${get_result.shubuh}\n`
+                    ini_txt += `Dhuha : ${get_result.duha}\n`
+                    ini_txt += `Dzuhur : ${get_result.dzuhur}\n`
+                    ini_txt += `Ashar : ${get_result.ashar}\n`
+                    ini_txt += `Maghrib : ${get_result.maghrib}\n`
+                    ini_txt += `Isya : ${get_result.isya}`
+                    reply(ini_txt)
+                    break  
+case 'jadwalsholat2':
+                    if (args.length == 0) return reply(`Example: ${prefix + command} Yogyakarta`)
+                    daerah = args.join(" ")
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/sholat/${daerah}?apikey=${setting.lolkey}`)
                     get_result = get_result.result
                     ini_txt = `Wilayah : ${get_result.wilayah}\n`
                     ini_txt += `Tanggal : ${get_result.tanggal}\n`
@@ -4687,12 +4745,12 @@ get_result = await fetchJson(`http://api.lolhuman.xyz/api/sholat/${daerah}?apike
                     ini_txt += `Dhuha : ${get_result.dhuha}\n`
                     ini_txt += `Dzuhur : ${get_result.dzuhur}\n`
                     ini_txt += `Ashar : ${get_result.ashar}\n`
-                    ini_txt += `Maghrib : ${get_result.imsak}\n`
+                    ini_txt += `Maghrib : ${get_result.maghrib}\n`
                     ini_txt += `Isya : ${get_result.isya}`
                     reply(ini_txt)
                     break  
              case 'listsurah':
-                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/quran?apikey=${setting.lolkey}`)
+                    get_result = await fetchJson(`https://zenzapi.xyz/api/quran?apikey=${setting.zenzapi}`)
                     get_result = get_result.result
                     ini_txt = 'List Surah:\n'
                     for (var x in get_result) {
@@ -4720,7 +4778,7 @@ case 'alquran':
                     reply(ini_txt)
                     break
 case 'doaharian':
-                    get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/doa-harian?apikey=f6921005b1a75905c12a`)
+                    get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/doa-harian?apikey=${setting.dhnjing}`)
                     get_result = get_result.result
                     ini_txt = `No : ${get_result.urutan}\n`
                     ini_txt += `Latin: ${get_result.latin}\n`
@@ -4729,7 +4787,7 @@ case 'doaharian':
                     reply(ini_txt)
                     break
 case 'asmaulhusna':
-                    get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/asmaulhusna?apikey=f6921005b1a75905c12a`)
+                    get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/asmaulhusna?apikey=${setting.dhnjing}`)
                     get_result = get_result.result
                     ini_txt = `No : ${get_result.urutan}\n`
                     ini_txt += `Latin: ${get_result.latin}\n`
@@ -4749,10 +4807,10 @@ case 'hadits':
        bottom = arg.split('-')[1]
        kitab = top
        no = bottom
-                     anu = await fetchJson(`https://zahirr-web.herokuapp.com/api/hadits?kitab=${kitab}&nomor=${no}&apikey=zahirgans`)
-                     ini_mess = anu.result
-                     ini_data = anu.result.data
-                     ini_ayat = anu.result.data.contents
+                     anu = await fetchJson(`https://server-api-rey.herokuapp.com/api/muslim/hadits?kitab=${kitab}&nomor=${no}&apikey=${setting.apirey}`)
+                     ini_mess = anu
+                     ini_data = anu.data
+                     ini_ayat = anu.data.contents
                      ini_txt = `➤ *Pesan :* ${ini_mess.message}\n\n`
                      ini_txt += `➤ *Nama :* ${ini_data.name}\n`
                      ini_txt += `➤ *Hadist :* ${ini_data.id}\n`
@@ -4765,7 +4823,7 @@ case 'hadits':
                      break
 //========== [ Kristen Menu ] ==========
 case 'alkitab':
-                     get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/alkitab-search?keyword=allah&apikey=f6921005b1a75905c12a`)
+                     get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/alkitab-search?keyword=allah&apikey=${setting.dhnjing}`)
                      get_result = get_result.result
                     ini_txt = `Title : ${get_result.data_title}\n`
                     ini_txt += `Url: ${get_result.url}\n`
@@ -4773,7 +4831,7 @@ case 'alkitab':
                      reply(ini_txt)
                     break       
 case 'bacaharian':
-                     get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/alkitab-bacaharian?apikey=f6921005b1a75905c12a`)
+                     get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/alkitab-bacaharian?apikey=${setting.dhnjing}`)
                      get_result = get.yohanes-7
                     ini_txt = `Liner : ${get_result.data_liner}\n`
                     ini_txt += `Text: ${get_result.data_text}\n`
