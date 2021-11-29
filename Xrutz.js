@@ -57,6 +57,7 @@ const Exif = require('./lib/exif');
 const exif = new Exif();
 
 const { urlMenu, informationMenu, stalkMenu, kristenMenu,wibuMenu, downloadMenu, infoMenu, gameMenu, groupMenu, funMenu, ownerMenu, stickerMenu, otherMenu, rulesBot, islamMenu, sertiMenu, ceritaMenu, makerMenu, toolsMenu, regisTered} = require('./message/help.js')
+const { useOwner, useDownload } = require('./message/example.js')
 const { getBuffer, getGroupAdmins, getRandom, runtime, sleep } = require('./lib/myfunc')
 const { fetchJson, getBase64, kyun, createExif } = require('./lib/fetch')
 const { color, bgcolor } = require('./lib/color')
@@ -1181,7 +1182,7 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. WhatsApp Mod B
         if (isBanned) return reply(mess.ban)
         list = []
         listmenu = [`soundmenu`,`groupmenu`,`stickermenu`,`wibumenu`,`downloadmenu`,`islammenu`,`kristenmenu`,`stalkmenu`,`informationmenu`,`urlmenu`,`sertimenu`,`ceritamenu`,`makermenu`,`ownermenu`,`gamemenu`,`funmenu`,`infomenu`,`toolsmenu`,`othermenu`]
-        listmenuu = [`Menu Lagu 30 Detik`,`Menu Group`,`Menu Sticker`,`Menu Wibu`,`Menu Download`,`Menu Islam`,`Menu Kristen`,`Menu Stalking`,`Menu Informasi`,`Menu URL`,`Menu Sertifikat`,`Menu Cerita`,`Menu Maker`,`Menu Owner`,`Menu Game`,`Menu Fun`,`Menu Info`,`Menu Tools`,`Menu Lainnya`]
+        listmenuu = [`Menu Lagu Old`,`Menu Group`,`Menu Sticker`,`Menu Wibu`,`Menu Download`,`Menu Islam`,`Menu Kristen`,`Menu Stalking`,`Menu Informasi`,`Menu URL`,`Menu Sertifikat`,`Menu Cerita`,`Menu Maker`,`Menu Owner`,`Menu Game`,`Menu Fun`,`Menu Info`,`Menu Tools`,`Menu Lainnya`]
         nombor = 1
         startnum = 0
         for (let x of listmenu) {
@@ -1204,7 +1205,7 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. WhatsApp Mod B
        
                list = []
                listmenu = [`dmff`,`dmml`]
-               listmenuu = [`Store Free Fire`,`Store Mobile Legend`]
+               listmenuu = [`Free Fire`,`Mobile Legend`]
                nombor = 1
                startnum = 0
                for (let x of listmenu) {
@@ -5088,6 +5089,12 @@ await Xrutz.sendMessage(from, buttnasu, MessageType.buttonsMessage, {sendEphemer
              replyf('https://chat.whatsapp.com/BABvK9nnhhJLImFXJaoLgH')
              break
 
+      case 'useowner':
+             Xrutz.sendMessage(from, useOwner(prefix), MessageType.text, {quoted: faketroli})
+             break
+      case 'usedownload':
+             Xrutz.sendMessage(from, useDownload(prefix), MessageType.text, {quoted: faketroli})
+             break
 // Diemin aja Ngerti!
 case 'ownermenu':
           thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
@@ -5096,21 +5103,21 @@ case 'ownermenu':
 
     *「 OWNER MENU 」*
 
-〆 ${prefix}bc *_teks_*
+〆 ${prefix}bc *<teks>*
 〆 ${prefix}term
 〆 ${prefix}eval
 〆 ${prefix}reset
 〆 ${prefix}clearall
 〆 ${prefix}leaveall
-〆 ${prefix}join *_link_*
+〆 ${prefix}join *<link>*
 〆 ${prefix}shutdown
 〆 ${prefix}getquoted
-〆 ${prefix}addupdate _fitur_
-〆 ${prefix}exif *_nama|author_*
-〆 ${prefix}sewa add/del *_waktu_*
-〆 ${prefix}premium add *_@tag|nomor_*
-〆 ${prefix}premium del *_@tag|nomor_*`
-Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhownermenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+〆 ${prefix}addupdate *<fitur>*
+〆 ${prefix}exif *<nama|author>*
+〆 ${prefix}sewa add/del *<waktu>*
+〆 ${prefix}premium add *<tag|nomor>*
+〆 ${prefix}premium del *<tag|nomor>*`
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. Pastikan Command Benar, Apabila Kurang Paham Bisa Tekan "CARA PENGGUNAAN"\n\n2. Jika Bot Tidak Merespon / Ada BUG Bisa Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 },{ buttonId: `.useowner`, buttonText: { displayText: 'CARA PENGGUNAAN' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhownermenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
            break
       case 'downloadmenu':
        thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
@@ -5119,20 +5126,20 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤
 
     *「 DOWNLOADER MENU 」*
     
-〆 ${prefix}fbdl *_link_*
-〆 ${prefix}igdl *_link_*
-〆 ${prefix}igdl2 *_link_*
-〆 ${prefix}twitter *_link_*
-〆 ${prefix}tiktok *_link_*
-〆 ${prefix}play *_judul_*
-〆 ${prefix}ytmp3 *_link_*
-〆 ${prefix}ytmp4 *_link_*
-〆 ${prefix}ythd *_link_*
-〆 ${prefix}soundcloud *_link_*
-〆 ${prefix}tiktoknowm *_link_*
-〆 ${prefix}tiktokaudio *_link_*
-〆 ${prefix}mediafire *_link_*`
-Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhdownloadmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+〆 ${prefix}fbdl *<link fb>*
+〆 ${prefix}igdl *<link ig>*
+〆 ${prefix}igdl2 *<link ig>*
+〆 ${prefix}tiktok *<link tt>*
+〆 ${prefix}ythd *<link yt>*
+〆 ${prefix}ytmp3 *<link yt>*
+〆 ${prefix}ytmp4 *<link yt>*
+〆 ${prefix}twitter *<link twt>*
+〆 ${prefix}play *<judul lagu>*
+〆 ${prefix}soundcloud *<link sc>*
+〆 ${prefix}tiktoknowm *<link tt>*
+〆 ${prefix}tiktokaudio *<link tt>*
+〆 ${prefix}mediafire *<link mf>*`
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. Pastikan Command Benar, Apabila Kurang Paham Bisa Tekan "CARA PENGGUNAAN"\n\n2. Jika Bot Tidak Merespon / Ada BUG Bisa Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 },{ buttonId: `.usedownload`, buttonText: { displayText: 'CARA PENGGUNAAN' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhdownloadmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 break
 case 'gamemenu':
        if (isBanned) return reply(mess.ban)
@@ -5222,11 +5229,12 @@ break
         
     *「 ISLAM MENU 」*
            
-〆 ${prefix}kisahnabi
-〆 ${prefix}jadwalsholat
+〆 ${prefix}kisahnabi *<nabi>*
+〆 ${prefix}jadwalsholat *<daerah>*
+〆 ${prefix}jadwalsholat2 *<daerah>*
 〆 ${prefix}alquran
 〆 ${prefix}asmaulhusna
-〆 ${prefix}alquranaudio
+〆 ${prefix}alquranaudio *<surah>*
 〆 ${prefix}listsurah`
         Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhislammenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
         break
@@ -5313,19 +5321,19 @@ break
     
 〆 ${prefix}cerpen
 〆 ${prefix}cecan
-〆 ${prefix}brainly _query_
+〆 ${prefix}brainly *<query>*
 〆 ${prefix}artinama _namamu_
-〆 ${prefix}brainly _query_
-〆 ${prefix}happymod _query_
-〆 ${prefix}moddroid _query_
-〆 ${prefix}playstore _query_
-〆 ${prefix}ssweb _query_
-〆 ${prefix}google _query_
-〆 ${prefix}image _query_
-〆 ${prefix}pinterest _query_
+〆 ${prefix}brainly *<query>*
+〆 ${prefix}happymod *<query>*
+〆 ${prefix}moddroid *<query>*
+〆 ${prefix}playstore *<query>*
+〆 ${prefix}ssweb *<query>*
+〆 ${prefix}google *<query>*
+〆 ${prefix}image *<query>*
+〆 ${prefix}pinterest *<query>*
 〆 ${prefix}nulis
-〆 ${prefix}img2url _reply image_
-〆 ${prefix}ytsearch _query_`
+〆 ${prefix}img2url *<reply image>*
+〆 ${prefix}ytsearch *<query>*`
 Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhothermenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 break
       case 'groupmenu': 
@@ -5336,8 +5344,8 @@ break
 
     *「 GROUP MENU 」*
    
-〆 ${prefix}gelud _@tag_
-〆 ${prefix}tictactoe _@tag_
+〆 ${prefix}gelud *<@tag>*
+〆 ${prefix}tictactoe *<@tag>*
 〆 ${prefix}cekganteng
 〆 ${prefix}cekcantik
 〆 ${prefix}babi
@@ -5345,22 +5353,22 @@ break
 〆 ${prefix}cantik
 〆 ${prefix}ganteng
 〆 ${prefix}groupsetting
-〆 ${prefix}afk _alasan_
+〆 ${prefix}afk *<alasan>*
 〆 ${prefix}ceksewa
 〆 ${prefix}kickall
 〆 ${prefix}infogroup
-〆 ${prefix}promote _@tag_
-〆 ${prefix}demote _@tag_
+〆 ${prefix}promote *<@tag>*
+〆 ${prefix}demote *<@tag>*
 〆 ${prefix}listonline
-〆 ${prefix}tagall _teks_
+〆 ${prefix}tagall *<teks>*
 〆 ${prefix}leave
-〆 ${prefix}kick _@tag_
-〆 ${prefix}add _62xxx_
+〆 ${prefix}kick *<@tag>*
+〆 ${prefix}add *<62xxx>*
 〆 ${prefix}setnamegc
-〆 ${prefix}setppgc _reply image_
+〆 ${prefix}setppgc *<reply image>*
 〆 ${prefix}setdeskgc
-〆 ${prefix}sider _reply chat bot_
-〆 ${prefix}hidetag _teks_
+〆 ${prefix}sider *<reply chat bot>*
+〆 ${prefix}hidetag *<teks>*
 〆 ${prefix}linkgc`
 Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhgrubmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 break
@@ -5372,16 +5380,16 @@ break
     *「 FUN MENU 」*
     
 〆 ${prefix}mining
-〆 ${prefix}cekwatak *_nama_*
-〆 ${prefix}cekmati *_nama_*
-〆 ${prefix}wangy *_nama_*
+〆 ${prefix}cekwatak *<nama>*
+〆 ${prefix}cekmati *<nama>*
+〆 ${prefix}wangy *<nama>*
 〆 ${prefix}citacita
 〆 ${prefix}toxic
 〆 ${prefix}truth
 〆 ${prefix}dare
-〆 ${prefix}apakah *_teks_*
-〆 ${prefix}bisakah *_teks_*
-〆 ${prefix}kapankah *_teks_*
+〆 ${prefix}apakah *<teks>*
+〆 ${prefix}bisakah *<teks>*
+〆 ${prefix}kapankah *<teks>*
 〆 ${prefix}rate`
 Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhfunmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 break
