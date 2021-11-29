@@ -1224,8 +1224,8 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. WhatsApp Mod B
                break
                case 'soundmenu':
                list = []
-               listmenu = [`sound1`,`sound2`,`sound3`,`sound4`,`sound5`,`sound6`,`sound7`,`sound8`,`sound9`,`sound10`]
-               listmenuu = [`Lagu 1`,`Lagu 2`,`Lagu 3`,`Lagu 4`,`Lagu 5`,`Lagu 6`,`Lagu 7`,`Lagu 8`,`Lagu 9`,`Lagu 10`]
+               listmenu = [`sound1`,`sound2`,`sound3`,`sound4`,`sound5`,`sound6`,`sound7`,`sound8`,`sound9`,`sound10`,`sound11`]
+               listmenuu = [`Lagu 1`,`Lagu 2`,`Lagu 3`,`Lagu 4`,`Lagu 5`,`Lagu 6`,`Lagu 7`,`Lagu 8`,`Lagu 9`,`Lagu 10`,`Lagu 11`]
                nombor = 1
                startnum = 0
                for (let x of listmenu) {
@@ -1280,6 +1280,10 @@ Xrutz.sendMessage(from, sound, MessageType.audio, {quoted: freply, mimetype: 'au
 break
 case 'sound10':
 sound = fs.readFileSync('./assets/audio10.mp3')
+Xrutz.sendMessage(from, sound, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
+break
+case 'sound11':
+sound = fs.readFileSync('./assets/audio11.mp3')
 Xrutz.sendMessage(from, sound, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
 break
 
