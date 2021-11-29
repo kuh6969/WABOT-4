@@ -57,7 +57,7 @@ const Exif = require('./lib/exif');
 const exif = new Exif();
 
 const { urlMenu, informationMenu, stalkMenu, kristenMenu,wibuMenu, downloadMenu, infoMenu, gameMenu, groupMenu, funMenu, ownerMenu, stickerMenu, otherMenu, rulesBot, islamMenu, sertiMenu, ceritaMenu, makerMenu, toolsMenu, regisTered} = require('./message/help.js')
-const { useOwner, useDownload } = require('./message/example.js')
+const { useOwner, useDownload, useSticker, useWibu, useIslam, useKristen, useStalk, useInformation, useSerti, useUrl, useCertita, useMaker, useFun, useInfo, useTools, useOther } = require('./message/example.js')
 const { getBuffer, getGroupAdmins, getRandom, runtime, sleep } = require('./lib/myfunc')
 const { fetchJson, getBase64, kyun, createExif } = require('./lib/fetch')
 const { color, bgcolor } = require('./lib/color')
@@ -1173,7 +1173,7 @@ _saya ${botName} yang siap membantu anda dalam membuat sticker, downloader, dll.
 〆⁩ Github : ramadhankukuh
 〆⁩ Active : ${runtime(process.uptime())}`
 
-const loli = fs.readFileSync('./assets/MENU2.mp3')
+const loli = fs.readFileSync('./assets/MENU.mp3')
 Xrutz.sendMessage(from, loli, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
 Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. WhatsApp Mod Belum Support Button Message.\n\n2. Bot Ini Gratis, Jika Ingin Join Di Grub Kalian Silahkan.\n\n3. Gunakan Dengan Bijak DAN JANGAN SPAM ( SPAM/TELP = BANNED )\n\n4. Jika Menemukan BUG / BOT Tidak Merespon Segera Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.command`, buttonText: { displayText: 'SHOW MENU' }, type: 1 },{ buttonId: `.storegame`, buttonText: { displayText: 'TOPUP GAME' }, type: 1 },{ buttonId: `!owner`, buttonText: { displayText: 'DEVELOPER' }, type: 1 },{ buttonId: `!owner`, buttonText: { displayText: 'OWNER 👑' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: ikyads, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
                break
@@ -1240,7 +1240,7 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. WhatsApp Mod B
                    }
                         list.push(yy)
            }
-               listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak ${pushname}! 🕊️\nSilahkan Pilih Lagu 20-60 Detik Disini\n\nJika Ingin Request Lagu Bisa Ketik *${prefix}reqlagu <JUDUL>*`, list, {quoted: faketroli})
+               listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak ${pushname}! 🕊️\nSilahkan Pilih Lagu 20-60 Detik Disini Dan Jangan Lupa Pakai Headset\n\nJika Ingin Request Lagu Bisa Ketik *${prefix}reqlagu <JUDUL>*`, list, {quoted: faketroli})
                break
 case 'sound1':
 sound = fs.readFileSync('./assets/audio1.mp3')
@@ -5089,13 +5089,60 @@ await Xrutz.sendMessage(from, buttnasu, MessageType.buttonsMessage, {sendEphemer
              replyf('https://chat.whatsapp.com/BABvK9nnhhJLImFXJaoLgH')
              break
 
+// Cara Penggunaan
       case 'useowner':
              Xrutz.sendMessage(from, useOwner(prefix), MessageType.text, {quoted: faketroli})
              break
       case 'usedownload':
              Xrutz.sendMessage(from, useDownload(prefix), MessageType.text, {quoted: faketroli})
              break
-// Diemin aja Ngerti!
+      case 'usesticker':
+             Xrutz.sendMessage(from, useSticker(prefix), MessageType.text, {quoted: faketroli})
+             break
+      case 'usewibu':
+             Xrutz.sendMessage(from, useWibu(prefix), MessageType.text, {quoted: faketroli})
+             break
+      case 'useislam':
+             Xrutz.sendMessage(from, useIslam(prefix), MessageType.text, {quoted: faketroli})
+             break
+      case 'usekristen':
+             Xrutz.sendMessage(from, useKristen(prefix), MessageType.text, {quoted: faketroli})
+             break
+      case 'usestalk':
+             Xrutz.sendMessage(from, useStalk(prefix), MessageType.text, {quoted: faketroli})
+             break
+      case 'useinformation':
+             Xrutz.sendMessage(from, useInformation(prefix), MessageType.text, {quoted: faketroli})
+             break
+      case 'useurl':
+             Xrutz.sendMessage(from, useUrl(prefix), MessageType.text, {quoted: faketroli})
+             break
+      case 'useserti':
+             Xrutz.sendMessage(from, useSerti(prefix), MessageType.text, {quoted: faketroli})
+             break
+      case 'usecerita':
+             Xrutz.sendMessage(from, useCerita(prefix), MessageType.text, {quoted: faketroli})
+             break
+      case 'usemaker':
+             Xrutz.sendMessage(from, useMaker(prefix), MessageType.text, {quoted: faketroli})
+             break
+      case 'usefun':
+             Xrutz.sendMessage(from, useFun(prefix), MessageType.text, {quoted: faketroli})
+             break
+      case 'useinfo':
+             Xrutz.sendMessage(from, useInfo(prefix), MessageType.text, {quoted: faketroli})
+             break
+      case 'usetools':
+             Xrutz.sendMessage(from, useTools(prefix), MessageType.text, {quoted: faketroli})
+             break
+      case 'useother':
+             Xrutz.sendMessage(from, useOther(prefix), MessageType.text, {quoted: faketroli})
+             break
+      case 'usegroup':
+             Xrutz.sendMessage(from, useGroup(prefix), MessageType.text, {quoted: faketroli})
+             break
+
+// Menu nya disini
 case 'ownermenu':
           thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
        if (isBanned) return reply(mess.ban)
@@ -5192,9 +5239,9 @@ case 'gamemenu':
  〆 ${prefix}cekpremium
  〆 ${prefix}listpremium
  〆 ${prefix}getpp
- 〆 ${prefix}setpp _reply image_
- 〆 ${prefix}bugreport _keluhan_`
- Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhinfomenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+ 〆 ${prefix}setpp *<reply image>*
+ 〆 ${prefix}bugreport *<keluhan>*`
+ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. Pastikan Command Benar, Apabila Kurang Paham Bisa Tekan "CARA PENGGUNAAN"\n\n2. Jika Bot Tidak Merespon / Ada BUG Bisa Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 },{ buttonId: `.useinfo`, buttonText: { displayText: 'CARA PENGGUNAAN' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhinfomenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
  break
       case 'stickermenu':
        thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
@@ -5203,24 +5250,23 @@ case 'gamemenu':
 
     *「 STICKER MENU 」*
     
-〆 ${prefix}attp _teks_
-〆 ${prefix}ttp2 _teks_
-〆 ${prefix}ttp3 _teks_
-〆 ${prefix}ttp4 _teks_
-〆 ${prefix}amongus _teks_
+〆 ${prefix}attp *<teks>*
+〆 ${prefix}ttp2 *<teks>*
+〆 ${prefix}ttp3 *<teks>*
+〆 ${prefix}ttp4 *<teks>*
 〆 ${prefix}dadu
 〆 ${prefix}doge
 〆 ${prefix}patrick
 〆 ${prefix}gura
 〆 ${prefix}stickeranime
-〆 ${prefix}semoji _emoji_
-〆 ${prefix}sticker _reply image_
-〆 ${prefix}smeme _teks|teks_
-〆 ${prefix}swm _pack|author_
-〆 ${prefix}take _pack|author_
-〆 ${prefix}tovideo
-〆 ${prefix}toimg`
-Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhstickermenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+〆 ${prefix}semoji *<emoji>*
+〆 ${prefix}sticker *<reply image>*
+〆 ${prefix}smeme *<teks1|teks2>*
+〆 ${prefix}swm *<pack|author>*
+〆 ${prefix}take *<pack|author>*
+〆 ${prefix}tovideo *<reply sticker>*
+〆 ${prefix}toimg *<reply sticker>*`
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. Pastikan Command Benar, Apabila Kurang Paham Bisa Tekan "CARA PENGGUNAAN"\n\n2. Jika Bot Tidak Merespon / Ada BUG Bisa Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 },{ buttonId: `.usesticker`, buttonText: { displayText: 'CARA PENGGUNAAN' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhstickermenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 break
        case 'islammenu':
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
@@ -5236,7 +5282,7 @@ break
 〆 ${prefix}asmaulhusna
 〆 ${prefix}alquranaudio *<surah>*
 〆 ${prefix}listsurah`
-        Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhislammenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+        Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. Pastikan Command Benar, Apabila Kurang Paham Bisa Tekan "CARA PENGGUNAAN"\n\n2. Jika Bot Tidak Merespon / Ada BUG Bisa Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 },{ buttonId: `.useislam`, buttonText: { displayText: 'CARA PENGGUNAAN' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhislammenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
         break
        case 'sertimenu':
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
@@ -5253,7 +5299,7 @@ break
 〆 ${prefix}badgirl
 〆 ${prefix}goodboy
 〆 ${prefix}goodgirl`
-        Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhsertimenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+        Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. Pastikan Command Benar, Apabila Kurang Paham Bisa Tekan "CARA PENGGUNAAN"\n\n2. Jika Bot Tidak Merespon / Ada BUG Bisa Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 },{ buttonId: `.useserti`, buttonText: { displayText: 'CARA PENGGUNAAN' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhsertimenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
         break
        case 'ceritamenu':
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
@@ -5269,7 +5315,7 @@ break
 〆 ${prefix}faktaunik
 〆 ${prefix}bucin
 〆 ${prefix}quotes`
-        Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhceritamenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+        Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. Pastikan Command Benar, Apabila Kurang Paham Bisa Tekan "CARA PENGGUNAAN"\n\n2. Jika Bot Tidak Merespon / Ada BUG Bisa Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 },{ buttonId: `.usecerita`, buttonText: { displayText: 'CARA PENGGUNAAN' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhceritamenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
         break
        case 'makermenu':
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
@@ -5291,7 +5337,7 @@ break
 〆 ${prefix}googletxt
 〆 ${prefix}spiderman
 〆 ${prefix}express`
-       Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhmakermenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+       Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. Pastikan Command Benar, Apabila Kurang Paham Bisa Tekan "CARA PENGGUNAAN"\n\n2. Jika Bot Tidak Merespon / Ada BUG Bisa Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 },{ buttonId: `.usemaker`, buttonText: { displayText: 'CARA PENGGUNAAN' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhmakermenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
        break
      case 'toolsmenu':
        thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
@@ -5310,7 +5356,7 @@ break
 〆 ${prefix}addstik
 〆 ${prefix}liststik
 〆 ${prefix}getstik`
-Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhtoolsmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. Pastikan Command Benar, Apabila Kurang Paham Bisa Tekan "CARA PENGGUNAAN"\n\n2. Jika Bot Tidak Merespon / Ada BUG Bisa Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 },{ buttonId: `.usetools`, buttonText: { displayText: 'CARA PENGGUNAAN' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhtoolsmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 break                
       case 'othermenu':
        thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
@@ -5322,8 +5368,7 @@ break
 〆 ${prefix}cerpen
 〆 ${prefix}cecan
 〆 ${prefix}brainly *<query>*
-〆 ${prefix}artinama _namamu_
-〆 ${prefix}brainly *<query>*
+〆 ${prefix}artinama *<namamu>*
 〆 ${prefix}happymod *<query>*
 〆 ${prefix}moddroid *<query>*
 〆 ${prefix}playstore *<query>*
@@ -5334,7 +5379,7 @@ break
 〆 ${prefix}nulis
 〆 ${prefix}img2url *<reply image>*
 〆 ${prefix}ytsearch *<query>*`
-Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhothermenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. Pastikan Command Benar, Apabila Kurang Paham Bisa Tekan "CARA PENGGUNAAN"\n\n2. Jika Bot Tidak Merespon / Ada BUG Bisa Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 },{ buttonId: `.useother`, buttonText: { displayText: 'CARA PENGGUNAAN' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhothermenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 break
       case 'groupmenu': 
       case 'grupmenu': 
@@ -5370,7 +5415,7 @@ break
 〆 ${prefix}sider *<reply chat bot>*
 〆 ${prefix}hidetag *<teks>*
 〆 ${prefix}linkgc`
-Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhgrubmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. Pastikan Command Benar, Apabila Kurang Paham Bisa Tekan "CARA PENGGUNAAN"\n\n2. Jika Bot Tidak Merespon / Ada BUG Bisa Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 },{ buttonId: `.usegroup`, buttonText: { displayText: 'CARA PENGGUNAAN' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhgrubmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 break
       case 'funmenu':
        thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
@@ -5391,7 +5436,7 @@ break
 〆 ${prefix}bisakah *<teks>*
 〆 ${prefix}kapankah *<teks>*
 〆 ${prefix}rate`
-Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhfunmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. Pastikan Command Benar, Apabila Kurang Paham Bisa Tekan "CARA PENGGUNAAN"\n\n2. Jika Bot Tidak Merespon / Ada BUG Bisa Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 },{ buttonId: `.usefun`, buttonText: { displayText: 'CARA PENGGUNAAN' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhfunmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 break
        case 'wibumenu':
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
@@ -5401,7 +5446,7 @@ break
     *「 WIBU MENU 」*
            
 〆 ${prefix}loli
-〆 ${prefix}lolivideo [ERROR]
+〆 ${prefix}lolivideo
 〆 ${prefix}husbu
 〆 ${prefix}milf
 〆 ${prefix}cosplay
@@ -5409,15 +5454,15 @@ break
 〆 ${prefix}waifu
 〆 ${prefix}quotesanime
 〆 ${prefix}animequotes
-〆 ${prefix}manga _query_
-〆 ${prefix}kusonime _query_
-〆 ${prefix}anime _query_
-〆 ${prefix}nekopoisearch _query_
-〆 ${prefix}nhentai _code_
-〆 ${prefix}nhentai2 _code_
-〆 ${prefix}nhentai3 _code_
-〆 ${prefix}nhentaipdf _code_`
-       Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhwibumenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+〆 ${prefix}manga *<query>*
+〆 ${prefix}kusonime *<query>*
+〆 ${prefix}anime *<query>*
+〆 ${prefix}nekopoisearch *<query>*
+〆 ${prefix}nhentai *<code>*
+〆 ${prefix}nhentai2 *<code>*
+〆 ${prefix}nhentai3 *<code>*
+〆 ${prefix}nhentaipdf *<code>*`
+       Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. Pastikan Command Benar, Apabila Kurang Paham Bisa Tekan "CARA PENGGUNAAN"\n\n2. Jika Bot Tidak Merespon / Ada BUG Bisa Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 },{ buttonId: `.usewibu`, buttonText: { displayText: 'CARA PENGGUNAAN' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhwibumenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
        break
        case 'kristenmenu':
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
@@ -5428,7 +5473,7 @@ break
            
 〆 ${prefix}alkitab
 〆 ${prefix}bacaharian`
-       Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhkristenmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+       Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. Pastikan Command Benar, Apabila Kurang Paham Bisa Tekan "CARA PENGGUNAAN"\n\n2. Jika Bot Tidak Merespon / Ada BUG Bisa Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 },{ buttonId: `.usekristen`, buttonText: { displayText: 'CARA PENGGUNAAN' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhkristenmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
        break
        case 'stalkmenu':
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
@@ -5437,10 +5482,10 @@ break
        
     *「 STALK MENU 」*
            
-〆 ${prefix}igstalk _username_
-〆 ${prefix}tiktokstalk _username_
-〆 ${prefix}githubstalk _username_`
-       Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhstalkmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+〆 ${prefix}igstalk *<username>*
+〆 ${prefix}tiktokstalk *<username>*
+〆 ${prefix}githubstalk *<username>*`
+       Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. Pastikan Command Benar, Apabila Kurang Paham Bisa Tekan "CARA PENGGUNAAN"\n\n2. Jika Bot Tidak Merespon / Ada BUG Bisa Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 },{ buttonId: `.usestalk`, buttonText: { displayText: 'CARA PENGGUNAAN' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhstalkmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
        break
        case 'urlmenu':
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
@@ -5449,11 +5494,11 @@ break
        
     *「 URL MENU 」*
            
-〆 ${prefix}tinyurl _url_
-〆 ${prefix}bitly _url_
-〆 ${prefix}shorturl _url_
-〆 ${prefix}cuttly _url_`
-       Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhurlmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+〆 ${prefix}tinyurl *<url>*
+〆 ${prefix}bitly *<url>*
+〆 ${prefix}shorturl *<url>*
+〆 ${prefix}cuttly *<url>*`
+       Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. Pastikan Command Benar, Apabila Kurang Paham Bisa Tekan "CARA PENGGUNAAN"\n\n2. Jika Bot Tidak Merespon / Ada BUG Bisa Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 },{ buttonId: `.useurl`, buttonText: { displayText: 'CARA PENGGUNAAN' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhurlmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
        break
        case 'informationmenu':
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
@@ -5465,13 +5510,13 @@ break
 〆 ${prefix}infogempa
 〆 ${prefix}infogempa2
 〆 ${prefix}infotsunami
-〆 ${prefix}jarak *<Kota 1 - Kota 2>*
+〆 ${prefix}jarak *<Kota 1-Kota 2>*
 〆 ${prefix}cuaca *<daerah>*
 〆 ${prefix}covidindo
 〆 ${prefix}covidglobal
 〆 ${prefix}herolist
 〆 ${prefix}herodetail *<hero ml>*`
-        Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: ' ```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhinformationmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+        Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. Pastikan Command Benar, Apabila Kurang Paham Bisa Tekan "CARA PENGGUNAAN"\n\n2. Jika Bot Tidak Merespon / Ada BUG Bisa Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 },{ buttonId: `.useinformation`, buttonText: { displayText: 'CARA PENGGUNAAN' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhinformationmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
         break
 
 default:
