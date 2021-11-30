@@ -2235,7 +2235,7 @@ _*Tunggu Proses Upload Media......*_`
              reply(result)
              sendFileFromUrl(res[0].link, document, {mimetype: res[0].mime, filename: res[0].nama, quoted: mek})
              break
-       case 'tiktok': 
+       case 'tiktokk': 
        case 'ttdl':
        if (isBanned) return reply(mess.ban)
              if (!q) return reply('Linknya?')
@@ -2256,22 +2256,31 @@ _*Tunggu Proses Upload Media......*_`
             .catch((err) => { reply(String(err)) })
              break
 case 'tiktok':
-              if (isBanned) return reply(mess.ban)
-              if (!q) return reply('Linknya?')
-              if (!q.includes('tiktok')) return reply(mess.error.Iv)
-              buttons = [{buttonId: `${prefix}tiktoknowm ${q}`,buttonText:{displayText: `🎥 Video`},type:1},{buttonId:`${prefix}ttaudio ${q}`,buttonText:{displayText:'🎵 Mp3'},type:1}]
-              imageMsg = (await Xrutz.prepareMessageMedia(fs.readFileSync(`./media/masrell.jpg`), 'imageMessage', {thumbnail: fs.readFileSync(`./media/masrell.jpg`)})).imageMessage
-              buttonsMessage = {footerText:'Jangan Lupa Subscribe Yt Xrutz Bot\n Helpme tu 1k subscriber', imageMessage: imageMsg,
-              contentText:`Silahkan pilihan media yg mau di download kak:v`,buttons,headerType:4}
-              prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
-              Xrutz.relayWAMessage(prep)
-              break
+case 'tt':
+       if (args.length == 0) return reply(`Example: ${prefix + command} https://vt.tiktok.com/ZSwWCk5o/`)
+       link = args[0]
+       get_result = await fetchJson(`https://api.ichikaa.xyz/api/tiktok?url=${link}`)
+       ini_result = get_result.result
+       ini_buffer = await getBuffer(ini_result.thumb)
+       ini_txt = `*『 TIKTOK DOWNLOADER 』*
+
+➤ *Username :* ${ini_result.username}
+➤ *Nickname :* ${ini_result.nickname}
+➤ *Like :* ${ini_result.like}
+➤ *Share :* ${ini_result.share}
+➤ *Views :* ${ini_result.views}
+➤ *Comments :* ${ini_result.comments}
+➤ *Music Ori :* ${ini_result.musicName}
+
+*Silahkan pilih media yang akan di download*`
+Xrutz.sendMessage(from, { contentText: `${ini_txt}`, footerText: '```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `${prefix}ttaudio ${q}`, buttonText: { displayText: '🎵 AUDIO' }, type: 1 },{ buttonId: `${prefix}ttnowm ${q}`, buttonText: { displayText: '🎥 VIDEO NO WM' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: ini_buffer, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+break
       case 'ttaudio': 
       case 'tiktokmusic': 
       case 'tiktokaudio':
              if (args.length == 0) return reply(`Example: ${prefix + command} https://vt.tiktok.com/ZSwWCk5o/`)
              ini_link = args[0]
-             get_audio = await getBuffer(`https://api.lolhuman.xyz/api/tiktokmusic?apikey=${setting.lolkey}&url=${ini_link}`)
+             get_audio = await getBuffer(`https://api.ichikaa.xyz/api/tiktokaudio?url=${ini_link}`)
              Xrutz.sendMessage(from, get_audio, audio, { mimetype: Mimetype.mp4Audio, quoted: mek })
              break
       case 'fb':
