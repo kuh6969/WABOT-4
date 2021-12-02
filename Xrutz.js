@@ -70,6 +70,7 @@ const { mediafireDl } = require('./lib/mediafire.js')
 const { webp2gifFile, igDownloader, TiktokDownloader } = require("./lib/gif.js")
 const { y2mateA, y2mateV } = require('./lib/y2mate')
 const { ythd } = require('./lib/ytdl')
+const { lirikLagu } = require('./lib/lirik.js')
 const { herolist } = require('./lib/herolist.js')
 const { herodetails } = require('./lib/herodetail.js')
 const premium = require("./lib/premium");
@@ -3010,6 +3011,25 @@ her = `*Hero Details ${body.slice(12)}*
 reply(her)
 break
 case 'google':
+       case 'g':
+               try {
+               if (args.length == 0) return reply(`Kirim perintah *${prefix}gugel [ query ]*\nContoh : ${prefix}gugel tahun berapa Indonesia Merdeka?`)
+               query = args.join(" ")
+               get_result = await fetchJson(`https://api.ichikaa.xyz/api/google?query=${query}`)
+               ini_result = get_result.result
+               ini_txt = `  『 *GOOGLE SEARCH* 』\n\n`
+
+for(let i = 0; i < ini_result.length; i++) {
+ini_txt += `*➤ Judul :* ${ini_result[i].title}\n
+*➤ Hasil :* ${ini_result[i].snippet}\n
+*➤ Link :* ${ini_result[i].link}\n\n---------------\n\n`
+}
+reply(ini_txt)
+              } catch {
+              reply(`Maaf pencarian ${query} tidak ditemukan di Google`)
+}
+break
+case 'google2':
 case 'googlesearch':
 case 'ggs':
 if (args.length < 1) return reply('Yang mau di cari apaan?')
