@@ -2094,12 +2094,10 @@ UNTUK PEMESANAN BISA WHATSAPP KE wa.me/12816245470\n\n( BOT HANYA MEMBERIKAN LIS
               break
        case 'scplay': 
        case 'soundcloud':
-              if (!q) return reply('Link Yang Mana? ')
-              if (!q.includes('soundcloud')) return reply(mess.error.Iv)
-              reply(mess.wait)
-              anu = await fetchJson(`https://api.lolhuman.xyz/api/soundcloud?apikey=${setting.lolkey}&url=${q}`)
-             .then((data) => { sendMediaURL(from, data.result, mek) })
-             .catch((err) => { reply(String(err)) })
+              if (args.length == 0) return reply(`Example: ${prefix + command} https://soundcloud.com/`)
+              ini_link = args[0]
+              get_audio = await getBuffer(`https://api.ichikaa.xyz/api/scdl?url=${ini_link}`)
+              Xrutz.sendMessage(from, get_audio, audio, { mimetype: Mimetype.mp4Audio, quoted: mek })
               break
        case 'image':
        case 'gimage':
@@ -2972,6 +2970,55 @@ break
               reply('Error!')
 })
 break
+case 'genshinweapon':
+case 'giweapon':
+                if (args.length == 0) return reply(`Example: ${prefix + command} lionsroar`)
+                    weapon = args.join(" ")
+                    get_result = await fetchJson(`https://api.ichikaa.xyz/api/genshinweapon?weapon=${weapon}`)
+                    ini_result = get_result.result
+                    ini_txt = `*➣ Name :* ${ini_result.name}\n`
+                    ini_txt += `*➣ Rating :* ${ini_result.rating}\n`
+                    ini_txt += `*➣ Base Atk :* ${ini_result.baseatk}\n`
+                    ini_txt += `*➣ Sec Stat :* ${ini_result.secstat}\n`
+                    ini_txt += `*➣ Passive :* ${ini_result.passive}\n`
+                    ini_txt += `*➣ Class :* ${ini_result.class}\n\n`
+                    ini_txt += `*➣ R1 :* ${ini_result.r1}\n`
+                    ini_txt += `*➣ R2 :* ${ini_result.r2}\n`
+                    ini_txt += `*➣ R3 :* ${ini_result.r3}\n`
+                    ini_txt += `*➣ R4 :* ${ini_result.r4}\n`
+                    ini_txt += `*➣ R5 :* ${ini_result.r5}\n\n`
+                    ini_txt += `*➣ Link Image :* ${ini_result.url}\n`
+                    ini_image = await getBuffer(ini_result.url)
+                    Xrutz.sendMessage(from, ini_image, image, { quoted: mek, caption: ini_txt })
+                    break
+case 'genshinchara':
+case 'gichara':
+case 'gichar':
+                if (args.length == 0) return reply(`Example: ${prefix + command} keqing`)
+                    chara = args.join(" ")
+                    get_result = await fetchJson(`https://api.ichikaa.xyz/api/genshin?chara=${chara}`)
+                    ini_result = get_result.result
+                    ini_txt = `*➣ Name :* ${ini_result.name}\n`
+                    ini_txt += `*➣ CV :* ${ini_result.cv}\n`
+                    ini_txt += `*➣ Quote :* ${ini_result.quote}\n`
+                    ini_txt += `*➣ City :* ${ini_result.city}\n`
+                    ini_txt += `*➣ Rating :* ${ini_result.rating}\n`
+                    ini_txt += `*➣ Weapon :* ${ini_result.weapon}\n\n`
+                    ini_txt += `*➣ Deskripsi :* ${ini_result.description}\n\n`
+                    ini_txt += `*➣ Link :* ${ini_result.url}\n`
+                    ini_image = await getBuffer(ini_result.image)
+                    Xrutz.sendMessage(from, ini_image, image, { quoted: mek, caption: ini_txt })
+                    break
+case 'ppcouple':
+case 'ppc':
+                     result = await fetchJson('https://api.ichikaa.xyz/api/ppcouple')
+                     reply(mess.wait)
+                     cowo1 = await getBuffer(result.male)
+			Xrutz.sendMessage(from, cowo1, MessageType.image, { thumbnail: fs.readFileSync('./media/masrell.jpg'), caption: 'ini cowo nya..', quoted: mek})
+		    cewe1 = await getBuffer(result.female)
+		    Xrutz.sendMessage(from, cewe1, MessageType.image, { thumbnail: fs.readFileSync('./media/masrell.jpg'), caption: 'ini cewe nya...', quoted: mek})
+              break
+
 case 'herolist':
        await herolist().then((ress) => {
        let listt = `*List hero untuk feature ${prefix}herodetail*\n\n`
@@ -5400,6 +5447,7 @@ break
     
 〆 ${prefix}cerpen
 〆 ${prefix}cecan
+〆 ${prefix}ppcouple
 〆 ${prefix}brainly *<query>*
 〆 ${prefix}artinama *<namamu>*
 〆 ${prefix}happymod *<query>*
@@ -5548,7 +5596,9 @@ break
 〆 ${prefix}covidindo
 〆 ${prefix}covidglobal
 〆 ${prefix}herolist
-〆 ${prefix}herodetail *<hero ml>*`
+〆 ${prefix}herodetail *<hero ml>*
+〆 ${prefix}gichara *<chara genshin>*
+〆 ${prefix}giweapon *<weapon genshin>*`
         Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. Pastikan Command Benar, Apabila Kurang Paham Bisa Tekan "CARA PENGGUNAAN"\n\n2. Jika Bot Tidak Merespon / Ada BUG Bisa Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 },{ buttonId: `.useinformation`, buttonText: { displayText: 'CARA PENGGUNAAN' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhinformationmenu, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
         break
 
