@@ -3493,27 +3493,27 @@ case 'sticker':
        case 'sgif':
               if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
               encmediat = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
-              mediat = await client.downloadAndSaveMediaMessage(encmediat)
+              mediat = await Xrutz.downloadAndSaveMediaMessage(encmediat)
               ron = getRandom('.webp')
               exec(`ffmpeg -i ${mediat} -vf "scale=512:512:force_original_aspect_ratio=increase,fps=15, crop=512:512" ${ron}`, (err) => {
               fs.unlinkSync(mediat)
               if (err) return reply(`${err}`)
               exec(`webpmux -set exif ./sticker/data.exif ${ron} -o ${ron}`, async (error) => {
               if (error) return reply(`${error}`)
-              client.sendMessage(from, fs.readFileSync(ron), sticker, {quoted:mek})
+              Xrutz.sendMessage(from, fs.readFileSync(ron), sticker, {quoted:mek})
               fs.unlinkSync(ron)
 })
 })
               } else if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
               encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
-              mediat = await client.downloadAndSaveMediaMessage(encmedia)
+              mediat = await Xrutz.downloadAndSaveMediaMessage(encmedia)
               ron = getRandom('.webp')
               exec(`ffmpeg -i ${mediat} -vf "scale=512:512:force_original_aspect_ratio=increase,fps=15, crop=512:512" ${ron}`, (err) => {
               fs.unlinkSync(mediat)
               if (err) return reply(`${err}`)
               exec(`webpmux -set exif ./sticker/data.exif ${ron} -o ${ron}`, async (error) => {
               if (error) return reply(`${error}`)
-              client.sendMessage(from, fs.readFileSync(ron), sticker, {quoted:mek})
+              Xrutz.sendMessage(from, fs.readFileSync(ron), sticker, {quoted:mek})
               fs.unlinkSync(ron)
 })
 })
