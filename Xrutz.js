@@ -1507,7 +1507,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
 
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (game.isfam(from, family100)) return reply(`Masih ada soal yang belum di selesaikan`)
-              anu = await axios.get(`https://api.ichikaa.xyz/api/family100`)
+              anu = await axios.get(`https://api.ichikaa.xyz/api/family100?apikey=${setting.ichikaa}`)
               reply(`*JAWABLAH SOAL BERIKUT*\n\n*Soal :* ${anu.data.result.question}\n*Total Jawaban :* ${anu.data.result.answer.length}\n\nWaktu : ${gamewaktu}s`)
               let anoh = anu.data.result.answer
               let rgfds = []
@@ -1575,7 +1575,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'ttn':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebaktebakan.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebak/tebakan`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebaktebakan?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1639,7 +1639,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'sa':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebaksiapaaku.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.ichikaa.xyz/api/siapakahaku`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/siapakahaku?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1661,7 +1661,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tk':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakata.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebak/kata`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebakkata?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               pertanyaan = get_result.soal
@@ -1682,7 +1682,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tli':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebaklirik.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebak/lirik`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebaklirik?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.answer
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1704,7 +1704,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tj':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakjenaka.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebak/jenaka`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebakjenaka?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1726,7 +1726,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'kk':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakimia.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebak/kimia`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebakkimia?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.lambang
               pertanyaan = get_result.nama
@@ -1746,7 +1746,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tebakbendera':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakbendera.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebak/bendera`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebakbendera?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.nama
               pertanyaan = get_result.bendera
@@ -1767,7 +1767,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'sk':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (susunkata.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.ichikaa.xyz/api/susunkata`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/susunkata?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               pertanyaan = get_result.soal
@@ -1790,7 +1790,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (isBanned) return reply(mess.ban)
               if (asahotak.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.ichikaa.xyz/api/asahotak`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/asahotak?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1814,7 +1814,7 @@ case 'cl':
        if (isBanned) return reply(mess.ban)
               if (isGame(sender, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (caklontong.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.ichikaa.xyz/api/caklontong`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/caklontong?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               desc = get_result.desc
@@ -2097,7 +2097,7 @@ UNTUK PEMESANAN BISA WHATSAPP KE wa.me/12816245470\n\n( BOT HANYA MEMBERIKAN LIS
        case 'soundcloud':
               if (args.length == 0) return reply(`Example: ${prefix + command} https://soundcloud.com/`)
               ini_link = args[0]
-              get_audio = await getBuffer(`https://api.ichikaa.xyz/api/scdl?url=${ini_link}`)
+              get_audio = await getBuffer(`https://api.ichikaa.xyz/api/scdl?url=${ini_link}&apikey=${setting.ichikaa}`)
               Xrutz.sendMessage(from, get_audio, audio, { mimetype: Mimetype.mp4Audio, quoted: mek })
               break
        case 'image':
@@ -2259,7 +2259,7 @@ case 'tiktok':
 case 'tt':
        if (args.length == 0) return reply(`Example: ${prefix + command} https://vt.tiktok.com/ZSwWCk5o/`)
        link = args[0]
-       get_result = await fetchJson(`https://api.ichikaa.xyz/api/tiktok?url=${link}`)
+       get_result = await fetchJson(`https://api.ichikaa.xyz/api/tiktok?url=${link}&apikey=${setting.ichikaa}`)
        ini_result = get_result.result
        ini_buffer = await getBuffer(ini_result.thumb)
        ini_txt = `*『 TIKTOK DOWNLOADER 』*
@@ -2280,7 +2280,7 @@ break
       case 'tiktokaudio':
              if (args.length == 0) return reply(`Example: ${prefix + command} https://vt.tiktok.com/ZSwWCk5o/`)
              ini_link = args[0]
-             get_audio = await getBuffer(`https://api.ichikaa.xyz/api/tiktokaudio?url=${ini_link}`)
+             get_audio = await getBuffer(`https://api.ichikaa.xyz/api/tiktokaudio?url=${ini_link}&apikey=${setting.ichikaa}`)
              Xrutz.sendMessage(from, get_audio, audio, { mimetype: Mimetype.mp4Audio, quoted: mek })
              break
       case 'fb':
@@ -2685,7 +2685,7 @@ case 'stalkgithub':
       case 'githubstalk':
               if (args.length == 0) return reply(`Example: ${prefix + command} ramadhankukuh`)
               username = args[0]
-              get_result = await fetchJson(`https://api.ichikaa.xyz/api/stalkgithub?username=${username}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/stalkgithub?username=${username}&apikey=${setting.ichikaa}`)
               ini_result = get_result.result
               ini_buffer = await getBuffer(ini_result.avatar_url)
               ini_txt = `『 *GITHUB PROFILE* 』
@@ -2772,7 +2772,7 @@ case 'tiktokstalk':
 case 'ffstalk':
 if (args.length == 0) return reply(`Idnya mana kak?`)
                     ff_id = args[0]
-                    get_result = await fetchJson(`https://api.ichikaa.xyz/api/freefire?id=${ff_id}`)
+                    get_result = await fetchJson(`https://api.ichikaa.xyz/api/freefire?id=${ff_id}&apikey=${setting.ichikaa}`)
                     ini_text = get_result.nickname
                     ini_id = ff_id
                     reply(`UID : ${ini_id}\nNickname : ${ini_text}`)
@@ -2784,24 +2784,22 @@ case 'tff':
        bottom = arg.split('-')[1]
        ff_id = top
        order = bottom
-              get_result = await fetchJson(`https://api.ichikaa.xyz/api/freefire?id=${ff_id}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/freefire?id=${ff_id}&apikey=${setting.ichikaa}`)
               ini_text = get_result.nickname
               ini_id = ff_id
               ini_order = order
 menu =`${sayingtime} @${sender.split('@')[0]}
 
-       *「 TOPUP FF 」*
-
-〆 UID : ${ini_id}
-〆 Nickname : ${ini_text}
-〆 Order : ${ini_order} Diamond
-〆 Status : ${isOwner ? 'Success' : isPremium ? 'Gagal' : 'Out Of Stock'}
+〆 UID : ID Invalid
+〆 Nickname : Nickname Invalid
+〆 Order : undefined Diamond
+〆 Status : ${isOwner ? 'Success' : isPremium ? 'Gagal' : 'Internal Server Error'}
 〆 Tanggal : ${calender}
-〆 Waktu : ${jmn} 
-〆 SN No : ${serialUser}
+〆 Waktu : ${jmn} WIB
+〆 SN No : Serial Number Invalid
 〆 WhatsApp : ${sender.split('@')[0]}`
                      
-Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: 'Fitur Topup With Bot Masih Dalam Program Beta.\n\nJika Gagal Hubungi Owner Dan Lakukan Pembayaran\n\nJika Out Of Stock Berarti Stok Sedang Habis\n\n ```Made With ❤️ Kukuh``` \n\n', buttons: [{ buttonId: `.owner`, buttonText: { displayText: 'OWNER' }, type: 1 },{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 }], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhconftopup, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: 'Fitur Topup With Bot Masih Dalam Program Beta.\n\nButuh Bantuan?\nEmail : devkuhxbot@gmail.com\n\n\n ```Made With ❤️ Kukuh``` \n\n', buttons: [{ buttonId: `.paymentdm`, buttonText: { displayText: 'PAYMENT' }, type: 1 },{ buttonId: `.owner`, buttonText: { displayText: 'OWNER' }, type: 1 },{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 }], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhconftopup, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 Xrutz.sendMessage('12816245470@s.whatsapp.net',`*ORDER:* ${menu}`, text)
 break  
 case 'mlstalk':
@@ -2810,7 +2808,7 @@ case 'mlstalk':
        bottom = arg.split('|')[1]
                     ml_id = top
                     ml_server = bottom
-                    get_result = await fetchJson(`https://api.ichikaa.xyz/api/mobilelegend?id=${ml_id}&server=${ml_server}`)
+                    get_result = await fetchJson(`https://api.ichikaa.xyz/api/mobilelegend?id=${ml_id}&server=${ml_server}&apikey=${setting.ichikaa}`)
                     ini_text = get_result.nickname           
                     ini_id = ml_id
                     ini_server = ml_server
@@ -2825,7 +2823,7 @@ case 'tml':
        ml_id = top
        ml_server = bottom
        order = left
-              get_result = await fetchJson(`https://api.ichikaa.xyz/api/mobilelegend?id=${ml_id}&server=${ml_server}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/mobilelegend?id=${ml_id}&server=${ml_server}&apikey=${setting.ichikaa}`)
               ini_text = get_result.nickname           
               ini_id = ml_id
               ini_server = ml_server
@@ -2840,13 +2838,18 @@ menu =`${sayingtime} @${sender.split('@')[0]}
 〆 Order : ${ini_order} Diamond
 〆 Status : ${isOwner ? 'Success' : isPremium ? 'Gagal' : 'Gagal'}
 〆 Tanggal : ${calender}
-〆 Waktu : ${jmn} 
+〆 Waktu : ${jmn} WIB
 〆 SN No : ${serialML}
 〆 WhatsApp : ${sender.split('@')[0]}`
                      
                                          
-Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: 'Fitur Topup With Bot Masih Dalam Program Beta.\n\nJika Gagal Hubungi Owner Dan Lakukan Pembayaran\n\n ```Made With ❤️ Kukuh``` \n\n', buttons: [{ buttonId: `.owner`, buttonText: { displayText: 'OWNER' }, type: 1 },{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 }], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhconftopup, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: 'Fitur Topup With Bot Masih Dalam Program Beta.\n\nButuh Bantuan?\nEmail : devkuhxbot@gmail.com\n\n\n ```Made With ❤️ Kukuh``` \n\n', buttons: [{ buttonId: `.paymentdm`, buttonText: { displayText: 'PAYMENT' }, type: 1 },{ buttonId: `.owner`, buttonText: { displayText: 'OWNER' }, type: 1 },{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 }], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhconftopup, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 Xrutz.sendMessage('12816245470@s.whatsapp.net',`*ORDER:* ${menu}`, text)
+break
+case 'paymentdm':
+`${sayingtime} @${sender.split('@')[0]}
+
+Untuk Pembayaran Saat INI PADA ${calender} PUKUL ${jmn} WIB MASIH MENGALAMI GANGGUAN, MOHON MAAF ATAS KETIDAKNYAMANAN-NYA`
 break
 case 'hitungwr':
       if (!q) return reply(mess.wrongFormat)
@@ -2975,7 +2978,7 @@ case 'genshinweapon':
 case 'giweapon':
                 if (args.length == 0) return reply(`Example: ${prefix + command} lionsroar`)
                     weapon = args.join(" ")
-                    get_result = await fetchJson(`https://api.ichikaa.xyz/api/genshinweapon?weapon=${weapon}`)
+                    get_result = await fetchJson(`https://api.ichikaa.xyz/api/genshinweapon?weapon=${weapon}&apikey=${setting.ichikaa}`)
                     ini_result = get_result.result
                     ini_txt = `*➣ Name :* ${ini_result.name}\n`
                     ini_txt += `*➣ Rating :* ${ini_result.rating}\n`
@@ -2997,7 +3000,7 @@ case 'gichara':
 case 'gichar':
                 if (args.length == 0) return reply(`Example: ${prefix + command} keqing`)
                     chara = args.join(" ")
-                    get_result = await fetchJson(`https://api.ichikaa.xyz/api/genshin?chara=${chara}`)
+                    get_result = await fetchJson(`https://api.ichikaa.xyz/api/genshin?chara=${chara}&apikey=${setting.ichikaa}`)
                     ini_result = get_result.result
                     ini_txt = `*➣ Name :* ${ini_result.name}\n`
                     ini_txt += `*➣ CV :* ${ini_result.cv}\n`
@@ -3012,7 +3015,7 @@ case 'gichar':
                     break
 case 'ppcouple':
 case 'ppc':
-                     result = await fetchJson('https://api.ichikaa.xyz/api/ppcouple')
+                     result = await fetchJson(`https://api.ichikaa.xyz/api/ppcouple?apikey=${setting.ichikaa}`)
                      reply(mess.wait)
                      cowo1 = await getBuffer(result.male)
 			Xrutz.sendMessage(from, cowo1, MessageType.image, { thumbnail: fs.readFileSync('./media/masrell.jpg'), caption: 'ini cowo nya..', quoted: mek})
@@ -3063,7 +3066,7 @@ case 'google':
                try {
                if (args.length == 0) return reply(`Kirim perintah *${prefix}gugel [ query ]*\nContoh : ${prefix}gugel tahun berapa Indonesia Merdeka?`)
                query = args.join(" ")
-               get_result = await fetchJson(`https://api.ichikaa.xyz/api/google?query=${query}`)
+               get_result = await fetchJson(`https://api.ichikaa.xyz/api/google?query=${query}&apikey=${setting.ichikaa}`)
                ini_result = get_result.result
                ini_txt = `  『 *GOOGLE SEARCH* 』\n\n`
 
