@@ -2730,7 +2730,7 @@ case 'igstalk':
 case 'happymod':
                      if (args.length == 0) return reply(`Example: ${prefix + command} epep mex`)
                      apk = args[0]
-                     anu = await fetchJson(`https://api.dhnjing.xyz/api/apk/happymod?apps=${apk}&apikey=${setting.dhnjing}`)
+                     anu = await fetchJson(`https://velgrynd.herokuapp.com/api/apk/happymod?apps=${apk}&apikey=${setting.dhnjing}`)
                      hepi = anu.result[0]
                      buffer = await getBuffer(hepi.apps_thumb)
                      teks = `『 *HAPPY MOD* 』 \n\n➣ Title : ${hepi.apps_name} \n➣ Rating : ${hepi.apps_rate} \n➣ Link Download : ${hepi.apps_linkdl}`
@@ -2739,7 +2739,7 @@ case 'happymod':
 case 'moddroid':
                      if (args.length < 1) return reply(`game yang mau di cari apa kak? \nContoh : ${prefix}happymod pubg`)
                      apk = args[0]
-                     data = await fetchJson(`https://api.dhnjing.xyz/api/apk/moddroid?apps=${apk}&page=1&apikey=${setting.dhnjing}`)
+                     data = await fetchJson(`https://velgrynd.herokuapp.com/api/apk/moddroid?apps=${apk}&page=1&apikey=${setting.dhnjing}`)
                      hepi = data.result[0] 
                      teks = `『 *MODDROID* 』 \n\n*➣ Title*: ${hepi.apps_name}\n*➣ Versi*: ${hepi.apps_version}\n*➣ Deskripsi:* ${hepi.apps_desc}\n*➣ Link Download*: ${hepi.apps_linkdl}`
                      buff = await getBuffer(hepi.apps_thumb)
@@ -4864,7 +4864,7 @@ case 'alquran':
                     reply(ini_txt)
                     break
 case 'doaharian':
-                    get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/doa-harian?apikey=${setting.dhnjing}`)
+                    get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/religi/doa-harian?apikey=${setting.dhnjing}`)
                     get_result = get_result.result
                     ini_txt = `No : ${get_result.urutan}\n`
                     ini_txt += `Latin: ${get_result.latin}\n`
@@ -4873,7 +4873,7 @@ case 'doaharian':
                     reply(ini_txt)
                     break
 case 'asmaulhusna':
-                    get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/asmaulhusna?apikey=${setting.dhnjing}`)
+                    get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/religi/asmaulhusna?apikey=${setting.dhnjing}`)
                     get_result = get_result.result
                     ini_txt = `No : ${get_result.urutan}\n`
                     ini_txt += `Latin: ${get_result.latin}\n`
@@ -4909,7 +4909,7 @@ case 'hadits':
                      break
 //========== [ Kristen Menu ] ==========
 case 'alkitab':
-                     get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/alkitab-search?keyword=allah&apikey=${setting.dhnjing}`)
+                     get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/religi/alkitab-search?keyword=allah&apikey=${setting.dhnjing}`)
                      get_result = get_result.result
                     ini_txt = `Title : ${get_result.data_title}\n`
                     ini_txt += `Url: ${get_result.url}\n`
@@ -4917,7 +4917,7 @@ case 'alkitab':
                      reply(ini_txt)
                     break       
 case 'bacaharian':
-                     get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/alkitab-bacaharian?apikey=${setting.dhnjing}`)
+                     get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/religi/alkitab-bacaharian?apikey=${setting.dhnjing}`)
                      get_result = get.yohanes-7
                     ini_txt = `Liner : ${get_result.data_liner}\n`
                     ini_txt += `Text: ${get_result.data_text}\n`
