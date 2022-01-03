@@ -108,7 +108,6 @@ Nogpy = setting.Nogpy
 Nodana = setting.Nodana
 Nopulsa = setting.Nopulsa
 gamewaktu = setting.gamewaktu
-qr_code_qris = https://ibb.co/7jLC7g8
 
 //Ganti link foto lu
 const thumblo = "https://telegra.ph/file/dbf39a185647132129f3f.jpg"
@@ -2869,14 +2868,6 @@ menu =`${sayingtime} @${sender.split('@')[0]}
                                          
 Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: 'Fitur Topup With Bot Masih Dalam Program Beta.\n\nButuh Bantuan?\nEmail : devkuhxbot@gmail.com\n\n\n ```Made With ❤️ Kukuh``` \n\n', buttons: [{ buttonId: `.paymentdm`, buttonText: { displayText: 'PAYMENT' }, type: 1 },{ buttonId: `.owner`, buttonText: { displayText: 'OWNER' }, type: 1 },{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 }], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhconftopup, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 Xrutz.sendMessage('628176878884@s.whatsapp.net',`*ORDER:* ${menu}`, text)
-break
-case 'paymentdm':
-gambar_qris = `${qr_code_qris}`
-	let gambar_qris_nya = await getBuffer(gambar_qris)
-	ini_bayar = `『 *METODE PEMBAYARAN* 』
-
-PEMBAYARAN YANG AKTIF MENGGUNAKAN BOT HANYA QRIS. SCAN DI APLIKASI *GOPAY, DANA, OVO, SHOPEEPAY, LINKAJA, M-BANKING*`
-await Xrutz.sendMessage(from, gambar_qris_nya, image, { caption: ini_bayar, thumbnail: Buffer.alloc(0) })
 break
 case 'hitungwr':
       if (!q) return reply(mess.wrongFormat)
