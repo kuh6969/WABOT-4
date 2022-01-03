@@ -1199,15 +1199,15 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. WhatsApp Mod B
             }
                  list.push(yy)
     }
-        listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak @${pushname}! 🕊️\nSilahkan pilih menu disini`, list, {quoted: faketroli})
+        listmsg(from, `Halo kak ${pushname}\n\n*Hari :* ${week}\n*Tanggal :* ${calender}\n*Jam :* ${jmn}\n\nSilahkan Pilih Menu Nya Kak`, list, {quoted: faketroli})
         break
        //Fitur Jualan nih
        case 'storegame':
        if (isBanned) return reply(mess.ban)
        
                list = []
-               listmenu = [`dmff`,`dmml`]
-               listmenuu = [`Free Fire`,`Mobile Legend`]
+               listmenu = [`dmff`,`dmmla`,`dmmlb`]
+               listmenuu = [`Free Fire`,`Mobile Legend Paket A`,`Mobile Legends Paket B`]
                nombor = 1
                startnum = 0
                for (let x of listmenu) {
@@ -1222,7 +1222,7 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. WhatsApp Mod B
                    }
                         list.push(yy)
            }
-               listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak ${pushname}! 🕊️\nSilahkan dipilih, mau Jenis Game apa?`, list, {quoted: faketroli})
+               listmsg(from, `Halo kak ${pushname}\n\n*Hari :* ${week}\n*Tanggal :* ${calender}\n*Jam :* ${jmn}\n\nSilahkan Dipilih, Mau Jenis Game Apa?`, list, {quoted: faketroli})
                break
                case 'soundmenu':
                list = []
@@ -1294,7 +1294,7 @@ break
        
                list = []
                listmenu = [`tff`,`tff`,`tff`,`tff`,`tff`,`tff`,`tff`]
-               listmenuu = [`70 💎 = IDR 9.500`,`100 💎 = IDR 14.500`,`140 💎 = IDR 19.000`,`210 💎 = IDR 28.500`,`280 💎 = IDR 38.000`,`355 💎 = IDR 48.000`,`720 💎 = IDR 95.000`]
+               listmenuu = [`70 💎 = IDR 9.500`,`100 💎 = IDR 14.500`,`140 💎 = IDR 18.500`,`210 💎 = IDR 28.000`,`280 💎 = IDR 37.000`,`355 💎 = IDR 47.000`,`720 💎 = IDR 93.000`]
                nombor = 1
                startnum = 0
                for (let x of listmenu) {
@@ -1302,17 +1302,17 @@ break
                     rows: [
                        {
                         title: `${listmenuu[startnum++]}`,
-                        description: `Murah meriah, Ayo dibeli!`,
+                        description: `Garena Free Fire`,
                         rowId: `${prefix}${x}`
                       }
                     ]
                    }
                         list.push(yy)
            }
-               listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak ${pushname}! 🕊️\nBerikut adalah *List Diamond* Free fire\n\nNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket*\n\nUntuk Via Cash & Pulsa Hubungi Owner`, list, {quoted: faketroli})
+               listmsg(from, `Halo kak ${pushname}\n\n*Hari :* ${week}\n*Tanggal :* ${calender}\n*Jam :* ${jmn}\n\nPrice List Diamond Free Fire Via ID\n\nnNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket*\n\nUntuk Via Cash & Pulsa Hubungi Owner`, list, {quoted: faketroli})
                break
 
-       case 'dmml':
+       case 'dmmla':
        if (isBanned) return reply(mess.ban)
        
                list = []
@@ -1325,14 +1325,37 @@ break
                     rows: [
                        {
                         title: `${listmenuu[startnum++]}`,
-                        description: `Murah meriah, Ayo dibeli!`,
+                        description: `Mobile Legends`,
                         rowId: `${prefix}${x}`
                       }
                     ]
                    }
                         list.push(yy)
            }
-               listmsg(from, `_${week}, ${jmn} - ${calender}_`,   `Hallo kak ${pushname}! 🕊️\nBerikut adalah *List Diamond* Mobile legend\n\nNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket*\n\nUntuk Via Cash & Pulsa Hubungi Owner`, list, {quoted: faketroli})
+               listmsg(from, `Halo kak ${pushname}\n\n*Hari :* ${week}\n*Tanggal :* ${calender}\n*Jam :* ${jmn}\n\nPrice List Diamond Mobile Legends Paket A Via ID Server\n\nnNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket*\n\nUntuk Via Cash & Pulsa Hubungi Owner`, list, {quoted: faketroli})
+               break
+
+       case 'dmmlb':
+       if (isBanned) return reply(mess.ban)
+       
+               list = []
+               listmenu = [`tml`,`tml`,`tml`,`tml`,`tml`,`tpml`,`tml`]
+               listmenuu = [`39 💎 = IDR 10.000`,`65 💎 = IDR 15.000`,`92 💎 = IDR 20.000`,`133 💎 = IDR 30.000`,`266 💎 = IDR 60.000`,`358 💎 = IDR 85.000`,`400 💎 = IDR 95.000`]
+               nombor = 1
+               startnum = 0
+               for (let x of listmenu) {
+               const yy = {title: 'LIST DIAMOND ' + nombor++,
+                    rows: [
+                       {
+                        title: `${listmenuu[startnum++]}`,
+                        description: `Mobile Legends`,
+                        rowId: `${prefix}${x}`
+                      }
+                    ]
+                   }
+                        list.push(yy)
+           }
+               listmsg(from, `Halo kak ${pushname}\n\n*Hari :* ${week}\n*Tanggal :* ${calender}\n*Jam :* ${jmn}\n\nPrice List Diamond Mobile Legends Paket B Via ID Server\n\nnNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket*\n\nUntuk Via Cash & Pulsa Hubungi Owner`, list, {quoted: faketroli})
                break
        
 //List diamond Ngep ngep
@@ -1507,7 +1530,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
 
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (game.isfam(from, family100)) return reply(`Masih ada soal yang belum di selesaikan`)
-              anu = await axios.get(`https://velgrynd.herokuapp.com/api/family100?apikey=${setting.ichikaa}`)
+              anu = await axios.get(`https://api.ichikaa.xyz/api/family100?apikey=${setting.ichikaa}`)
               reply(`*JAWABLAH SOAL BERIKUT*\n\n*Soal :* ${anu.data.result.question}\n*Total Jawaban :* ${anu.data.result.answer.length}\n\nWaktu : ${gamewaktu}s`)
               let anoh = anu.data.result.answer
               let rgfds = []
@@ -1575,7 +1598,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'ttn':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebaktebakan.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tebaktebakan?apikey=${setting.ichikaa}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebaktebakan?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1639,7 +1662,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'sa':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebaksiapaaku.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/siapakahaku?apikey=${setting.ichikaa}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/siapakahaku?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1661,7 +1684,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tk':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakata.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakkata?apikey=${setting.ichikaa}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebakkata?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               pertanyaan = get_result.soal
@@ -1682,7 +1705,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tli':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebaklirik.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tebaklirik?apikey=${setting.ichikaa}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebaklirik?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.answer
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1704,7 +1727,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tj':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakjenaka.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakjenaka?apikey=${setting.ichikaa}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebakjenaka?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1726,7 +1749,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'kk':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakimia.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakkimia?apikey=${setting.ichikaa}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebakkimia?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.lambang
               pertanyaan = get_result.nama
@@ -1746,7 +1769,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tebakbendera':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakbendera.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakbendera?apikey=${setting.ichikaa}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/tebakbendera?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.nama
               pertanyaan = get_result.bendera
@@ -1767,7 +1790,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'sk':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (susunkata.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/susunkata?apikey=${setting.ichikaa}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/susunkata?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               pertanyaan = get_result.soal
@@ -1790,7 +1813,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (isBanned) return reply(mess.ban)
               if (asahotak.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/asahotak?apikey=${setting.ichikaa}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/asahotak?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1814,7 +1837,7 @@ case 'cl':
        if (isBanned) return reply(mess.ban)
               if (isGame(sender, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (caklontong.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/caklontong?apikey=${setting.ichikaa}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/caklontong?apikey=${setting.ichikaa}`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               desc = get_result.desc
@@ -2097,7 +2120,7 @@ UNTUK PEMESANAN BISA WHATSAPP KE wa.me/12816245470\n\n( BOT HANYA MEMBERIKAN LIS
        case 'soundcloud':
               if (args.length == 0) return reply(`Example: ${prefix + command} https://soundcloud.com/`)
               ini_link = args[0]
-              get_audio = await getBuffer(`https://velgrynd.herokuapp.com/api/scdl?url=${ini_link}&apikey=${setting.ichikaa}`)
+              get_audio = await getBuffer(`https://api.ichikaa.xyz/api/scdl?url=${ini_link}&apikey=${setting.ichikaa}`)
               Xrutz.sendMessage(from, get_audio, audio, { mimetype: Mimetype.mp4Audio, quoted: mek })
               break
        case 'image':
@@ -2259,7 +2282,7 @@ case 'tiktok':
 case 'tt':
        if (args.length == 0) return reply(`Example: ${prefix + command} https://vt.tiktok.com/ZSwWCk5o/`)
        link = args[0]
-       get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/tiktok?url=${link}&apikey=${setting.ichikaa}`)
+       get_result = await fetchJson(`https://api.ichikaa.xyz/api/tiktok?url=${link}&apikey=${setting.ichikaa}`)
        ini_result = get_result.result
        ini_buffer = await getBuffer(ini_result.thumb)
        ini_txt = `*『 TIKTOK DOWNLOADER 』*
@@ -2280,7 +2303,7 @@ break
       case 'tiktokaudio':
              if (args.length == 0) return reply(`Example: ${prefix + command} https://vt.tiktok.com/ZSwWCk5o/`)
              ini_link = args[0]
-             get_audio = await getBuffer(`https://velgrynd.herokuapp.com/api/tiktokaudio?url=${ini_link}&apikey=${setting.ichikaa}`)
+             get_audio = await getBuffer(`https://api.ichikaa.xyz/api/tiktokaudio?url=${ini_link}&apikey=${setting.ichikaa}`)
              Xrutz.sendMessage(from, get_audio, audio, { mimetype: Mimetype.mp4Audio, quoted: mek })
              break
       case 'fb':
@@ -2685,7 +2708,7 @@ case 'stalkgithub':
       case 'githubstalk':
               if (args.length == 0) return reply(`Example: ${prefix + command} ramadhankukuh`)
               username = args[0]
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/stalkgithub?username=${username}&apikey=${setting.ichikaa}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/stalkgithub?username=${username}&apikey=${setting.ichikaa}`)
               ini_result = get_result.result
               ini_buffer = await getBuffer(ini_result.avatar_url)
               ini_txt = `『 *GITHUB PROFILE* 』
@@ -2730,7 +2753,7 @@ case 'igstalk':
 case 'happymod':
                      if (args.length == 0) return reply(`Example: ${prefix + command} epep mex`)
                      apk = args[0]
-                     anu = await fetchJson(`https://api.dhnjing.xyz/api/apk/happymod?apps=${apk}&apikey=${setting.dhnjing}`)
+                     anu = await fetchJson(`https://velgrynd.herokuapp.com/api/apk/happymod?apps=${apk}&apikey=${setting.dhnjing}`)
                      hepi = anu.result[0]
                      buffer = await getBuffer(hepi.apps_thumb)
                      teks = `『 *HAPPY MOD* 』 \n\n➣ Title : ${hepi.apps_name} \n➣ Rating : ${hepi.apps_rate} \n➣ Link Download : ${hepi.apps_linkdl}`
@@ -2739,7 +2762,7 @@ case 'happymod':
 case 'moddroid':
                      if (args.length < 1) return reply(`game yang mau di cari apa kak? \nContoh : ${prefix}happymod pubg`)
                      apk = args[0]
-                     data = await fetchJson(`https://api.dhnjing.xyz/api/apk/moddroid?apps=${apk}&page=1&apikey=${setting.dhnjing}`)
+                     data = await fetchJson(`https://velgrynd.herokuapp.com/api/apk/moddroid?apps=${apk}&page=1&apikey=${setting.dhnjing}`)
                      hepi = data.result[0] 
                      teks = `『 *MODDROID* 』 \n\n*➣ Title*: ${hepi.apps_name}\n*➣ Versi*: ${hepi.apps_version}\n*➣ Deskripsi:* ${hepi.apps_desc}\n*➣ Link Download*: ${hepi.apps_linkdl}`
                      buff = await getBuffer(hepi.apps_thumb)
@@ -2749,7 +2772,7 @@ case 'moddroid':
 case 'tiktokstalk':
               if (args.length == 0) return reply(`Example: ${prefix + command} kukuh6969`)
               stalk_toktok = args[0]
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/stalktiktok?username=${stalk_toktok}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/stalktiktok?username=${stalk_toktok}`)
               ini_user = get_result.result.user
               ini_fllws = get_result.result.stats
               ini_buffer = await getBuffer(ini_user.avatarThumb)
@@ -2772,35 +2795,35 @@ case 'tiktokstalk':
 case 'ffstalk':
 if (args.length == 0) return reply(`Idnya mana kak?`)
                     ff_id = args[0]
-                    get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/freefire?id=${ff_id}&apikey=${setting.ichikaa}`)
+                    get_result = await fetchJson(`https://api.ichikaa.xyz/api/freefire?id=${ff_id}&apikey=${setting.ichikaa}`)
                     ini_text = get_result.nickname
                     ini_id = ff_id
                     reply(`UID : ${ini_id}\nNickname : ${ini_text}`)
                     break  
 case 'tff':
-       const serialUser = createSerial(16)
+       const serialFF = createSerial(16)
        if (!q) return reply(mess.IsiFormatTopupFF)
        top = arg.split('-')[0]
        bottom = arg.split('-')[1]
        ff_id = top
        order = bottom
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/freefire?id=${ff_id}&apikey=${setting.ichikaa}`)
-              ini_text = get_result.nickname
-              ini_id = ff_id
-              ini_order = order
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/freefire?id=${ff_id}&apikey=${setting.ichikaa}`)
+              nick = get_result.nickname
+              id = ff_id
+              order = order
 menu =`${sayingtime} @${sender.split('@')[0]}
 
-〆 UID : ID Invalid
-〆 Nickname : Nickname Invalid
-〆 Order : undefined Diamond
-〆 Status : ${isOwner ? 'Success' : isPremium ? 'Gagal' : 'Internal Server Error'}
+〆 UID : ${id}
+〆 Nickname : ${nick}
+〆 Order : ${order} Diamond
+〆 Status : ${isOwner ? 'Success' : isPremium ? 'Gagal' : 'Lakukan Pembayaran Terlebih Dahulu'}
 〆 Tanggal : ${calender}
 〆 Waktu : ${jmn} WIB
-〆 SN No : Serial Number Invalid
+〆 No Referensi : ${serialFF}
 〆 WhatsApp : ${sender.split('@')[0]}`
                      
 Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: 'Fitur Topup With Bot Masih Dalam Program Beta.\n\nButuh Bantuan?\nEmail : devkuhxbot@gmail.com\n\n\n ```Made With ❤️ Kukuh``` \n\n', buttons: [{ buttonId: `.paymentdm`, buttonText: { displayText: 'PAYMENT' }, type: 1 },{ buttonId: `.owner`, buttonText: { displayText: 'OWNER' }, type: 1 },{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 }], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhconftopup, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
-Xrutz.sendMessage('12816245470@s.whatsapp.net',`*ORDER:* ${menu}`, text)
+Xrutz.sendMessage('628176878884@s.whatsapp.net',`*ORDER:* ${menu}`, text)
 break  
 case 'mlstalk':
        if (!q) return reply(mess.wrongFormat)
@@ -2808,7 +2831,7 @@ case 'mlstalk':
        bottom = arg.split('|')[1]
                     ml_id = top
                     ml_server = bottom
-                    get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/mobilelegend?id=${ml_id}&server=${ml_server}&apikey=${setting.ichikaa}`)
+                    get_result = await fetchJson(`https://api.ichikaa.xyz/api/mobilelegend?id=${ml_id}&server=${ml_server}&apikey=${setting.ichikaa}`)
                     ini_text = get_result.nickname           
                     ini_id = ml_id
                     ini_server = ml_server
@@ -2823,7 +2846,7 @@ case 'tml':
        ml_id = top
        ml_server = bottom
        order = left
-              get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/mobilelegend?id=${ml_id}&server=${ml_server}&apikey=${setting.ichikaa}`)
+              get_result = await fetchJson(`https://api.ichikaa.xyz/api/mobilelegend?id=${ml_id}&server=${ml_server}&apikey=${setting.ichikaa}`)
               ini_text = get_result.nickname           
               ini_id = ml_id
               ini_server = ml_server
@@ -2836,20 +2859,23 @@ menu =`${sayingtime} @${sender.split('@')[0]}
 〆 Server : ${ini_server}
 〆 Nickname : ${ini_text}
 〆 Order : ${ini_order} Diamond
-〆 Status : ${isOwner ? 'Success' : isPremium ? 'Gagal' : 'Gagal'}
+〆 Status : ${isOwner ? 'Success' : isPremium ? 'Gagal' : 'Lakukan Pembayaran Terlebih dahulu'}
 〆 Tanggal : ${calender}
 〆 Waktu : ${jmn} WIB
-〆 SN No : ${serialML}
+〆 No Referensi : ${serialML}
 〆 WhatsApp : ${sender.split('@')[0]}`
                      
                                          
 Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: 'Fitur Topup With Bot Masih Dalam Program Beta.\n\nButuh Bantuan?\nEmail : devkuhxbot@gmail.com\n\n\n ```Made With ❤️ Kukuh``` \n\n', buttons: [{ buttonId: `.paymentdm`, buttonText: { displayText: 'PAYMENT' }, type: 1 },{ buttonId: `.owner`, buttonText: { displayText: 'OWNER' }, type: 1 },{ buttonId: `.menu`, buttonText: { displayText: 'BACK TO MENU' }, type: 1 }], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: kuhconftopup, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
-Xrutz.sendMessage('12816245470@s.whatsapp.net',`*ORDER:* ${menu}`, text)
+Xrutz.sendMessage('628176878884@s.whatsapp.net',`*ORDER:* ${menu}`, text)
 break
 case 'paymentdm':
-`${sayingtime} @${sender.split('@')[0]}
+get_result = await fetchJson(`https://ibb.co/7jLC7g8`)
+ini_buffer = await getBuffer(get_result)
+ini_txt = `『 *METODE PEMBAYARAN* 』
 
-Untuk Pembayaran Saat INI PADA ${calender} PUKUL ${jmn} WIB MASIH MENGALAMI GANGGUAN, MOHON MAAF ATAS KETIDAKNYAMANAN-NYA`
+PEMBAYARAN YANG AKTIF MENGGUNAKAN BOT HANYA QRIS. SCAN DI APLIKASI *GOPAY, DANA, OVO, SHOPEEPAY, LINKAJA, M-BANKING*\n\nWhatsApp Owner : wa.me/12816245470\nEmail : devkuhxbot@gmail.com`
+Xrutz.sendMessage(from, ini_buffer, image, { caption: ini_txt, thumbnail: Buffer.alloc(0) })
 break
 case 'hitungwr':
       if (!q) return reply(mess.wrongFormat)
@@ -2978,7 +3004,7 @@ case 'genshinweapon':
 case 'giweapon':
                 if (args.length == 0) return reply(`Example: ${prefix + command} lionsroar`)
                     weapon = args.join(" ")
-                    get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/genshinweapon?weapon=${weapon}&apikey=${setting.ichikaa}`)
+                    get_result = await fetchJson(`https://api.ichikaa.xyz/api/genshinweapon?weapon=${weapon}&apikey=${setting.ichikaa}`)
                     ini_result = get_result.result
                     ini_txt = `*➣ Name :* ${ini_result.name}\n`
                     ini_txt += `*➣ Rating :* ${ini_result.rating}\n`
@@ -3000,7 +3026,7 @@ case 'gichara':
 case 'gichar':
                 if (args.length == 0) return reply(`Example: ${prefix + command} keqing`)
                     chara = args.join(" ")
-                    get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/genshin?chara=${chara}&apikey=${setting.ichikaa}`)
+                    get_result = await fetchJson(`https://api.ichikaa.xyz/api/genshin?chara=${chara}&apikey=${setting.ichikaa}`)
                     ini_result = get_result.result
                     ini_txt = `*➣ Name :* ${ini_result.name}\n`
                     ini_txt += `*➣ CV :* ${ini_result.cv}\n`
@@ -3015,7 +3041,7 @@ case 'gichar':
                     break
 case 'ppcouple':
 case 'ppc':
-                     result = await fetchJson(`https://velgrynd.herokuapp.com/api/ppcouple?apikey=${setting.ichikaa}`)
+                     result = await fetchJson(`https://api.ichikaa.xyz/api/ppcouple?apikey=${setting.ichikaa}`)
                      reply(mess.wait)
                      cowo1 = await getBuffer(result.male)
 			Xrutz.sendMessage(from, cowo1, MessageType.image, { thumbnail: fs.readFileSync('./media/masrell.jpg'), caption: 'ini cowo nya..', quoted: mek})
@@ -3066,7 +3092,7 @@ case 'google':
                try {
                if (args.length == 0) return reply(`Kirim perintah *${prefix}gugel [ query ]*\nContoh : ${prefix}gugel tahun berapa Indonesia Merdeka?`)
                query = args.join(" ")
-               get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/google?query=${query}&apikey=${setting.ichikaa}`)
+               get_result = await fetchJson(`https://api.ichikaa.xyz/api/google?query=${query}&apikey=${setting.ichikaa}`)
                ini_result = get_result.result
                ini_txt = `  『 *GOOGLE SEARCH* 』\n\n`
 
@@ -4864,7 +4890,7 @@ case 'alquran':
                     reply(ini_txt)
                     break
 case 'doaharian':
-                    get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/doa-harian?apikey=${setting.dhnjing}`)
+                    get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/religi/doa-harian?apikey=${setting.dhnjing}`)
                     get_result = get_result.result
                     ini_txt = `No : ${get_result.urutan}\n`
                     ini_txt += `Latin: ${get_result.latin}\n`
@@ -4873,7 +4899,7 @@ case 'doaharian':
                     reply(ini_txt)
                     break
 case 'asmaulhusna':
-                    get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/asmaulhusna?apikey=${setting.dhnjing}`)
+                    get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/religi/asmaulhusna?apikey=${setting.dhnjing}`)
                     get_result = get_result.result
                     ini_txt = `No : ${get_result.urutan}\n`
                     ini_txt += `Latin: ${get_result.latin}\n`
@@ -4909,7 +4935,7 @@ case 'hadits':
                      break
 //========== [ Kristen Menu ] ==========
 case 'alkitab':
-                     get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/alkitab-search?keyword=allah&apikey=${setting.dhnjing}`)
+                     get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/religi/alkitab-search?keyword=allah&apikey=${setting.dhnjing}`)
                      get_result = get_result.result
                     ini_txt = `Title : ${get_result.data_title}\n`
                     ini_txt += `Url: ${get_result.url}\n`
@@ -4917,7 +4943,7 @@ case 'alkitab':
                      reply(ini_txt)
                     break       
 case 'bacaharian':
-                     get_result = await fetchJson(`https://api.dhnjing.xyz/api/religi/alkitab-bacaharian?apikey=${setting.dhnjing}`)
+                     get_result = await fetchJson(`https://velgrynd.herokuapp.com/api/religi/alkitab-bacaharian?apikey=${setting.dhnjing}`)
                      get_result = get.yohanes-7
                     ini_txt = `Liner : ${get_result.data_liner}\n`
                     ini_txt += `Text: ${get_result.data_text}\n`
@@ -5162,7 +5188,7 @@ await Xrutz.sendMessage(from, buttnasu, MessageType.buttonsMessage, {sendEphemer
 					
 //========== [ Menunya Bang:v ] ==========
            case 'gopay':
-             replyf(` اتَّقوا النَّارَ ولو بشقِّ تمرةٍ ، فمن لم يجِدْ فبكلمةٍ طيِّبةٍ\n*“Jauhilah api neraka, walau hanya dengan bersedekah sebiji kurma (sedikit). Jika kamu tidak punya, maka bisa dengan kalimat thayyibah”* [HR. Bukhari 6539, Muslim 1016\n\n*Goopay :* 083871990243\n𝑀𝑎𝑘𝑎𝑠𝑖ℎ 𝑌𝑎 𝑌𝑔 𝑢𝑑𝑎ℎ 𝐷𝑜𝑛𝑎𝑠𝑖.`)
+             replyf(` اتَّقوا النَّارَ ولو بشقِّ تمرةٍ ، فمن لم يجِدْ فبكلمةٍ طيِّبةٍ\n*“Jauhilah api neraka, walau hanya dengan bersedekah sebiji kurma (sedikit). Jika kamu tidak punya, maka bisa dengan kalimat thayyibah”* [HR. Bukhari 6539, Muslim 1016\n\n*Goopay :* 083871990243\n𝑀??𝑘𝑎𝑠𝑖ℎ 𝑌𝑎 𝑌𝑔 𝑢𝑑𝑎ℎ 𝐷𝑜𝑛𝑎𝑠𝑖.`)
              break  
          case 'pulsa':
              replyf(` اتَّقوا النَّارَ ولو بشقِّ تمرةٍ ، فمن لم يجِدْ فبكلمةٍ طيِّبةٍ\n*“Jauhilah api neraka, walau hanya dengan bersedekah sebiji kurma (sedikit). Jika kamu tidak punya, maka bisa dengan kalimat thayyibah”* [HR. Bukhari 6539, Muslim 1016\n\n*Pulsa :* 083871990243\n𝑀𝑎𝑘𝑎𝑠𝑖ℎ 𝑌𝑎 𝑌𝑔 𝑢𝑑𝑎ℎ 𝐷𝑜𝑛𝑎𝑠𝑖.`)
@@ -5844,7 +5870,7 @@ Xrutz.sendMessage(from, rutz, MessageType.text, {quoted: fakelokasi})
 
 
 		if (budy.includes(`channel`)) {
-const rutz = `https://youtube.com/c/KukuhRamadhann`
+const rutz = `https://youtube.com/channel/UCJD2Gm2ixGvjkQcNJzx1ifA`
 Xrutz.sendMessage(from, rutz, MessageType.text, {quoted: faketoko})
 
                   }
