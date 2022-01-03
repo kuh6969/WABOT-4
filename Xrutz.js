@@ -108,7 +108,7 @@ Nogpy = setting.Nogpy
 Nodana = setting.Nodana
 Nopulsa = setting.Nopulsa
 gamewaktu = setting.gamewaktu
-var qr_code_qris = https://ibb.co/7jLC7g8
+qr_code_qris = https://ibb.co/7jLC7g8
 
 //Ganti link foto lu
 const thumblo = "https://telegra.ph/file/dbf39a185647132129f3f.jpg"
