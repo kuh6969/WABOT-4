@@ -108,6 +108,7 @@ Nogpy = setting.Nogpy
 Nodana = setting.Nodana
 Nopulsa = setting.Nopulsa
 gamewaktu = setting.gamewaktu
+var qr_code_qris = https://ibb.co/7jLC7g8
 
 //Ganti link foto lu
 const thumblo = "https://telegra.ph/file/dbf39a185647132129f3f.jpg"
@@ -1199,7 +1200,7 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. WhatsApp Mod B
             }
                  list.push(yy)
     }
-        listmsg(from, `Halo kak ${pushname}\n\n*Hari :* ${week}\n*Tanggal :* ${calender}\n*Jam :* ${jmn}\n\nSilahkan Pilih Menu Nya Kak`, list, {quoted: faketroli})
+        listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak ${pushname}!\n\nSilahkan Pilih Kategori Game Nya Kak!`, list, {quoted: faketroli})
         break
        //Fitur Jualan nih
        case 'storegame':
@@ -1222,7 +1223,7 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. WhatsApp Mod B
                    }
                         list.push(yy)
            }
-               listmsg(from, `Halo kak ${pushname}\n\n*Hari :* ${week}\n*Tanggal :* ${calender}\n*Jam :* ${jmn}\n\nSilahkan Dipilih, Mau Jenis Game Apa?`, list, {quoted: faketroli})
+               listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak ${pushname}!\n\nSilahkan Pilih Kategori Game Nya Kak!`, list, {quoted: faketroli})
                break
                case 'soundmenu':
                list = []
@@ -1309,7 +1310,7 @@ break
                    }
                         list.push(yy)
            }
-               listmsg(from, `Halo kak ${pushname}\n\n*Hari :* ${week}\n*Tanggal :* ${calender}\n*Jam :* ${jmn}\n\nPrice List Diamond Free Fire Via ID\n\nnNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket*\n\nUntuk Via Cash & Pulsa Hubungi Owner`, list, {quoted: faketroli})
+               listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak ${pushname}!\n\nPrice List Diamond Free Fire Via ID\n\nnNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket*\n\nUntuk Via Cash & Pulsa Hubungi Owner`, list, {quoted: faketroli})
                break
 
        case 'dmmla':
@@ -1332,7 +1333,7 @@ break
                    }
                         list.push(yy)
            }
-               listmsg(from, `Halo kak ${pushname}\n\n*Hari :* ${week}\n*Tanggal :* ${calender}\n*Jam :* ${jmn}\n\nPrice List Diamond Mobile Legends Paket A Via ID Server\n\nnNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket*\n\nUntuk Via Cash & Pulsa Hubungi Owner`, list, {quoted: faketroli})
+               listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak ${pushname}!\n\nPrice List Diamond Mobile Legends Paket A Via ID Server\n\nnNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket*\n\nUntuk Via Cash & Pulsa Hubungi Owner`, list, {quoted: faketroli})
                break
 
        case 'dmmlb':
@@ -1355,7 +1356,7 @@ break
                    }
                         list.push(yy)
            }
-               listmsg(from, `Halo kak ${pushname}\n\n*Hari :* ${week}\n*Tanggal :* ${calender}\n*Jam :* ${jmn}\n\nPrice List Diamond Mobile Legends Paket B Via ID Server\n\nnNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket*\n\nUntuk Via Cash & Pulsa Hubungi Owner`, list, {quoted: faketroli})
+               listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak ${pushname}!\n\nPrice List Diamond Mobile Legends Paket B Via ID Server\n\nnNote : Harga Yang Tertera Hanya Bisa Menggunakan Pembayaran *Bank / E-wallet / QRIS / Minimarket*\n\nUntuk Via Cash & Pulsa Hubungi Owner`, list, {quoted: faketroli})
                break
        
 //List diamond Ngep ngep
@@ -2870,12 +2871,12 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: 'Fitur Topup With 
 Xrutz.sendMessage('628176878884@s.whatsapp.net',`*ORDER:* ${menu}`, text)
 break
 case 'paymentdm':
-get_result = await fetchJson(`https://ibb.co/7jLC7g8`)
-ini_buffer = await getBuffer(get_result)
-ini_txt = `『 *METODE PEMBAYARAN* 』
+gambar_qris = `${qr_code_qris}`
+	let gambar_qris_nya = await getBuffer(gambar_qris)
+	ini_bayar = `『 *METODE PEMBAYARAN* 』
 
-PEMBAYARAN YANG AKTIF MENGGUNAKAN BOT HANYA QRIS. SCAN DI APLIKASI *GOPAY, DANA, OVO, SHOPEEPAY, LINKAJA, M-BANKING*\n\nWhatsApp Owner : wa.me/12816245470\nEmail : devkuhxbot@gmail.com`
-Xrutz.sendMessage(from, ini_buffer, image, { caption: ini_txt, thumbnail: Buffer.alloc(0) })
+PEMBAYARAN YANG AKTIF MENGGUNAKAN BOT HANYA QRIS. SCAN DI APLIKASI *GOPAY, DANA, OVO, SHOPEEPAY, LINKAJA, M-BANKING*`
+await Xrutz.sendMessage(from, gambar_qris_nya, image, { caption: ini_bayar, thumbnail: Buffer.alloc(0) })
 break
 case 'hitungwr':
       if (!q) return reply(mess.wrongFormat)
@@ -5188,7 +5189,7 @@ await Xrutz.sendMessage(from, buttnasu, MessageType.buttonsMessage, {sendEphemer
 					
 //========== [ Menunya Bang:v ] ==========
            case 'gopay':
-             replyf(` اتَّقوا النَّارَ ولو بشقِّ تمرةٍ ، فمن لم يجِدْ فبكلمةٍ طيِّبةٍ\n*“Jauhilah api neraka, walau hanya dengan bersedekah sebiji kurma (sedikit). Jika kamu tidak punya, maka bisa dengan kalimat thayyibah”* [HR. Bukhari 6539, Muslim 1016\n\n*Goopay :* 083871990243\n𝑀??𝑘𝑎𝑠𝑖ℎ 𝑌𝑎 𝑌𝑔 𝑢𝑑𝑎ℎ 𝐷𝑜𝑛𝑎𝑠𝑖.`)
+             replyf(` اتَّقوا النَّارَ ولو بشقِّ تمرةٍ ، فمن لم يجِدْ فبكلمةٍ طيِّبةٍ\n*“Jauhilah api neraka, walau hanya dengan bersedekah sebiji kurma (sedikit). Jika kamu tidak punya, maka bisa dengan kalimat thayyibah”* [HR. Bukhari 6539, Muslim 1016\n\n*Goopay :* 083871990243\n𝑀𝑎𝑘𝑎𝑠𝑖ℎ 𝑌𝑎 𝑌𝑔 𝑢𝑑𝑎ℎ 𝐷𝑜𝑛𝑎𝑠𝑖.`)
              break  
          case 'pulsa':
              replyf(` اتَّقوا النَّارَ ولو بشقِّ تمرةٍ ، فمن لم يجِدْ فبكلمةٍ طيِّبةٍ\n*“Jauhilah api neraka, walau hanya dengan bersedekah sebiji kurma (sedikit). Jika kamu tidak punya, maka bisa dengan kalimat thayyibah”* [HR. Bukhari 6539, Muslim 1016\n\n*Pulsa :* 083871990243\n𝑀𝑎𝑘𝑎𝑠𝑖ℎ 𝑌𝑎 𝑌𝑔 𝑢𝑑𝑎ℎ 𝐷𝑜𝑛𝑎𝑠𝑖.`)
