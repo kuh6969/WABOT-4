@@ -309,7 +309,7 @@ module.exports = Xrutz = async (Xrutz, mek) => {
         const isLevelingOn = isGroup ? _leveling.includes(from) : false
         const isMuted = isGroup ? mute.includes(from) : false
         const isAntiLink = isGroup ? antilink.includes(from) : false
-        const isWelkom = isGroup ? welkom.includes(from) : false
+        const isWelkom = isGroup ? welkom.includes(from) : true
         
         // Button Function
         selectedButton = (type == 'buttonsResponseMessage') ? mek.message.buttonsResponseMessage.selectedButtonId : ''
@@ -319,7 +319,7 @@ module.exports = Xrutz = async (Xrutz, mek) => {
         const gcount = setting.gcount
         
         const listmsg = (from, title, desc, list) => { // ngeread nya pake rowsId, jadi command nya ga keliatan
-            let po = Xrutz.prepareMessageFromContent(from, {"listMessage": {"title": title,"description": desc,"buttonText": "PILIH DISINI","footerText": "© KUHXBOT","listType": "SINGLE_SELECT","sections": list}}, {})
+            let po = Xrutz.prepareMessageFromContent(from, {"listMessage": {"title": title,"description": desc,"buttonText": "SELECT HERE","footerText": "© K U H  X  B O T","listType": "SINGLE_SELECT","sections": list}}, {})
             return Xrutz.relayWAMessage(po, {waitForAck: true})
         }
         
@@ -1147,11 +1147,11 @@ if (mek.key.fromMe){
               const WaktuWib = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')
               const WaktuWit = moment.tz('Asia/Makassar').format('DD/MM HH:mm:ss')
               const WaktuWita = moment.tz('Asia/Jayapura').format('DD/MM HH:mm:ss')
+              covid = await fetchJson(`https://apicovid19indonesia-v2.vercel.app/api/indonesia`)
               thu = await Xrutz.getStatus(`${sender.split('@')[0]}@s.whatsapp.net`, MessageType.text)
            if (isBanned) return reply(mess.ban)
         menu =`${sayingtime} @${sender.split('@')[0]}, 
 
-_saya ${botName} yang siap membantu anda dalam membuat sticker, downloader, dll. gunakan bot ini dengan bijak!_
 
 『 *CALENDER* 』
 〆⁩ Day : ${week} ${weton}
@@ -1168,16 +1168,16 @@ _saya ${botName} yang siap membantu anda dalam membuat sticker, downloader, dll.
 〆⁩ Nomer : ${sender.split('@')[0]}
 〆⁩ Status User : ${isOwner ? 'Creator' : isPremium ? 'Premium' : 'Gratisan'}
 
-『 *BOT INFO* 』
-〆⁩ Nama Owner : ${ownerName}
-〆⁩ Battery : ${baterai}%
-〆⁩ Instagram : @ramadhankukuh
-〆⁩ Github : ramadhankukuh
-〆⁩ Active : ${runtime(process.uptime())}`
+『 *COVID INDO* 』
+〆⁩ Positif  : ${covid.positif}
+〆⁩ Sembuh : ${covid.sembuh}
+〆⁩ Meninggal : ${covid.meninggal}
+〆⁩ Dirawat : ${covid.dirawat}`
+
 
 const loli = fs.readFileSync('./assets/MENU.mp3')
 Xrutz.sendMessage(from, loli, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
-Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. WhatsApp Mod Belum Support Button Message.\n\n2. Bot Ini Gratis, Jika Ingin Join Di Grub Kalian Silahkan.\n\n3. Gunakan Dengan Bijak DAN JANGAN SPAM ( SPAM/TELP = BANNED )\n\n4. Jika Menemukan BUG / BOT Tidak Merespon Segera Hubungi Owner\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.command`, buttonText: { displayText: 'SHOW MENU' }, type: 1 },{ buttonId: `.storegame`, buttonText: { displayText: 'TOPUP GAME' }, type: 1 },{ buttonId: `!owner`, buttonText: { displayText: 'DEVELOPER' }, type: 1 },{ buttonId: `!owner`, buttonText: { displayText: 'OWNER 👑' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: ikyads, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: 'Sejak Pertama Kali Rilis Di Tanggal 15 Oktober 2020, Kami Melakukan Beberapa Update Kedepannya Yaitu Menghapus Beberapa Fitur Yang Jarang Digunakan\n\n```Made With ❤️ Kukuh``` ', buttons: [{ buttonId: `.command`, buttonText: { displayText: 'SHOW MENU' }, type: 1 },{ buttonId: `.storegame`, buttonText: { displayText: 'TOPUP GAME' }, type: 1 },{ buttonId: `!owner`, buttonText: { displayText: 'DEVELOPER' }, type: 1 },{ buttonId: `!owner`, buttonText: { displayText: 'OWNER 👑' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: ikyads, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
                break
     
         case 'command':
@@ -1199,7 +1199,7 @@ Xrutz.sendMessage(from, { contentText: `${menu}`, footerText: '1. WhatsApp Mod B
             }
                  list.push(yy)
     }
-        listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak ${pushname}!\n\nSilahkan Pilih Kategori Game Nya Kak!`, list, {quoted: faketroli})
+        listmsg(from, `${week}, ${jmn} - ${calender}`,  `Hallo kak ${pushname}!\n\nSilahkan Pilih Menu Nya Kak!`, list, {quoted: faketroli})
         break
        //Fitur Jualan nih
        case 'storegame':
